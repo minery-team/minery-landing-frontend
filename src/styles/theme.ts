@@ -9,6 +9,7 @@ export const colors = {
 };
 
 export const fontSize = {
+  logo: "30px",
   title: "28px",
   text: "24px",
   smallText: "18px",
