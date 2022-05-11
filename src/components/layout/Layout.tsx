@@ -15,11 +15,21 @@ const Layout = (props: {
     | undefined;
 }) => {
   return (
-    <>
+    <Wrapper>
       <MainNavigaion />
-      <main>{props.children}</main>
-    </>
+      <Main>{props.children}</Main>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  width: 100%;
+  background-color: ${({ theme }) => theme.colors.white};
+`;
+
+const Main = styled.main`
+  margin: 3rem auto;
+  width: 90%;
+`;
 
 export default Layout;

@@ -24,13 +24,14 @@ const MainNavigaion = () => {
 };
 
 const HeaderContainer = styled.header`
-  width: 100%;
+  width: 90%;
   height: 70px;
   display: flex;
   padding: 0 40px;
+  margin: 20px auto;
   justify-content: space-between;
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.brighterBg};
+  background-color: ${({ theme }) => theme.colors.white};
 `;
 const LogoWrap = styled.div`
   display: flex;
