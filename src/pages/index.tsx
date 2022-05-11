@@ -1,41 +1,21 @@
 import type { GetServerSideProps, NextPage } from "next";
 import SearchBar from "src/components/search/SearchBar";
 import WineCard from "src/components/search/WineCard";
-
-type WineT = {
-  id: number;
-  order: number;
-  name: string;
-  enName: string;
-  rate: number;
-  image: string;
-  country: string;
-  type: number;
-  minAlcohol: number;
-  maxAlcohol: number;
-  sweetness: number;
-  acidity: number;
-  body: number;
-  tannins: number;
-  searchable: boolean;
-};
+import { WineRequest } from "src/types/request";
 
 interface HomeProps {
-  list: WineT[];
+  list: WineRequest[];
 }
 
 const Home: NextPage<HomeProps> = (props) => {
-  // console.log(props);
   return (
     <>
       <SearchBar />
-      <WineCard />
+      <WineCard wineList={props.list} />
     </>
   );
 };
 
-//1. undefined 값을 빼가지고 리턴
-//2. 엥 설마 post 요청이라 안되나? 왜냐. fetch 는 get임
 const myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
 
@@ -51,7 +31,7 @@ const requestOptions = {
   headers: myHeaders,
   body: raw,
   redirect: "follow",
-} as const; //as const 용례 찾기
+} as const;
 
 export const getStaticProps: GetServerSideProps<HomeProps> = async (
   context
@@ -62,9 +42,7 @@ export const getStaticProps: GetServerSideProps<HomeProps> = async (
   );
   const data = await res.json();
   console.log(data);
-  // const list = data.list.map((wine: WineT) => {
-  //   return { ...wine, rates: undefined };
-  // });
+
   return {
     props: {
       list: data.list,
