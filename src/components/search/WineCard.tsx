@@ -25,7 +25,11 @@ const WineCard: React.FC<WineCardProps> = ({ wineList }) => {
   );
 };
 
-const CardItemContainer = styled.div``;
+const CardItemContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
 const Image = styled.img``;
 const cardDesc = styled.div``;
 export default WineCard;

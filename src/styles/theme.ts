@@ -13,6 +13,7 @@ export const fontSize = {
   title: "28px",
   text: "24px",
   smallText: "18px",
+  xsmallText: "14px",
 };
 
 export type ColorTypes = typeof colors;
