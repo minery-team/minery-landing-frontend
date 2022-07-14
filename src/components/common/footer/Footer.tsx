@@ -3,7 +3,7 @@ import Image from "next/image";
 import * as S from "./style";
 
 import IcoTistory from "../../../../public/images/tistoryW.svg";
-import faceBookw from "../../../../public/images/faceBookw.svg";
+// import faceBookw from "../../../../public/images/faceBookW.svg";
 import instaW from "../../../../public/images/instaW.svg";
 
 const Footer = () => {
@@ -29,7 +29,7 @@ const Footer = () => {
             <Image src={instaW} draggable="false" />
           </a>
           <a href="https://www.facebook.com/minery.wine">
-            <Image src={faceBookw} draggable="false" />
+            {/* <Image src={faceBookw} draggable="false" /> */}
           </a>
           <a href="https://minery.tistory.com/">
             <Image src={IcoTistory} draggable="false" />

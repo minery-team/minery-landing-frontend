@@ -1,5 +1,4 @@
 import React from "react";
-import Store from "../common/store/store";
 import * as S from "./FourthSectionStyle";
 
 const FourthSection = () => {
@@ -61,7 +60,7 @@ const FourthSection = () => {
             <p>내가 마신 와인과 이야기를 </p>
             <p>마이너리로 기록해</p>
             <p>나만의 와인일기장을 만들어봐요!</p>
-            <Store />
+            {/* <Store /> */}
           </span>
           <S.QrImg>
             <img src="/images/section/QrCode.png" />

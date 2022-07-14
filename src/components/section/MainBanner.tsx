@@ -1,5 +1,5 @@
 import React from "react";
-import Store from "../common/store/store";
+import Store from "../common/store/Store";
 import * as S from "./MainBannerstyle";
 
 const MainBanner = () => {
