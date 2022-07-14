@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import styled from "styled-components";
+import StarIcon from "src/icons/StarIcon";
 
 interface CardItemProps {
   id: number;
@@ -28,23 +29,21 @@ const CardItem: React.FC<CardItemProps> = ({
         <span>
           {country} | {type}
         </span>
-        <span>{rate}</span>
+        <RateContainer>
+          <StarIcon />
+          <RateText>{rate}</RateText>
+        </RateContainer>
       </Desc>
-
-      <div>{enName}</div>
+      <Ename>{enName}</Ename>
     </CardItemContainer>
   );
 };
 
 const CardItemContainer = styled.div`
-  background-color: ${({ theme }) => theme.colors.brighterBg};
-  width: 100px;
-  height: 220px;
-  padding: 20px;
-  margin: 10px;
-  flex: 1 1 20%;
-  flex-grow: 0;
+  width: 180px;
+  height: 250px;
   justify-content: center;
+  overflow: hidden;
 `;
 const CardImgContainer = styled.div`
   display: flex;
@@ -54,7 +53,27 @@ const Desc = styled.div`
   display: flex;
   font-size: ${({ theme }) => theme.fontSize.xsmallText};
   justify-content: space-between;
-  padding: 5px;
+  color: ${({ theme }) => theme.colors.descText};
+  margin-top: 20px;
+  margin-bottom: 15px;
+  align-items: center;
+`;
+
+const RateContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 2px;
+  margin-right: 4px;
+`;
+
+const RateText = styled.span`
+  margin-left: 3px;
+  margin-top: 2px;
+`;
+
+const Ename = styled.div`
+  color: ${({ theme }) => theme.colors.defaultText};
+  font-weight: 800;
 `;
 
 export default CardItem;
