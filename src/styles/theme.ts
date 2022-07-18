@@ -12,7 +12,7 @@ export const colors = {
 };
 
 export const fontSize = {
-  large: "35px",
+  large: "34px",
   logo: "30px",
   title: "28px",
   text: "24px",

@@ -26,13 +26,13 @@ const Footer = () => {
 
         <S.SNSContainer>
           <a href="https://www.instagram.com/minery_app/?igshid=YmMyMTA2M2Y%3D">
-            <Image src={instaW} draggable="false" />
+            <Image src={instaW} draggable="false" alt="인스타 링크" />
           </a>
           <a href="https://www.facebook.com/minery.wine">
-            <Image src={faceBookw} draggable="false" />
+            <Image src={faceBookw} draggable="false" alt="페이스북 링크" />
           </a>
           <a href="https://minery.tistory.com/">
-            <Image src={IcoTistory} draggable="false" />
+            <Image src={IcoTistory} draggable="false" alt="티스토리 링크" />
           </a>
         </S.SNSContainer>
       </S.InfoContainer>

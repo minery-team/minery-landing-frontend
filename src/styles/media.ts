@@ -8,6 +8,7 @@ const media = {
   xlarge: mediaQuery(xlarge),
   large: mediaQuery(large),
   small: mediaQuery(small),
+  custom: mediaQuery,
 };
 
 export default media;

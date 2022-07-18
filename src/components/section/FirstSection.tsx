@@ -5,14 +5,19 @@ const FirstSection = () => {
   return (
     <S.SectionWrapper>
       <S.DescWrapper>
-        <S.Title>와인으로 쓰는 그 날의 일기</S.Title>
+        <S.Title>
+          <span>와인으로 쓰는 </span>
+          <span>그 날의 일기</span>
+        </S.Title>
         <S.Desc>
           <p>와인이 있어 더 특별했던 하루!</p>
           <p>내 마음대로 기록하고 공유해 보세요.</p>
         </S.Desc>
         <S.CardList>
           <S.Card>
-            <img src="/images/section/01/reviewImg01.png" />
+            <S.CardImg>
+              <img src="/images/section/01/reviewImg01.png" />
+            </S.CardImg>
             <S.CardDescWrapper>
               <S.CardTitle>여유로운 주말 한강나들이</S.CardTitle>
               <S.CardDesc>
@@ -24,7 +29,9 @@ const FirstSection = () => {
             </S.CardDescWrapper>
           </S.Card>
           <S.Card>
-            <img src="/images/section/01/reviewImg02.png" />
+            <S.CardImg>
+              <img src="/images/section/01/reviewImg02.png" />
+            </S.CardImg>
             <S.CardDescWrapper>
               <S.CardTitle>혼와하며 힐링한날</S.CardTitle>
               <S.CardDesc>
@@ -36,7 +43,9 @@ const FirstSection = () => {
             </S.CardDescWrapper>
           </S.Card>
           <S.Card>
-            <img src="/images/section/01/reviewImg03.png" />
+            <S.CardImg>
+              <img src="/images/section/01/reviewImg03.png" />
+            </S.CardImg>
             <S.CardDescWrapper>
               <S.CardTitle>제주 바다에서 와인 한 잔 🌊🍷</S.CardTitle>
               <S.CardDesc>
@@ -48,7 +57,9 @@ const FirstSection = () => {
             </S.CardDescWrapper>
           </S.Card>
           <S.Card>
-            <img src="/images/section/01/reviewImg04.png" />
+            <S.CardImg>
+              <img src="/images/section/01/reviewImg04.png" />
+            </S.CardImg>
             <S.CardDescWrapper>
               <S.CardTitle>동기들과 브라이덜샤워 🍾</S.CardTitle>
               <S.CardDesc>
@@ -60,7 +71,9 @@ const FirstSection = () => {
             </S.CardDescWrapper>
           </S.Card>
           <S.Card>
-            <img src="/images/section/01/reviewImg05.png" />
+            <S.CardImg>
+              <img src="/images/section/01/reviewImg05.png" />
+            </S.CardImg>
             <S.CardDescWrapper>
               <S.CardTitle>나홀로 양조장 투어!</S.CardTitle>
               <S.CardDesc>

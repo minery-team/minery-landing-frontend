@@ -13,10 +13,12 @@ const FourthSection = () => {
           <S.Card>
             <S.CardDescWrapper>
               <S.CardTitle>너무 제 취향인 어플이에요</S.CardTitle>
-              <S.CardDescDay>
-                <img src="/images/section/star.png" />
+              <S.Starcontainer>
+                <S.CardDescDay>
+                  <img src="/images/section/star.png" />
+                </S.CardDescDay>
                 <p>hysim1219</p>
-              </S.CardDescDay>
+              </S.Starcontainer>
               <S.CardDesc>
                 와인과 파티를 좋아하던 저에게 꼭 필요하던 어플이에요!👍 친구들과
                 찍은 사진, 함께 먹은 음식들, 저만을 위한 일기를 남길 수
@@ -27,10 +29,12 @@ const FourthSection = () => {
           <S.Card>
             <S.CardDescWrapper>
               <S.CardTitle>와인기록 남기기 좋은 앱</S.CardTitle>
-              <S.CardDescDay>
-                <img src="/images/section/star.png" />
+              <S.Starcontainer>
+                <S.CardDescDay>
+                  <img src="/images/section/star.png" />
+                </S.CardDescDay>
                 <p>rightjin</p>
-              </S.CardDescDay>
+              </S.Starcontainer>
               <S.CardDesc>
                 와인파티 할 때마다 사진만 찍어뒀었는데, 와인정보와 함께 일기로
                 남겨둘 수 있어서 좋아요! 앱이 너무 이뻐요~!👍
@@ -40,10 +44,12 @@ const FourthSection = () => {
           <S.Card>
             <S.CardDescWrapper>
               <S.CardTitle>제가 딱 찾던 앱!</S.CardTitle>
-              <S.CardDescDay>
-                <img src="/images/section/star.png" />
+              <S.Starcontainer>
+                <S.CardDescDay>
+                  <img src="/images/section/star.png" />
+                </S.CardDescDay>
                 <p>와인러비더비</p>
-              </S.CardDescDay>
+              </S.Starcontainer>
               <S.CardDesc>
                 한국어로 잘 정리할수있는 와인앱을 찾다 발견했는데 쓰기 편하고
                 와인기록할수있어 좋습니다 잘 쓸게요 :)

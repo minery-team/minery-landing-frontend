@@ -1,5 +1,5 @@
-import { MenuContainer } from "./../header/style";
 import styled from "styled-components";
+import media from "src/styles/media";
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -8,16 +8,26 @@ export const Wrapper = styled.div`
   position: relative;
   display: flex;
   align-items: center;
+  ${media.small} {
+    flex-direction: column;
+    padding: 20px;
+    height: 320px;
+  }
 `;
 
 export const InfoContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-around;
+  ${media.small} {
+    flex-direction: column;
+    height: 80%;
+    margin-top: 20px;
+    justify-content: space-between;
+  }
 `;
 export const Logo = styled.div`
   width: 104px;
-
   img {
     width: inherit;
     object-fit: cover;

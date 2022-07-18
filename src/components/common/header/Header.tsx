@@ -7,7 +7,7 @@ import Logo from "../../../../public/images/Logo.svg";
 import MineryLogo from "../../../../public/images/Minery.svg";
 import IcoTistory from "../../../../public/images/Icotistory.svg";
 
-const MainNavigaion = () => {
+const Header = () => {
   return (
     <S.HeaderContainer>
       <S.LogoWrap>
@@ -26,9 +26,13 @@ const MainNavigaion = () => {
         <a href="https://minery.tistory.com/">
           <Image src={IcoTistory} draggable="false" />
         </a>
+
+        <a href="https://play.google.com/store/apps/details?id=com.minery.app&hl=ko&gl=US">
+          <S.DownBtn>앱 다운로드</S.DownBtn>
+        </a>
       </S.MenuContainer>
     </S.HeaderContainer>
   );
 };
 
-export default MainNavigaion;
+export default Header;

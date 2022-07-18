@@ -1,15 +1,25 @@
 import styled from "styled-components";
+import media from "src/styles/media";
 
 export const Wrapper = styled.div`
   margin-top: 12rem;
-  width: 80%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  ${media.small} {
+    margin-bottom: 7rem;
+  }
 `;
 
 export const CardWrapper = styled.div`
   display: flex;
+  ${media.small} {
+    div:nth-child(1) {
+      display: none;
+    }
+  }
 `;
 
 export const Title = styled.div`
@@ -20,6 +30,10 @@ export const Title = styled.div`
   font-weight: ${({ theme }) => theme.fontWeight.bold2};
   line-height: 40px;
   margin-bottom: 52px;
+  ${media.small} {
+    font-size: ${({ theme }) => theme.fontSize.logo};
+    line-height: 3rem;
+  }
 `;
 
 export const Card = styled.div`
@@ -41,9 +55,6 @@ export const CardDescWrapper = styled.span`
   flex-direction: column;
   margin-top: 12px;
   padding: 20px;
-  span {
-    margin-bottom: 12px;
-  }
 `;
 
 export const CardTitle = styled.span`
@@ -57,13 +68,27 @@ export const CardDesc = styled.span`
   font-weight: ${({ theme }) => theme.fontWeight.light};
   line-height: 24px;
 `;
-
+export const Starcontainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  p {
+    margin-left: 16px;
+    font-size: ${({ theme }) => theme.fontSize.xsmallText};
+    font-weight: ${({ theme }) => theme.fontWeight.light};
+  }
+`;
 export const CardDescDay = styled.span`
   display: flex;
   font-size: ${({ theme }) => theme.fontSize.xsmallText};
   font-weight: ${({ theme }) => theme.fontWeight.light};
-  p {
-    margin-left: 16px;
+  width: 160px;
+  height: 30px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 `;
 
@@ -74,6 +99,9 @@ export const Bg = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
+  ${media.small} {
+    display: none;
+  }
 `;
 
 export const bgImg = styled.img`

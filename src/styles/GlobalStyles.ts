@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
+import media from "src/styles/media";
 
 const GlobalStyles = createGlobalStyle`
     ${reset}
@@ -7,6 +8,9 @@ const GlobalStyles = createGlobalStyle`
     body,
     #root {
     height: 100%;
+    }
+    body{
+        padding-top:75px ;
     }
     * {
     box-sizing: border-box;
@@ -24,7 +28,7 @@ const GlobalStyles = createGlobalStyle`
     ol,ul,li {
         list-style: none;
     }
- 
+
 `;
 
 export default GlobalStyles;

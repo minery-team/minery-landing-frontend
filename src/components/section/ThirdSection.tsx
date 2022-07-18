@@ -13,13 +13,12 @@ const ThirdSection = () => {
         return;
       }
 
-      const offset = window.innerHeight - rect.height;
-      console.log("offset", offset);
-      console.log("rect.y", rect.y);
+      // const offset = window.innerHeight - rect.height;
+
       if (rect.y > 400) {
         setOpacity(0);
       }
-      console.log("rect.height", rect.height / 2);
+      // console.log("rect.height", rect.height / 2);
 
       setOpacity(rect.y < 0 ? 1 : rect.y > rect.height / 2 ? 0 : rect.y * 0.15);
     };
@@ -30,7 +29,6 @@ const ThirdSection = () => {
   }, []);
 
   const excelerator = (exel, opacity) => {
-    // console.log("나눈값", exel / opacity);
     return exel / opacity;
   };
 

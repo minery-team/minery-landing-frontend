@@ -1,27 +1,36 @@
 import React from "react";
-import MainNavigaion from "../header/Header";
+import Header from "../header/Header";
 import styled from "styled-components";
+import Breakpoints from "src/styles/breakpoints";
+import media from "src/styles/media";
 
 const Layout = (props: { children: React.ReactNode }) => {
   return (
     <Wrapper>
-      <MainNavigaion />
+      <Header />
       <Container>{props.children}</Container>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
-  margin: 0 auto;
   height: 100vh;
-
-  background-color: ${({ theme }) => theme.colors.white};
+  ${media.xlarge} {
+    width: ${Breakpoints.xlarge}px;
+  }
+  ${media.large} {
+    width: ${Breakpoints.large}px;
+  }
+  ${media.small} {
+    width: ${Breakpoints.small}px;
+  }
 `;
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 auto;
 `;
 
 export default Layout;

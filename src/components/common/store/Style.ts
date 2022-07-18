@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import media from "src/styles/media";
 
 export const styledButton = styled.div`
   display: flex;
@@ -10,6 +11,7 @@ export const styledButton = styled.div`
   border-radius: 21px;
   padding: 20px;
   margin-right: 16px;
+  cursor: pointer;
 
   div {
     height: 16px;
@@ -29,4 +31,7 @@ export const styledButton = styled.div`
 export const StoreWrapper = styled.div`
   display: flex;
   margin-top: 48px;
+  ${media.small} {
+    display: none;
+  }
 `;
