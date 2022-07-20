@@ -34,5 +34,11 @@ jobs:
 workflows:
   run:
     jobs:
-      - build
-      - deploy
+      - build:
+          filters:
+            branches:
+              ignore: main
+      - deploy:
+          filters:
+            branches:
+              only: main
