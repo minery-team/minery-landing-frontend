@@ -1,0 +1,18 @@
+stage: ${env.STAGE}
+distributionId: ${env.DISTRIBUTION_ID}
+arn: ${env.ARN}
+
+post:
+  component: "@sls-next/serverless-component@3.6.0"
+  inputs:
+    bucketName: "minery-frontend-${stage}"
+    bucketRegion: ap-northeast-2
+    name:
+      defaultLambda: "minery-frontend-${stage}"
+    roleArn: ${arn}
+    build:
+      env:
+        STAGE: "${stage}"
+    cloudfront:
+      distributionId: ${distributionId}
+      comment: "minery-frontend-${stage}"

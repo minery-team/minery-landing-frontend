@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  - "stable"
+cache:
+  yarn: true
+  directories:
+    - node_modules
+script:
+  - yarn clean
+  - yarn lint
+  - yarn build
+
+deploy:
+  script: yarn deploy
+  on:
+    branch: main
