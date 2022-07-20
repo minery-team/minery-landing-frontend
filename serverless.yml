@@ -2,7 +2,7 @@ stage: ${env.STAGE}
 distributionId: ${env.DISTRIBUTION_ID}
 arn: ${env.ARN}
 
-post:
+minery-frontend:
   component: "@sls-next/serverless-component@3.6.0"
   inputs:
     bucketName: "minery-frontend-${stage}"
