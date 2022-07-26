@@ -1,64 +1,98 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useMotion } from "src/hooks/useMotion";
 import * as S from "./ThirdSectionStyle";
 
+const animationInfo = {
+  values: {
+    itemA: [0, 1, { start: 0.6, end: 0.9 }],
+    itemB: [0, 1, { start: 0.7, end: 0.9 }],
+    itemC: [0, 1, { start: 0.8, end: 0.9 }],
+  },
+};
+
 const ThirdSection = () => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [opacity, setOpacity] = useState(0);
+  const content = useRef(null);
+  const values = animationInfo.values;
+  const [isActive, setIsActive] = useState(false);
+  const [currentHeight, setCurrentHeight] = useState(0);
+  const [currentYOffset, setCurrentYOffset] = useState(0);
 
   useEffect(() => {
-    const handler = () => {
-      const y = document.documentElement.scrollTop;
-      const rect = ref.current?.getBoundingClientRect();
-      if (!rect) {
-        return;
-      }
-
-      // const offset = window.innerHeight - rect.height;
-
-      if (rect.y > 400) {
-        setOpacity(0);
-      }
-      // console.log("rect.height", rect.height / 2);
-
-      setOpacity(rect.y < 0 ? 1 : rect.y > rect.height / 2 ? 0 : rect.y * 0.15);
-    };
-    window.addEventListener("scroll", handler);
-    return () => {
-      window.removeEventListener("scroll", handler);
-    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const excelerator = (exel, opacity) => {
-    return exel / opacity;
+  // let currentYOffset = 0;
+  const handleScroll = () => {
+    let scrollTop = document.documentElement.scrollTop; //스크롤 위치
+    let margin = document.body.clientHeight; //사용자 화면 높이
+    let currentStart = content.current.offsetTop;
+    let height = content.current.offsetHeight;
+    setCurrentHeight(height + 300);
+
+    // 섹션의 스크롤 위치 (스크롤에서 prev 빼주기가 안되서 임의로)
+    setCurrentYOffset(scrollTop - currentStart + margin);
+
+    if (scrollTop > currentStart - margin) {
+      if (!isActive) setIsActive(true);
+    }
+  };
+
+  const calcValue = (values, currentYOffset) => {
+    let calcedValue = 0;
+    const partScrollStart = values[2].start * currentHeight;
+    const partScrollEnd = values[2].end * currentHeight;
+    const partScrollHeight = partScrollEnd - partScrollStart;
+    const scrollRatio = currentYOffset / currentHeight;
+
+    if (isActive === true) {
+      console.log("scrollRatio", scrollRatio);
+
+      if (
+        currentYOffset >= partScrollStart &&
+        currentYOffset <= partScrollEnd
+      ) {
+        calcedValue =
+          ((currentYOffset - partScrollStart) / partScrollHeight) *
+            (values[1] - values[0]) +
+          values[0];
+        console.log("opacity", calcedValue);
+      }
+      if (scrollRatio > 0.9) {
+        calcedValue = 1;
+      }
+    }
+
+    return calcedValue;
   };
 
   return (
-    <S.Wrapper ref={ref}>
+    <S.Wrapper ref={content}>
       <S.Title>
         <p>와인을 기록하는 순간,</p>
         <p>어떤 뱃지를 받게 될까요?</p>
       </S.Title>
 
       <S.ImgWrapper>
-        <S.IcoImg style={{ opacity: Math.min(1, excelerator(1, opacity)) }}>
+        <S.IcoImg style={{ opacity: calcValue(values.itemC, currentYOffset) }}>
           <img src="/images/section/section3Ico1.png" />
         </S.IcoImg>
-        <S.IcoImg style={{ opacity: Math.min(1, excelerator(10, opacity)) }}>
+        <S.IcoImg style={{ opacity: calcValue(values.itemB, currentYOffset) }}>
           <img src="/images/section/section3Ico2.png" />
         </S.IcoImg>
-        <S.IcoImg style={{ opacity: Math.min(1, excelerator(100, opacity)) }}>
+        <S.IcoImg style={{ opacity: calcValue(values.itemA, currentYOffset) }}>
           <img src="/images/section/section3Ico3.png" />
         </S.IcoImg>
         <S.PhoneImg>
           <img src="/images/section/section3Phone.png" />
         </S.PhoneImg>
-        <S.IcoImg style={{ opacity: Math.min(1, excelerator(100, opacity)) }}>
+        <S.IcoImg style={{ opacity: calcValue(values.itemA, currentYOffset) }}>
           <img src="/images/section/section3Ico4.png" />
         </S.IcoImg>
-        <S.IcoImg style={{ opacity: Math.min(1, excelerator(10, opacity)) }}>
+        <S.IcoImg style={{ opacity: calcValue(values.itemB, currentYOffset) }}>
           <img src="/images/section/section3Ico5.png" />
         </S.IcoImg>
-        <S.IcoImg style={{ opacity: Math.min(1, excelerator(1, opacity)) }}>
+        <S.IcoImg style={{ opacity: calcValue(values.itemC, currentYOffset) }}>
           <img src="/images/section/section3Ico6.png" />
         </S.IcoImg>
       </S.ImgWrapper>
