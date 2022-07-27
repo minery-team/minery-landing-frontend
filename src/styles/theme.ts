@@ -26,7 +26,7 @@ export const fontWeight = {
   bold1: 700,
   bold2: 600,
   medium: 400,
-  light: 300,
+  light: 200,
 };
 
 export type ColorTypes = typeof colors;

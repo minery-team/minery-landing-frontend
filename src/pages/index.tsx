@@ -1,6 +1,7 @@
+import { ReactElement } from "react";
 import LandingPage from "src/components/page/LandingPage";
 
-function HomePage() {
+function HomePage(): ReactElement {
   return (
     <>
       <LandingPage />

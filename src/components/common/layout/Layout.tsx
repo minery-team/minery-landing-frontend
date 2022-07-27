@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../header/Header";
+import Header from "../Header/Header";
 import styled from "styled-components";
 import Breakpoints from "src/styles/breakpoints";
 import media from "src/styles/media";
