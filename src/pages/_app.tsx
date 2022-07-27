@@ -4,6 +4,7 @@ import { ThemeProvider } from "styled-components";
 import GlobalStyles from "src/styles/GlobalStyles";
 import theme from "src/styles/theme";
 import Layout from "src/components/common/Layout/Layout";
+import SEO from "src/components/common/SEO";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -13,6 +14,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Head>
           <meta content="width=device-width, initial-scale=1" name="viewport" />
         </Head>
+        <SEO />
         <Layout>
           <Component {...pageProps} />
         </Layout>
