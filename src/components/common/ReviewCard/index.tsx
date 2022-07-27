@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import media from "src/styles/media";
-import Image from "next/Image";
+import Image from "next/image";
 
 interface ReviewCardProps {
   reviewData: {
@@ -23,7 +22,8 @@ const ReviewCard = ({ reviewData }: ReviewCardProps) => {
             return (
               <IamgeWrapper key={index}>
                 <Image
-                  layout="fill"
+                  width={20}
+                  height={20}
                   src={"/images/section/star.png"}
                   alt={rate.toString()}
                 />
@@ -54,7 +54,6 @@ const Container = styled.div`
 `;
 const IamgeWrapper = styled.span`
   position: relative;
-
   width: 20px;
   height: 20px;
   display: inline-block;

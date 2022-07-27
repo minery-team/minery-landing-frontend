@@ -3,7 +3,7 @@ import styled from "styled-components";
 import DOMPurify from "isomorphic-dompurify";
 import { FOOTER_CONTENTS } from "src/database/main";
 import Image from "src/components/common/Image";
-import Store from "../common/Store/Store";
+import Store from "../common/store/Store";
 import media from "src/styles/media";
 
 const QrSection = () => {

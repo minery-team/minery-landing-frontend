@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import DOMPurify from "isomorphic-dompurify";
 import media from "src/styles/media";
-import Store from "../common/Store/Store";
+import Store from "../common/store/Store";
 import { BANNER_CONTENTS } from "src/database/main";
 
 const MainBanner = () => {

@@ -8,10 +8,10 @@ interface TitleProps {
 }
 
 const Title = ({ title, subTitle, split }: TitleProps) => {
-  const [subTitles, setSubTitles] = useState("");
+  const [subTitles, setSubTitles] = useState<string | undefined>("");
   useEffect(() => setSubTitles(subTitle));
 
-  let editSubTitle: string[];
+  let editSubTitle: string[] = [];
   if (subTitles?.includes("!")) {
     editSubTitle = subTitles.split("!");
     editSubTitle[0] += " !";
