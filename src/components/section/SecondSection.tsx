@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import DOMPurify from "isomorphic-dompurify";
-import { SECOND_CONTENTS } from "src/database/main";
-import Title from "src/components/common/Title";
-import Image from "src/components/common/Image";
-import media from "src/styles/media";
+import { SECOND_CONTENTS } from "database/main";
+import Title from "components/common/Title";
+import Image from "components/common/Image";
+import media from "styles/media";
 
 const SecondSection = () => {
   const { title, subTitle, imgs } = SECOND_CONTENTS;

@@ -1,5 +1,5 @@
 import Head from "next/head";
-import siteMetadata from "src/database/sitemap";
+import siteMetadata from "database/sitemap";
 
 const SEO = () => {
   return (

@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import DOMPurify from "isomorphic-dompurify";
-import { FOOTER_CONTENTS } from "src/database/main";
-import Image from "src/components/common/Image";
+import { FOOTER_CONTENTS } from "database/main";
+import Image from "components/common/Image";
 import Store from "../common/store/Store";
-import media from "src/styles/media";
+import media from "styles/media";
 
 const QrSection = () => {
   const { title, subTitle, img } = FOOTER_CONTENTS;

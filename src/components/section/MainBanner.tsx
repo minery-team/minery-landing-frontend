@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import DOMPurify from "isomorphic-dompurify";
-import media from "src/styles/media";
+import media from "styles/media";
 import Store from "../common/store/Store";
-import { BANNER_CONTENTS } from "src/database/main";
+import { BANNER_CONTENTS } from "database/main";
 
 const MainBanner = () => {
   const { title, tags } = BANNER_CONTENTS;
