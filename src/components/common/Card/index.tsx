@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 import styled from "styled-components";
-import Image from "src/components/common/Image";
-import media from "src/styles/media";
+import Image from "components/common/Image";
+import media from "styles/media";
 
 interface CardProps {
   data: {

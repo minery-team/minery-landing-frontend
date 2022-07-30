@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { FOURTH_CONTENTS } from "src/database/main";
+import { FOURTH_CONTENTS } from "database/main";
 import ReviewCard from "../common/ReviewCard";
 import Title from "../common/Title";
-import media from "src/styles/media";
+import media from "styles/media";
 
 const FourthSection = () => {
   const { title, reviewData } = FOURTH_CONTENTS;

@@ -1,10 +1,10 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { ThemeProvider } from "styled-components";
-import GlobalStyles from "src/styles/GlobalStyles";
-import theme from "src/styles/theme";
-import Layout from "src/components/common/layout/Layout";
-import SEO from "src/components/common/SEO";
+import GlobalStyles from "styles/GlobalStyles";
+import theme from "styles/theme";
+import Layout from "components/common/layout/Layout";
+import SEO from "components/common/SEO";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import Breakpoints from "src/styles/breakpoints";
-import media from "src/styles/media";
-import Header from "src/components/common/header";
+import Breakpoints from "styles/breakpoints";
+import media from "styles/media";
+import Header from "components/common/header";
 
 const Layout = (props: { children: React.ReactNode }) => {
   return (

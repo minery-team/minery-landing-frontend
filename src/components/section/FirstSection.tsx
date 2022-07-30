@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import media from "src/styles/media";
-import { FIRST_CONTENTS } from "src/database/main";
-import Card from "src/components/common/Card";
-import Title from "src/components/common/Title";
-import Button from "src/components/common/Button";
+import media from "styles/media";
+import { FIRST_CONTENTS } from "database/main";
+import Card from "components/common/Card";
+import Title from "components/common/Title";
+import Button from "components/common/Button";
 const FirstSection = () => {
   const { title, subTitle, reviewData } = FIRST_CONTENTS;
 

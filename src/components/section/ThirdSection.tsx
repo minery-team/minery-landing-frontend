@@ -1,10 +1,10 @@
 import React from "react";
 import DOMPurify from "isomorphic-dompurify";
 import styled from "styled-components";
-import Image from "src/components/common/Image";
-import { useMotion } from "src/hooks/useMotion";
-import { THIRD_CONTENTS } from "src/database/main";
-import media from "src/styles/media";
+import Image from "components/common/Image";
+import { useMotion } from "hooks/useMotion";
+import { THIRD_CONTENTS } from "database/main";
+import media from "styles/media";
 
 const ThirdSection = () => {
   const { title, subTitle, imgData } = THIRD_CONTENTS;
