@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { FOURTH_CONTENTS } from "database/main";
-import ReviewCard from "../common/ReviewCard";
-import Title from "../common/Title";
+import ReviewCard from "components/common/ReviewCard";
+import Title from "components/common/Title";
 import media from "styles/media";
 
 const FourthSection = () => {
