@@ -53,10 +53,8 @@ const Wrapper = styled.div`
 
 const Banner = styled.div`
   width: 100%;
-  height: 65vh;
-  ${media.small} {
-    height: 70vh;
-  }
+  min-height: 65vh;
+
   img {
     width: inherit;
     height: inherit;
@@ -97,6 +95,7 @@ const BannerHeading = styled.span`
     display: flex;
     align-items: center;
     text-align: center;
+    font-weight: ${({ theme }) => theme.fontWeight.medium};
     p:nth-child(1) {
       font-weight: ${({ theme }) => theme.fontWeight.light};
     }
