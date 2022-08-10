@@ -54,6 +54,7 @@ const ImgWrapper = styled.div`
 
   ${media.small} {
     div:nth-child(4) {
+      margin: 0;
       width: 400px;
       display: flex;
       justify-content: center;
@@ -73,6 +74,10 @@ const Title = styled.div`
   line-height: 3.3rem;
   margin-bottom: 52px;
   text-align: center;
+  ${media.small} {
+    font-size: ${({ theme }) => theme.fontSize.title};
+    font-weight: ${({ theme }) => theme.fontWeight.bold2};
+  }
 `;
 
 const Desc = styled.div`

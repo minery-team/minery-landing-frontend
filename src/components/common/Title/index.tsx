@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import media from "styles/media";
 
 interface TitleProps {
   title: string;
@@ -54,6 +55,10 @@ export const TitleText = styled.p`
   font-weight: ${({ theme }) => theme.fontWeight.bold2};
   text-align: center;
   line-height: 2rem;
+  ${media.small} {
+    font-size: ${({ theme }) => theme.fontSize.title};
+    font-weight: ${({ theme }) => theme.fontWeight.bold2};
+  }
 `;
 
 export const SubTitleText = styled.p`
