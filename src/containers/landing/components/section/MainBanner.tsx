@@ -53,7 +53,7 @@ const Wrapper = styled.div`
 
 const Banner = styled.div`
   width: 100%;
-  min-height: 65vh;
+  min-height: 74vh;
 
   img {
     width: inherit;
