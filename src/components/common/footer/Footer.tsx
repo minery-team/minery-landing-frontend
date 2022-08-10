@@ -20,7 +20,7 @@ const Footer = () => {
             <p>minery.app@gmail.com</p>
           </S.Contact>
           <S.Info>
-            <p>개인정보처리방침</p>
+            <a href="https://han.gl/oUmxW">개인정보처리방침</a>
           </S.Info>
         </S.FooterDesc>
 

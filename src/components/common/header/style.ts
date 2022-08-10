@@ -14,6 +14,18 @@ export const HeaderContainer = styled.header`
   top: 0;
   left: 0;
   right: 0;
+  z-index: 3;
+  ${media.small} {
+    padding: 20px;
+    margin: inherit;
+    justify-content: space-between;
+    width: inherit;
+    ul {
+      margin: 0;
+      align-items: center;
+      justify-content: flex-end;
+    }
+  }
 `;
 
 export const Menu = styled.div``;

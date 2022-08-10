@@ -3,9 +3,9 @@ import Image from "next/image";
 import * as S from "./style";
 import { FaInstagram } from "react-icons/fa";
 import { BsFacebook } from "react-icons/bs";
-import Logo from "../../../../public/images/Logo.svg";
-import MineryLogo from "../../../../public/images/Minery.svg";
-import IcoTistory from "../../../../public/images/Icotistory.svg";
+import Logo from "/public/images/Logo.svg";
+import MineryLogo from "/public/images/Minery.svg";
+import IcoTistory from "/public/images/Icotistory.svg";
 
 const Header = () => {
   return (

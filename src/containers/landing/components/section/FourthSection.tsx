@@ -36,6 +36,7 @@ const Wrapper = styled.div`
 const CardWrapper = styled.div`
   display: flex;
   ${media.small} {
+    width: inherit;
     div:nth-child(1) {
       display: none;
     }

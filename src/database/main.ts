@@ -1,6 +1,6 @@
 export const BANNER_CONTENTS = {
   title: "와인이 쉬워지는 방법 <br/> 마이너리",
-  tags: ["#와린이", "#와인초보", "#와인일기", "와인검색"],
+  tags: ["#와린이", "#와인초보", "#와인일기", "#와인검색"],
 };
 
 export const FIRST_CONTENTS = {

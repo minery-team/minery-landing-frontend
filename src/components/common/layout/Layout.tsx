@@ -23,6 +23,8 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
+  z-index: 1;
+  overflow: hidden;
 `;
 
 export default Layout;
