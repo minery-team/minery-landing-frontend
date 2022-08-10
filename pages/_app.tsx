@@ -1,5 +1,4 @@
 import type { AppProps } from "next/app";
-import Head from "next/head";
 import { ThemeProvider } from "styled-components";
 import GlobalStyles from "styles/GlobalStyles";
 import theme from "styles/theme";
@@ -11,9 +10,6 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <GlobalStyles />
       <ThemeProvider theme={theme}>
-        <Head>
-          <meta content="width=device-width, initial-scale=1" name="viewport" />
-        </Head>
         <SEO />
         <Layout>
           <Component {...pageProps} />

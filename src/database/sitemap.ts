@@ -9,7 +9,7 @@ const siteMetadata = {
   type: "website",
   siteUrl: "",
   siteRepo: "https://github.com/minery-team/minery-frontend",
-  siteLogo: "public/images/Minery.svg",
+  siteLogo: "public/images/Logo_thumbnail.png",
   github: "https://github.com/minery-team",
   facebook: "https://www.facebook.com/minery.wine",
   locale: "ko_KR",

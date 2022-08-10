@@ -4,6 +4,8 @@ import siteMetadata from "database/sitemap";
 const SEO = () => {
   return (
     <Head>
+      <link rel="icon" href="/favicon.ico" />
+      <meta content="width=device-width, initial-scale=1" name="viewport" />
       {/* Default SEO */}
       <title>{siteMetadata.title}</title>
       <meta name="description" content={siteMetadata.description} />
