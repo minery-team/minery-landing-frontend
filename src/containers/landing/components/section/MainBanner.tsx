@@ -1,8 +1,9 @@
 import React from "react";
+import Image from "next/image";
 import styled from "styled-components";
 import DOMPurify from "isomorphic-dompurify";
 import media from "styles/media";
-import Store from "../common/store/Store";
+import Store from "components/common/store/Store";
 import { BANNER_CONTENTS } from "database/main";
 
 const MainBanner = () => {
@@ -10,7 +11,7 @@ const MainBanner = () => {
   return (
     <Wrapper>
       <Banner>
-        <img src="/images/mainBanner.svg" />
+        <Image src="/images/mainBanner.svg" layout="fill" alt="background" />
       </Banner>
       <BannerTag>
         <DescWrapper>
@@ -26,7 +27,13 @@ const MainBanner = () => {
             <Store />
           </TagWarpper>
           <Phoneimg>
-            <img src="images/phone.png" />
+            <Image
+              src="/images/phone.png"
+              width={684}
+              height={684}
+              layout="fixed"
+              alt="phone"
+            />
           </Phoneimg>
           <a href="https://play.google.com/store/apps/details?id=com.minery.app&hl=ko&gl=US">
             <MobileBtn>앱 다운로드</MobileBtn>
@@ -41,14 +48,13 @@ const Wrapper = styled.div`
   width: 100%;
   overflow: hidden;
   position: relative;
+  z-index: 1;
 `;
 
 const Banner = styled.div`
   width: 100%;
-  height: 60vh;
-  ${media.small} {
-    height: 70vh;
-  }
+  min-height: 74vh;
+
   img {
     width: inherit;
     height: inherit;
@@ -86,7 +92,10 @@ const BannerHeading = styled.span`
   margin-bottom: 12px;
   line-height: 1.8em;
   ${media.small} {
+    display: flex;
+    align-items: center;
     text-align: center;
+    font-weight: ${({ theme }) => theme.fontWeight.medium};
     p:nth-child(1) {
       font-weight: ${({ theme }) => theme.fontWeight.light};
     }
@@ -94,21 +103,22 @@ const BannerHeading = styled.span`
 `;
 
 const Phoneimg = styled.div`
-  width: 100%;
-  height: 90%;
   margin-top: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: 100px;
   img {
     width: inherit;
     height: inherit;
     object-fit: contain;
-    object-position: center;
   }
+
   ${media.small} {
-    width: 80%;
+    width: 480px;
+    height: 334px;
     margin: 0 20px;
+    z-index: -1;
   }
 `;
 const TagWarpper = styled.div`

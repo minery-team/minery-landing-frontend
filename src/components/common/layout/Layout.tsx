@@ -15,15 +15,7 @@ const Layout = (props: { children: React.ReactNode }) => {
 
 const Wrapper = styled.div`
   height: 100vh;
-  ${media.xlarge} {
-    width: ${Breakpoints.xlarge}px;
-  }
-  ${media.large} {
-    width: ${Breakpoints.large}px;
-  }
-  ${media.small} {
-    width: ${Breakpoints.small}px;
-  }
+  width: 100vw;
 `;
 
 const Container = styled.div`
@@ -31,6 +23,8 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
+  z-index: 1;
+  overflow: hidden;
 `;
 
 export default Layout;

@@ -57,7 +57,8 @@ const StyledCard = styled.div`
       display: none;
     }
     ~ div:nth-child(5) {
-      margin-top: 200px;
+      margin-top: 10px;
+      margin-bottom: 80px;
     }
   }
 `;
