@@ -23,7 +23,8 @@
       "utils": ["src/utils/*"],
       "constants": ["src/constants/*"],
       "remotes": ["src/remotes/*"],
-      "models": ["src/models/*"]
+      "models": ["src/models/*"],
+      "mocks": ["src/mocks/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

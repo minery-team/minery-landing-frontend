@@ -4,8 +4,13 @@ import GlobalStyles from "styles/GlobalStyles";
 import theme from "styles/theme";
 import Layout from "components/common/layout/Layout";
 import SEO from "components/common/SEO";
+import initMockAPI from "mocks/index";
 
 function MyApp({ Component, pageProps }: AppProps) {
+  if (process.env.NODE_ENV === "development") {
+    initMockAPI();
+  }
+
   return (
     <>
       <GlobalStyles />
