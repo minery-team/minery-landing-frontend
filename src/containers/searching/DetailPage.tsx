@@ -2,63 +2,82 @@ import React from "react";
 import Image from "next/image";
 import styled from "styled-components";
 
-import PropertyItem from "containers/searching/components/PropertyItem";
 import Text from "components/common/Text";
-import theme from "styles/theme";
 import WinePropertyCard from "./components/WinePropertyCard";
+import Rating from "./components/Rating";
 
-const LABEL_BY_LEVEL: Record<number, string> = {
-  [1]: "매우낮음",
-  [2]: "낮음",
-  [3]: "보통",
-  [4]: "높음",
-  [5]: "매우높음",
-};
-
-const BODY_LABEL_BY_LEVEL: Record<number, string> = {
-  [1]: "매우가벼움",
-  [2]: "가벼움",
-  [3]: "보통",
-  [4]: "무거움",
-  [5]: "매우무거움",
-};
+import { FLAG_BY_COUNTRY } from "types/Country";
+import { NAME_BY_WINE_TYPE } from "types/WineType";
 
 const DetailPage = ({ wineDetail }) => {
   const [wineDetailItem] = [...wineDetail];
 
-  const {
-    name,
-    enName,
-    rate,
-    image,
-    country,
-    type,
-    tannins,
-    body,
-    sweetness,
-    acidity,
-  } = wineDetailItem;
+  const { name, enName, rate, image, country, type, minAlcohol, maxAlcohol } =
+    wineDetailItem;
 
+  const isSameAlcohol = minAlcohol === maxAlcohol;
   return (
-    <>
-      <Image src={image} alt={name} width={40} height={40} />
-      <div>{enName}</div>
-      <Text size="xs" color="descText" weight="light">
-        전문가 평가
-      </Text>
-      {console.log(rate)}
-      <WinePropertyCard wineDetail={wineDetail} />
-    </>
+    <Container>
+      <Image src={image} alt={name} width={220} height={340} />
+      <div>
+        <Text size="xl">{FLAG_BY_COUNTRY[country]}</Text>
+        <Text size="base" color="descText" weight="regular">
+          {country} | {NAME_BY_WINE_TYPE[type]}
+        </Text>
+        {(minAlcohol || maxAlcohol) && (
+          <Wrapper>
+            <AlcoholLabel color="white" size={12}>
+              Acol.{" "}
+              {minAlcohol != null && maxAlcohol != null
+                ? isSameAlcohol
+                  ? `${minAlcohol}%`
+                  : `${minAlcohol}% ~ ${maxAlcohol}%`
+                : minAlcohol || maxAlcohol
+                ? `${minAlcohol || maxAlcohol}%`
+                : ""}
+            </AlcoholLabel>
+          </Wrapper>
+        )}
+        <Text size="x3l" color="gray900" weight="medium">
+          {enName}
+        </Text>
+        <Rating rate={rate} />
+        <WinePropertyCard wineDetail={wineDetail} />
+      </div>
+    </Container>
   );
 };
 
-export const Container = styled.div`
-  display: flex;
-  border-radius: 12px;
-  background: ${({ theme }) => theme.colors.brighterBg};
-  padding: 8px 20px;
+const Wrapper = styled.div`
+  max-width: max-content;
 `;
 
+const AlcoholLabel = styled(Text)`
+  background: ${({ theme }) => theme.colors.gray900};
+  padding: 4px 9px;
+  border-radius: 10px;
+  overflow: hidden;
+`;
+
+export const Container = styled.div`
+  display: flex;
+`;
+
+const StarImg = styled.div`
+  width: 25px;
+  height: 25px;
+  position: relative;
+  img {
+    width: inherit;
+    height: inherit;
+    object-fit: cover;
+    object-position: center;
+  }
+`;
+
+const StyledStar = styled.svg`
+  fill: ${({ theme }) => theme.colors.pointRed};
+`;
 const IamgeWrapper = styled.span`
   position: relative;
   width: 20px;
