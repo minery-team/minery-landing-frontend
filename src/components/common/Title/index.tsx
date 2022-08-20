@@ -52,19 +52,19 @@ export const TitleWrapper = styled.div`
 
 export const TitleText = styled.p`
   font-size: ${({ theme }) => theme.fontSize.large};
-  font-weight: ${({ theme }) => theme.fontWeight.bold2};
+  font-weight: ${({ theme }) => theme.fontWeight.medium};
   text-align: center;
   line-height: 2rem;
   ${media.small} {
     font-size: ${({ theme }) => theme.fontSize.title};
-    font-weight: ${({ theme }) => theme.fontWeight.bold2};
+    font-weight: ${({ theme }) => theme.fontWeight.medium};
   }
 `;
 
 export const SubTitleText = styled.p`
   color: ${({ theme }) => theme.colors.sectionDescText};
   font-size: ${({ theme }) => theme.fontSize.smallText};
-  font-weight: ${({ theme }) => theme.fontWeight.medium};
+  font-weight: ${({ theme }) => theme.fontWeight.regular};
   margin-top: 2rem;
   line-height: 32px;
 `;

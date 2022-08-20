@@ -52,14 +52,14 @@ const BgImg = styled.img`
 `;
 const Title = styled.div`
   font-size: ${({ theme }) => theme.fontSize.large};
-  font-weight: ${({ theme }) => theme.fontWeight.bold2};
+  font-weight: ${({ theme }) => theme.fontWeight.medium};
   line-height: 3.3rem;
   margin-right: 4rem;
 `;
 const SubTitle = styled.p`
   margin-top: 1rem;
   font-size: ${({ theme }) => theme.fontSize.xsmallText};
-  font-weight: ${({ theme }) => theme.fontWeight.medium};
+  font-weight: ${({ theme }) => theme.fontWeight.regular};
 `;
 const ImgWrapper = styled.div`
   display: flex;

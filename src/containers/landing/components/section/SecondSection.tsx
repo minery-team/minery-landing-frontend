@@ -45,7 +45,7 @@ const Desc = styled.div`
   margin-top: 20px;
   color: ${({ theme }) => theme.colors.sectionDescText};
   font-size: ${({ theme }) => theme.fontSize.smallText};
-  font-weight: ${({ theme }) => theme.fontWeight.medium};
+  font-weight: ${({ theme }) => theme.fontWeight.regular};
   line-height: 28px;
 `;
 

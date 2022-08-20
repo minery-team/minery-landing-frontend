@@ -69,7 +69,7 @@ const CardDescWrapper = styled.div`
 
 const CardTitle = styled.p`
   font-size: ${({ theme }) => theme.fontSize.mmallText};
-  font-weight: ${({ theme }) => theme.fontWeight.bold1};
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
   margin-bottom: 14px;
 `;
 const CardDesc = styled.p`

@@ -108,7 +108,7 @@ const productsDetailHandler = [
             id: 139406,
           },
           {
-            _id: "153688",
+            _id: "",
             order: 153688,
             name: "발디비에소 싱글 빈야드 카베르네 프랑 ",
             enName: "Valdivieso Single Vineyard Cabernet Franc",

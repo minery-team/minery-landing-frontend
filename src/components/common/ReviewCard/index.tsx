@@ -70,11 +70,11 @@ const IamgeWrapper = styled.span`
 
 const Title = styled.p`
   font-size: ${({ theme }) => theme.fontSize.mmallText};
-  font-weight: ${({ theme }) => theme.fontWeight.bold1};
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
   margin-bottom: 16px;
   ${media.small} {
     font-size: ${({ theme }) => theme.fontSize.xsmallText};
-    font-weight: ${({ theme }) => theme.fontWeight.bold2};
+    font-weight: ${({ theme }) => theme.fontWeight.medium};
   }
 `;
 
@@ -85,7 +85,7 @@ const UserIdTxt = styled.p`
   font-weight: ${({ theme }) => theme.fontWeight.light};
   ${media.small} {
     font-size: ${({ theme }) => theme.fontSize.xxsmallText};
-    font-weight: ${({ theme }) => theme.fontWeight.medium};
+    font-weight: ${({ theme }) => theme.fontWeight.regular};
   }
 `;
 
@@ -98,7 +98,7 @@ const ReviewTxt = styled.p`
 
   ${media.small} {
     font-size: ${({ theme }) => theme.fontSize.xxsmallText};
-    font-weight: ${({ theme }) => theme.fontWeight.medium};
+    font-weight: ${({ theme }) => theme.fontWeight.regular};
   }
 `;
 export default ReviewCard;

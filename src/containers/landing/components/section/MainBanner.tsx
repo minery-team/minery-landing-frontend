@@ -86,7 +86,7 @@ const Tag = styled.span`
 
 const BannerHeading = styled.span`
   font-size: ${({ theme }) => theme.fontSize.large};
-  font-weight: ${({ theme }) => theme.fontWeight.bold2};
+  font-weight: ${({ theme }) => theme.fontWeight.medium};
   color: ${({ theme }) => theme.colors.white};
   margin-top: 28px;
   margin-bottom: 12px;
@@ -95,7 +95,7 @@ const BannerHeading = styled.span`
     display: flex;
     align-items: center;
     text-align: center;
-    font-weight: ${({ theme }) => theme.fontWeight.medium};
+    font-weight: ${({ theme }) => theme.fontWeight.regular};
     p:nth-child(1) {
       font-weight: ${({ theme }) => theme.fontWeight.light};
     }

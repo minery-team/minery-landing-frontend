@@ -70,20 +70,20 @@ const IcoImg = styled.div`
 
 const Title = styled.div`
   font-size: ${({ theme }) => theme.fontSize.large};
-  font-weight: ${({ theme }) => theme.fontWeight.bold2};
+  font-weight: ${({ theme }) => theme.fontWeight.medium};
   line-height: 3.3rem;
   margin-bottom: 52px;
   text-align: center;
   ${media.small} {
     font-size: ${({ theme }) => theme.fontSize.title};
-    font-weight: ${({ theme }) => theme.fontWeight.bold2};
+    font-weight: ${({ theme }) => theme.fontWeight.medium};
   }
 `;
 
 const Desc = styled.div`
   color: ${({ theme }) => theme.colors.sectionDescText};
   font-size: ${({ theme }) => theme.fontSize.smallText};
-  font-weight: ${({ theme }) => theme.fontWeight.medium};
+  font-weight: ${({ theme }) => theme.fontWeight.regular};
   margin-top: 5rem;
   line-height: 32px;
   text-align: center;
