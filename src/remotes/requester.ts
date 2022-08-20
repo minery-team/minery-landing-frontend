@@ -12,21 +12,7 @@ export const fetchTop10Wines = async () => {
   return res.data;
 };
 
-//와인 상세 조회
-export const getWineDetail = async (wineId: number) => {
-  const res = await requester.get(`/wine/${wineId}`);
-  return res.data;
-};
-
-// 와인 검색
-export const OrderType = {
-  Created: "created",
-  Rate: "rate",
-} as const;
-
-type OrderType = typeof OrderType[keyof typeof OrderType];
-
-export const searchWine = async (options: string) => {
-  const res = await requester.get(`/wine/${options}`);
+export const requestWine = async (page = 0) => {
+  const res = await requester.post(`/wine/search/`, { page: page });
   return res.data;
 };

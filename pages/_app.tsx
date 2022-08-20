@@ -7,10 +7,6 @@ import SEO from "components/common/SEO";
 import initMockAPI from "mocks/index";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  if (process.env.NODE_ENV === "development") {
-    initMockAPI();
-  }
-
   return (
     <>
       <GlobalStyles />
