@@ -3,11 +3,7 @@ import { requestWine } from "remotes/requester";
 import DetailPage from "containers/searching/DetailPage";
 
 const SearchingPage = ({ wineData }) => {
-  return (
-    <>
-      <DetailPage wineDetail={wineData} />
-    </>
-  );
+  return <>{wineData && <DetailPage wineDetail={wineData} />}</>;
 };
 
 /**

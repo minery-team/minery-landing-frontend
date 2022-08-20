@@ -1,11 +1,11 @@
 import React from "react";
-import MainSection from "./components/section/MainSection";
+import WineInfoCard from "containers/searching/components/WineInfoCard";
 import styled from "styled-components";
 
 const DetailPage = ({ wineDetail }) => {
   return (
     <Container>
-      <MainSection wineDetail={wineDetail} />
+      <WineInfoCard wineDetail={wineDetail} />
     </Container>
   );
 };
