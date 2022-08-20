@@ -16,7 +16,7 @@ export const colors = {
   gray50: "#f9fafb",
   gray100: "#f2f4f6",
   gray200: "#e5e8eb",
-  gray300: "#d1d6db", 
+  gray300: "#d1d6db",
   gray400: "#b0b8c1",
   gray500: "#8b95a1",
   gray600: "#6b7684",
@@ -40,7 +40,7 @@ export const fontSize = {
   base: "16px",
   lg: "18px",
   xl: "20px",
-  x2l: "23px",
+  x2l: "24px",
   x3l: "28px",
   pl: "16px",
 };

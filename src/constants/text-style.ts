@@ -7,8 +7,8 @@ export type TextSize =
   | "base"
   | "lg"
   | "xl"
-  | "2xl"
-  | "3xl"
+  | "x2l"
+  | "x3l"
   | "p1"
   | number;
 
@@ -21,8 +21,8 @@ export const getFontSize = (size: TextSize) => {
   if (size === "base") return 16;
   if (size === "lg") return 18;
   if (size === "xl") return 20;
-  if (size === "2xl") return 23;
-  if (size === "3xl") return 28;
+  if (size === "x2l") return 23;
+  if (size === "x3l") return 28;
   if (size === "p1") return 16;
   return size;
 };
@@ -34,8 +34,8 @@ export const getLineHeight = (size: TextSize) => {
   if (size === "base") return 23;
   if (size === "lg") return 28;
   if (size === "xl") return 28;
-  if (size === "2xl") return 32;
-  if (size === "3xl") return 38;
+  if (size === "x2l") return 32;
+  if (size === "x3l") return 38;
   if (size === "p1") return 28;
 };
 

@@ -20,18 +20,7 @@ const BODY_LABEL_BY_LEVEL: Record<number, string> = {
 
 const WinePropertyCard = ({ wineDetail }) => {
   const [wineDetailItem] = [...wineDetail];
-  const {
-    name,
-    enName,
-    rate,
-    image,
-    country,
-    type,
-    tannins,
-    body,
-    sweetness,
-    acidity,
-  } = wineDetailItem;
+  const { tannins, body, sweetness, acidity } = wineDetailItem;
 
   return (
     <Container>
@@ -48,6 +37,7 @@ export const Container = styled.div`
   border-radius: 12px;
   background: ${({ theme }) => theme.colors.brighterBg};
   padding: 8px 20px;
+  justify-content: space-evenly;
 `;
 
 export default WinePropertyCard;

@@ -10,7 +10,7 @@ const PropertyItem = ({ label, status }) => {
         {label}
       </Text>
       <Spacing height={9} />
-      <Text size="xs" color="gray900" weight="regular">
+      <Text size="xs" color="gray900" weight="medium">
         <span>{status ?? "-"}</span>
       </Text>
     </StyledPropertyItem>
