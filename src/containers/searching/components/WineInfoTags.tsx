@@ -9,9 +9,9 @@ const WineInfoTags = ({ minAlcohol, maxAlcohol, country, type }) => {
   return (
     <Wrapper>
       <Text size="xl">{FLAG_BY_COUNTRY[country]}</Text>
-      <Text size="base" color="descText" weight="regular">
+      <StyledText size="base" color="descText" weight="regular">
         {country} | {NAME_BY_WINE_TYPE[type]}
-      </Text>
+      </StyledText>
       {(minAlcohol || maxAlcohol) && (
         <LabelWrapper>
           <AlcoholLabel color="white" size={12}>
@@ -40,6 +40,9 @@ const LabelWrapper = styled.div`
   margin-left: 12px;
 `;
 
+const StyledText = styled(Text)`
+  margin-left: 0.5rem;
+`;
 const AlcoholLabel = styled(Text)`
   background: ${({ theme }) => theme.colors.gray900};
   padding: 4px 9px;

@@ -20,16 +20,16 @@ const WineInfoDesc = ({ maker, country }) => {
         </Text>
       </Wrapper>
       <Wrapper>
-        <StyledText size="lg" color="pointRed" weight="light">
+        <StyledText size="lg" color="pointRed" weight="regular">
           {maker}
         </StyledText>
-        <StyledText size="lg" color="descText" weight="light">
+        <StyledText size="lg" color="gray900" weight="regular">
           {country}
         </StyledText>
-        <StyledText size="lg" color="descText" weight="light">
+        <StyledText size="lg" color="gray900" weight="regular">
           모나스트렐 (Monastrell) , 카베르네 소비뇽 (Cabernet Sauvignon)
         </StyledText>
-        <StyledText size="lg" color="descText" weight="light">
+        <StyledText size="lg" color="gray900" weight="regular">
           19~20℃
         </StyledText>
       </Wrapper>

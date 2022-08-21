@@ -26,10 +26,10 @@ const WineInfoCard = ({ wineDetail }) => {
   } = wineDetailItem;
 
   return (
-    <>
+    <Container>
       <CardContainer>
         <ImageWrapper>
-          <Image src={image} alt={name} width={220} height={340} />
+          <Image src={image} alt={name} width={248} height={360} />
         </ImageWrapper>
         <InfoWrapper>
           <WineInfoTags
@@ -50,19 +50,23 @@ const WineInfoCard = ({ wineDetail }) => {
       </CardContainer>
       <Spacing height={48} />
       <WineInfoDesc maker={maker} country={country} />
-    </>
+    </Container>
   );
 };
 
+const Container = styled.div`
+  min-height: 70vh;
+  margin-top: 1rem;
+`;
 const CardContainer = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 `;
 
 const ImageWrapper = styled.div``;
 
 const InfoWrapper = styled.div`
-  width: 70%;
+  width: 68%;
 `;
 
 export default WineInfoCard;
