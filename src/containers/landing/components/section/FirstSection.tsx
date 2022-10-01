@@ -31,7 +31,7 @@ const SectionWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  ${media.small} {
+  ${media.mobile} {
     padding: 0 auto;
   }
 `;
@@ -49,7 +49,7 @@ const CardList = styled.div`
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  ${media.small} {
+  ${media.mobile} {
     justify-content: space-evenly;
   }
 `;

@@ -55,7 +55,7 @@ export const TitleText = styled.p`
   font-weight: ${({ theme }) => theme.fontWeight.medium};
   text-align: center;
   line-height: 2rem;
-  ${media.small} {
+  ${media.mobile} {
     font-size: ${({ theme }) => theme.fontSize.title};
     font-weight: ${({ theme }) => theme.fontWeight.medium};
   }

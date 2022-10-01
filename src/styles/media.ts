@@ -2,12 +2,14 @@ import Breakpoints from "./breakpoints";
 
 const mediaQuery = (maxWidth: number) => `@media(max-width:${maxWidth}px)`;
 
-const { xlarge, large, small } = Breakpoints;
+const { mobile, tabletS, tabletM, tabletL } = Breakpoints;
 
 const media = {
-  xlarge: mediaQuery(xlarge),
-  large: mediaQuery(large),
-  small: mediaQuery(small),
+  mobile: mediaQuery(mobile),
+  tabletS: mediaQuery(tabletS),
+  tabletM: mediaQuery(tabletM),
+  tabletL: mediaQuery(tabletL),
+
   custom: mediaQuery,
 };
 

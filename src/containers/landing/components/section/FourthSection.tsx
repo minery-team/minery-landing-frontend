@@ -28,14 +28,14 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  ${media.small} {
+  ${media.mobile} {
     margin-bottom: 7rem;
   }
 `;
 
 const CardWrapper = styled.div`
   display: flex;
-  ${media.small} {
+  ${media.mobile} {
     width: inherit;
     div:nth-child(1) {
       display: none;

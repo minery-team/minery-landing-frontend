@@ -7,6 +7,7 @@ const GlobalStyles = createGlobalStyle`
     html,
     body,
     #root {
+    width:100vw;
     height: 100%;
     }
     body{
@@ -18,11 +19,13 @@ const GlobalStyles = createGlobalStyle`
     a {
     color: inherit;
     text-decoration: none;
+    cursor: pointer;
     }
     button {
         background: inherit;
         border: none;
         box-shadow:none;
+        cursor: pointer;
     }
     
     ol,ul,li {

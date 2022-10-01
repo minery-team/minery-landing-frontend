@@ -3,7 +3,7 @@ import styled from "styled-components";
 import DOMPurify from "isomorphic-dompurify";
 import { FOOTER_CONTENTS } from "database/main";
 import Image from "components/common/Image";
-import Store from "components/common/store/Store";
+import Store from "components/common/Store/Store";
 import media from "styles/media";
 
 const QrSection = () => {
@@ -41,7 +41,7 @@ const Bg = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
-  ${media.small} {
+  ${media.mobile} {
     display: none;
   }
 `;

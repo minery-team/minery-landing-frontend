@@ -47,7 +47,7 @@ const StyledReview = styled.div`
   padding: 20px;
   border-radius: 12px;
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.04);
-  ${media.small} {
+  ${media.mobile} {
     min-width: min-content;
   }
 `;
@@ -72,7 +72,7 @@ const Title = styled.p`
   font-size: ${({ theme }) => theme.fontSize.mmallText};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
   margin-bottom: 16px;
-  ${media.small} {
+  ${media.mobile} {
     font-size: ${({ theme }) => theme.fontSize.xsmallText};
     font-weight: ${({ theme }) => theme.fontWeight.medium};
   }
@@ -83,7 +83,7 @@ const UserIdTxt = styled.p`
   color: ${({ theme }) => theme.colors.sectionDescText};
   font-size: ${({ theme }) => theme.fontSize.xsmallText};
   font-weight: ${({ theme }) => theme.fontWeight.light};
-  ${media.small} {
+  ${media.mobile} {
     font-size: ${({ theme }) => theme.fontSize.xxsmallText};
     font-weight: ${({ theme }) => theme.fontWeight.regular};
   }
@@ -96,7 +96,7 @@ const ReviewTxt = styled.p`
   font-size: ${({ theme }) => theme.fontSize.xsmallText};
   font-weight: ${({ theme }) => theme.fontWeight.light};
 
-  ${media.small} {
+  ${media.mobile} {
     font-size: ${({ theme }) => theme.fontSize.xxsmallText};
     font-weight: ${({ theme }) => theme.fontWeight.regular};
   }

@@ -5,7 +5,7 @@ import Text from "components/common/Text";
 const WineInfoDesc = ({ maker, country }) => {
   return (
     <DescContainer>
-      <Wrapper>
+      <Col>
         <Text size="lg" color="gray900" weight="extrabold">
           브랜드
         </Text>
@@ -18,37 +18,52 @@ const WineInfoDesc = ({ maker, country }) => {
         <Text size="lg" color="gray900" weight="extrabold">
           음용온도
         </Text>
-      </Wrapper>
-      <Wrapper>
-        <StyledText size="lg" color="pointRed" weight="regular">
+      </Col>
+      <DescText>
+        <Text size="lg" color="pointRed" weight="regular">
           {maker}
-        </StyledText>
-        <StyledText size="lg" color="gray900" weight="regular">
+        </Text>
+        <Text size="lg" color="gray900" weight="regular">
           {country}
-        </StyledText>
-        <StyledText size="lg" color="gray900" weight="regular">
+        </Text>
+        <Text size="lg" color="gray900" weight="regular">
           모나스트렐 (Monastrell) , 카베르네 소비뇽 (Cabernet Sauvignon)
-        </StyledText>
-        <StyledText size="lg" color="gray900" weight="regular">
+        </Text>
+        <Text size="lg" color="gray900" weight="regular">
           19~20℃
-        </StyledText>
-      </Wrapper>
+        </Text>
+      </DescText>
     </DescContainer>
   );
 };
-const StyledText = styled(Text)`
-  margin-left: 2rem;
-`;
+
 const DescContainer = styled.div`
   border: 1.8px solid ${({ theme }) => theme.colors.gray300};
   padding: 2rem;
   border-radius: 8px;
   display: flex;
+  justify-content: space-around;
+  height: 14rem;
+`;
+
+const Col = styled.div`
+  min-width: max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+const DescText = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 20px;
 `;
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  border: 2px solid blue;
   div {
     margin-bottom: 2rem;
   }

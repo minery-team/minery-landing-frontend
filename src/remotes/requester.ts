@@ -16,3 +16,8 @@ export const requestWine = async (page = 0) => {
   const res = await requester.post(`/wine/search/`, { page: page });
   return res.data;
 };
+
+export const requestWineItem = async (id: number) => {
+  const res = await requester.get(`/wine/${id}`);
+  return res.data;
+};

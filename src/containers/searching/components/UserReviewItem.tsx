@@ -16,7 +16,7 @@ const UserReviewItem = ({ review }) => {
             layout="fixed"
           />
         </ImageWrapper>
-        <TextWrapper>
+        <div>
           <UserInfo>
             <div>
               <StyledText size="base" color="gray900" weight="medium">
@@ -44,7 +44,7 @@ const UserReviewItem = ({ review }) => {
               {review.commnet}
             </Text>
           </CommetCard>
-        </TextWrapper>
+        </div>
       </Container>
     </>
   );
@@ -73,8 +73,6 @@ const UserInfo = styled.div`
     align-items: self-end;
   }
 `;
-
-const TextWrapper = styled.div``;
 
 const RateIconWrapper = styled.span`
   position: relative;

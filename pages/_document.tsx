@@ -38,6 +38,7 @@ export default class MyDocument extends Document {
       <Html lang="ko">
         <Head>{/** 폰트 넣는 곳! */}</Head>
         <body>
+          <div id="modal" />
           <Main />
           <NextScript />
         </body>

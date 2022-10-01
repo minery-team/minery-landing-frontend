@@ -46,7 +46,7 @@ const StyledCard = styled.div`
     margin-top: 110px;
   }
 
-  ${media.small} {
+  ${media.mobile} {
     ~ div:nth-child(2) {
       display: none;
     }

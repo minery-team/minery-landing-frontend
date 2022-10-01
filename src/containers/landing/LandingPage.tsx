@@ -1,6 +1,5 @@
 import React from "react";
 import MainBanner from "containers/landing/components/section/MainBanner";
-import Footer from "components/common/footer/Footer";
 import FirstSection from "containers/landing/components/section/FirstSection";
 import FourthSection from "containers/landing/components/section/FourthSection";
 import QrSection from "containers/landing/components/section/QrSection";
@@ -16,7 +15,6 @@ const LandingPage = () => {
       <ThirdSection />
       <FourthSection />
       <QrSection />
-      <Footer />
     </>
   );
 };

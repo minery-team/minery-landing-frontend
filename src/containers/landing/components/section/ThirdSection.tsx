@@ -52,7 +52,7 @@ const ImgWrapper = styled.div`
     margin: 0 3rem;
   }
 
-  ${media.small} {
+  ${media.mobile} {
     div:nth-child(4) {
       margin: 0;
       width: 400px;
@@ -74,7 +74,7 @@ const Title = styled.div`
   line-height: 3.3rem;
   margin-bottom: 52px;
   text-align: center;
-  ${media.small} {
+  ${media.mobile} {
     font-size: ${({ theme }) => theme.fontSize.title};
     font-weight: ${({ theme }) => theme.fontWeight.medium};
   }

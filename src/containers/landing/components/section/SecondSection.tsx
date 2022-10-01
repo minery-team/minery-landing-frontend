@@ -36,7 +36,7 @@ const Wrapper = styled.div`
   width: 100%;
   padding: 44px;
   justify-content: space-evenly;
-  ${media.small} {
+  ${media.mobile} {
     flex-direction: column;
   }
 `;
@@ -54,7 +54,7 @@ const TextWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   margin-left: 104px;
-  ${media.small} {
+  ${media.mobile} {
     margin-left: 0;
     text-align: center;
     align-items: center;
@@ -69,7 +69,7 @@ const ImgWrapper = styled.div`
     margin-top: 84px;
     margin-left: 20px;
   }
-  ${media.small} {
+  ${media.mobile} {
     span:nth-child(2) {
       margin-top: 220px;
       margin-left: 20px;
