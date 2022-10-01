@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import DOMPurify from "isomorphic-dompurify";
 import { SECOND_CONTENTS } from "database/main";
 import Title from "components/common/Title";
 import Image from "components/common/Image";
@@ -11,10 +10,10 @@ const SecondSection = () => {
   return (
     <Wrapper>
       <TextWrapper>
-        <Title title={title} split={true} />
-        <Desc
-          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(subTitle) }}
-        />
+        <div>{title}</div>
+        <div>{subTitle}</div>
+        {/* <Title title={title} split={true} />
+        <Desc>{subTitle}</Desc> */}
       </TextWrapper>
 
       <ImgWrapper>

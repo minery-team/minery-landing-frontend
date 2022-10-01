@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import DOMPurify from "isomorphic-dompurify";
 import { FOOTER_CONTENTS } from "database/main";
 import Image from "components/common/Image";
 import Store from "components/common/Store/Store";
@@ -14,16 +13,12 @@ const QrSection = () => {
         <BgImg src="/images/section/section5Bg.png" />
         <Desc>
           <div>
-            <Title
-              dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(title) }}
-            />
+            <Title>{title}</Title>
             <Store />
           </div>
           <ImgWrapper>
             <Image src={img} width={220} height={220} alt={img} />
-            <SubTitle
-              dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(subTitle) }}
-            />
+            <SubTitle>{subTitle}</SubTitle>
           </ImgWrapper>
         </Desc>
       </Bg>

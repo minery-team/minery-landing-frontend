@@ -24,22 +24,22 @@ const Title = ({ title, subTitle, split }: TitleProps) => {
     return <p key={text}>{text}</p>;
   });
 
-  let editTitle;
-  if (split === true) {
-    editTitle = chunkString(title, title.length);
-  }
+  // let editTitle;
+  // if (split === true) {
+  //   editTitle = chunkString(title, title.length);
+  // }
 
   function chunkString(str: string, length: number) {
     return str.match(new RegExp(".{1," + Math.ceil(length / 2) + "}", "g"));
   }
 
-  const editTitleList = editTitle?.map((text: string) => {
-    return <TitleSplitText key={text}>{text}</TitleSplitText>;
-  });
+  // const editTitleList = editTitle?.map((text: string) => {
+  //   return <TitleSplitText key={text}>{text}</TitleSplitText>;
+  // });
 
   return (
     <TitleWrapper>
-      <TitleText>{editTitle ? editTitleList : title}</TitleText>
+      {/* <TitleText>{title}</TitleText> */}
       <SubTitleText>{subTitle ? editSubTitleList : ""}</SubTitleText>
     </TitleWrapper>
   );

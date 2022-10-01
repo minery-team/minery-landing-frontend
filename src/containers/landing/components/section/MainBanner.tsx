@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import styled from "styled-components";
-import DOMPurify from "isomorphic-dompurify";
 import media from "styles/media";
 import Store from "components/common/Store/Store";
 import { BANNER_CONTENTS } from "database/main";
@@ -21,9 +20,7 @@ const MainBanner = () => {
                 return <p key={index}>{tag}</p>;
               })}
             </Tag>
-            <BannerHeading
-              dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(title) }}
-            />
+            <BannerHeading>{title}</BannerHeading>
             <Store />
           </TagWarpper>
           <Phoneimg>

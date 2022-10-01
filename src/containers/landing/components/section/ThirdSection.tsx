@@ -1,5 +1,4 @@
 import React from "react";
-import DOMPurify from "isomorphic-dompurify";
 import styled from "styled-components";
 import Image from "components/common/Image";
 import { useMotion } from "hooks/useMotion";
@@ -12,7 +11,7 @@ const ThirdSection = () => {
 
   return (
     <Wrapper ref={content}>
-      <Title dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(title) }} />
+      <div>{title}</div>
       <ImgWrapper>
         {imgData.map((item, index) => {
           return (
@@ -30,9 +29,7 @@ const ThirdSection = () => {
           );
         })}
       </ImgWrapper>
-      <Desc
-        dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(subTitle) }}
-      />
+      <div>{subTitle}</div>
     </Wrapper>
   );
 };

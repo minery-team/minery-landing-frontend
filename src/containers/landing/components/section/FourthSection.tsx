@@ -11,7 +11,8 @@ const FourthSection = () => {
   return (
     <>
       <Wrapper>
-        <Title title={title} split={true} />
+        <div>{title}</div>
+        {/* <Title title={title} split={true} /> */}
         <CardWrapper>
           {reviewData.map((review, index) => {
             return <ReviewCard key={index} reviewData={review} />;
