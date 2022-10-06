@@ -12,10 +12,10 @@ const FirstSection = () => {
   return (
     <SectionWrapper>
       <DescWrapper>
-        <Title text="mainText">
+        <StyledTitle text="mainText" direction="row">
           <p>와인으로 쓰는</p>
           <p>그 날의 일기</p>
-        </Title>
+        </StyledTitle>
         <Spacing height={20} />
 
         <Title text="subText">
@@ -36,6 +36,12 @@ const FirstSection = () => {
     </SectionWrapper>
   );
 };
+
+const StyledTitle = styled(Title)`
+  border: 2px solid red;
+  ${media.mobile} {
+  }
+`;
 
 const SectionWrapper = styled.div`
   margin-top: 3rem;
