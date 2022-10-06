@@ -52,6 +52,7 @@ const StyledReview = styled.div`
     min-width: min-content;
   }
 `;
+
 const Container = styled.div`
   width: 100%;
   display: flex;
