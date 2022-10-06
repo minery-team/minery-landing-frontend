@@ -5,13 +5,22 @@ import ReviewCard from "components/common/ReviewCard";
 import Title from "components/common/Title";
 import Spacing from "components/common/Spacing";
 import media from "styles/media";
+import {
+  AOS_DEFAULT_DURATION,
+  AOS_BASE_DURATION_DISTANCE,
+} from "constants/aos";
 
 const FourthSection = () => {
   const { reviewData } = FOURTH_CONTENTS;
 
   return (
     <>
-      <Wrapper>
+      <Wrapper
+        data-aos="fade-up"
+        data-aos-duration={
+          AOS_DEFAULT_DURATION + 6 * AOS_BASE_DURATION_DISTANCE
+        }
+      >
         <Spacing height={4} />
         <Title text="mainText">
           <p>마이너리 사용자들의</p>
