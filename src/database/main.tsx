@@ -1,11 +1,15 @@
+import React from "react";
+
 export const BANNER_CONTENTS = {
-  title: "와인이 쉬워지는 방법 <br/> 마이너리",
+  title: (
+    <React.Fragment>
+      와인이 쉬워지는 방법 <br /> 마이너리
+    </React.Fragment>
+  ),
   tags: ["#와린이", "#와인초보", "#와인일기", "#와인검색"],
 };
 
 export const FIRST_CONTENTS = {
-  title: "와인으로 쓰는 그날의 일기",
-  subTitle: "와인이 있어 더 특별했던 하루! 내 마음대로 기록하고 공유해 보세요.",
   reviewData: [
     {
       title: "여유로운 주말 한강나들이",
@@ -47,15 +51,28 @@ export const FIRST_CONTENTS = {
 
 export const SECOND_CONTENTS = {
   title: "어떤 와인을 찾고 있나요?",
-  subTitle:
-    "다양한 와인 정보와 다른 사람들의 <br/> 평가를 볼 수 있어요!  <br/> 좋아하는 와인을 찾아 나만의 <br/> 와인창고에 담아두는건 어떤가요?",
+  subTitle: (
+    <React.Fragment>
+      다양한 와인 정보와 다른 사람들의 <br /> 평가를 볼 수 있어요! <br />
+      좋아하는 와인을 찾아 나만의 <br /> 와인창고에 담아두는건 어떤가요?
+    </React.Fragment>
+  ),
   imgs: ["/images/section/phone1.png", "/images/section/phone2.png"],
 };
 
 export const THIRD_CONTENTS = {
-  title: "와인을 기록하는 순간, <br/> 어떤 뱃지를 받게 될까요?",
-  subTitle:
-    "차곡차곡 쌓이는 와인일기와 함께 <br/> 마이뱃지를 수집하는 재미도 느껴보세요",
+  title: (
+    <React.Fragment>
+      와인을 기록하는 순간, <br /> 어떤 뱃지를 받게 될까요?
+    </React.Fragment>
+  ),
+  subTitle: (
+    <React.Fragment>
+      차곡차곡 쌓이는 와인일기와 함께 <br /> 마이뱃지를 수집하는 재미도
+      느껴보세요
+    </React.Fragment>
+  ),
+
   imgData: [
     {
       type: "icon",
@@ -137,8 +154,12 @@ export const FOURTH_CONTENTS = {
 };
 
 export const FOOTER_CONTENTS = {
-  title:
-    "내가  마신 와인과 이야기를 <br/> 마이너리로 기록해 <br/> 나만의 와인일기장을 만들어봐요!",
+  title: (
+    <React.Fragment>
+      내가 마신 와인과 이야기를 <br /> 마이너리로 기록해 <br /> 나만의
+      와인일기장을 만들어봐요!
+    </React.Fragment>
+  ),
   subTitle: "Qr 코드를 찍고 마이너리를 만나보세요",
   img: "/images/section/QrCode.png",
 };

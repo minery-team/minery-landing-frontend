@@ -5,19 +5,31 @@ import { FIRST_CONTENTS } from "database/main";
 import Card from "components/common/Card";
 import Title from "components/common/Title";
 import Button from "components/common/Button";
+import Spacing from "components/common/Spacing";
 const FirstSection = () => {
-  const { title, subTitle, reviewData } = FIRST_CONTENTS;
+  const { reviewData } = FIRST_CONTENTS;
 
   return (
     <SectionWrapper>
       <DescWrapper>
-        <Title title={title} subTitle={subTitle} split={false} />
+        <Title text="mainText">
+          <p>와인으로 쓰는</p>
+          <p>그 날의 일기</p>
+        </Title>
+        <Spacing height={20} />
+
+        <Title text="subText">
+          <p>와인이 있어 더 특별했던 하루 !</p>
+          <p>내 마음대로 기록하고 공유해 보세요</p>
+        </Title>
+        <Spacing height={20} />
         <CardList>
           {reviewData.map((data, index) => {
             return <Card key={index} data={data} />;
           })}
         </CardList>
       </DescWrapper>
+      <Spacing height={20} />
       <Button width={150} height={40} borderRadius={28}>
         와인일기 구경하기
       </Button>
@@ -26,16 +38,16 @@ const FirstSection = () => {
 };
 
 const SectionWrapper = styled.div`
-  margin-top: 5rem;
+  margin-top: 3rem;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  ${media.small} {
+  ${media.mobile} {
     padding: 0 auto;
   }
 `;
-const DescWrapper = styled.span`
+const DescWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,7 +61,7 @@ const CardList = styled.div`
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  ${media.small} {
+  ${media.mobile} {
     justify-content: space-evenly;
   }
 `;

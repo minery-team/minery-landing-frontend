@@ -1,9 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import styled from "styled-components";
-import DOMPurify from "isomorphic-dompurify";
 import media from "styles/media";
-import Store from "components/common/store/Store";
+import Store from "components/common/Store/Store";
 import { BANNER_CONTENTS } from "database/main";
 
 const MainBanner = () => {
@@ -21,9 +20,7 @@ const MainBanner = () => {
                 return <p key={index}>{tag}</p>;
               })}
             </Tag>
-            <BannerHeading
-              dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(title) }}
-            />
+            <BannerHeading>{title}</BannerHeading>
             <Store />
           </TagWarpper>
           <Phoneimg>
@@ -49,12 +46,12 @@ const Wrapper = styled.div`
   overflow: hidden;
   position: relative;
   z-index: 1;
+  padding-top: 3rem;
 `;
 
 const Banner = styled.div`
   width: 100%;
-  min-height: 74vh;
-
+  min-height: 80vh;
   img {
     width: inherit;
     height: inherit;
@@ -79,23 +76,23 @@ const Tag = styled.span`
   justify-content: space-between;
   color: ${({ theme }) => theme.colors.white};
   width: 292px;
-  ${media.small} {
+  ${media.mobile} {
     display: none;
   }
 `;
 
 const BannerHeading = styled.span`
   font-size: ${({ theme }) => theme.fontSize.large};
-  font-weight: ${({ theme }) => theme.fontWeight.bold2};
+  font-weight: ${({ theme }) => theme.fontWeight.medium};
   color: ${({ theme }) => theme.colors.white};
   margin-top: 28px;
   margin-bottom: 12px;
   line-height: 1.8em;
-  ${media.small} {
+  ${media.mobile} {
     display: flex;
     align-items: center;
     text-align: center;
-    font-weight: ${({ theme }) => theme.fontWeight.medium};
+    font-weight: ${({ theme }) => theme.fontWeight.regular};
     p:nth-child(1) {
       font-weight: ${({ theme }) => theme.fontWeight.light};
     }
@@ -114,7 +111,7 @@ const Phoneimg = styled.div`
     object-fit: contain;
   }
 
-  ${media.small} {
+  ${media.mobile} {
     width: 480px;
     height: 334px;
     margin: 0 20px;
@@ -124,7 +121,7 @@ const Phoneimg = styled.div`
 const TagWarpper = styled.div`
   margin: 0 256px;
 
-  ${media.small} {
+  ${media.mobile} {
     margin: 0;
   }
 `;
@@ -133,7 +130,7 @@ const DescWrapper = styled.div`
   align-items: center;
   width: 100%;
   justify-content: space-between;
-  ${media.small} {
+  ${media.mobile} {
     flex-direction: column;
   }
 `;
@@ -147,7 +144,7 @@ const MobileBtn = styled.div`
   color: ${({ theme }) => theme.colors.white};
   text-align: center;
   cursor: pointer;
-  ${media.small} {
+  ${media.mobile} {
     display: block;
   }
 `;

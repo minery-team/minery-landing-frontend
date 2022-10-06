@@ -10,7 +10,7 @@ import IcoTistory from "/public/images/Icotistory.svg";
 const Header = () => {
   return (
     <S.HeaderContainer>
-      <S.LogoWrap>
+      <S.LogoWrap href="/">
         <Image src={Logo} draggable="false" />
         <S.Title>
           <Image src={MineryLogo} draggable="false" />

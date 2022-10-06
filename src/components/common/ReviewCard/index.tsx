@@ -47,7 +47,9 @@ const StyledReview = styled.div`
   padding: 20px;
   border-radius: 12px;
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.04);
-  ${media.small} {
+
+  ${media.mobile} {
+    padding: 20px 10px;
     min-width: min-content;
   }
 `;
@@ -70,11 +72,11 @@ const IamgeWrapper = styled.span`
 
 const Title = styled.p`
   font-size: ${({ theme }) => theme.fontSize.mmallText};
-  font-weight: ${({ theme }) => theme.fontWeight.bold1};
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
   margin-bottom: 16px;
-  ${media.small} {
+  ${media.mobile} {
     font-size: ${({ theme }) => theme.fontSize.xsmallText};
-    font-weight: ${({ theme }) => theme.fontWeight.bold2};
+    font-weight: ${({ theme }) => theme.fontWeight.medium};
   }
 `;
 
@@ -83,9 +85,9 @@ const UserIdTxt = styled.p`
   color: ${({ theme }) => theme.colors.sectionDescText};
   font-size: ${({ theme }) => theme.fontSize.xsmallText};
   font-weight: ${({ theme }) => theme.fontWeight.light};
-  ${media.small} {
+  ${media.mobile} {
     font-size: ${({ theme }) => theme.fontSize.xxsmallText};
-    font-weight: ${({ theme }) => theme.fontWeight.medium};
+    font-weight: ${({ theme }) => theme.fontWeight.regular};
   }
 `;
 
@@ -96,9 +98,9 @@ const ReviewTxt = styled.p`
   font-size: ${({ theme }) => theme.fontSize.xsmallText};
   font-weight: ${({ theme }) => theme.fontWeight.light};
 
-  ${media.small} {
+  ${media.mobile} {
     font-size: ${({ theme }) => theme.fontSize.xxsmallText};
-    font-weight: ${({ theme }) => theme.fontWeight.medium};
+    font-weight: ${({ theme }) => theme.fontWeight.regular};
   }
 `;
 export default ReviewCard;

@@ -1,14 +1,14 @@
 import styled from "styled-components";
 import media from "styles/media";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.footer`
   width: 100%;
   height: 180px;
   background-color: ${({ theme }) => theme.colors.black};
   position: relative;
   display: flex;
   align-items: center;
-  ${media.small} {
+  ${media.mobile} {
     flex-direction: column;
     padding: 20px;
     height: 320px;
@@ -19,7 +19,7 @@ export const InfoContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-around;
-  ${media.small} {
+  ${media.mobile} {
     flex-direction: column;
     height: 80%;
     margin-top: 20px;

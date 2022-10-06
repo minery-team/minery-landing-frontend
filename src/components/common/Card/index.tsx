@@ -46,7 +46,8 @@ const StyledCard = styled.div`
     margin-top: 110px;
   }
 
-  ${media.small} {
+  ${media.mobile} {
+    transform: translateX(-1.2rem);
     ~ div:nth-child(2) {
       display: none;
     }
@@ -58,7 +59,7 @@ const StyledCard = styled.div`
     }
     ~ div:nth-child(5) {
       margin-top: 10px;
-      margin-bottom: 80px;
+      transform: translateX(1.2rem);
     }
   }
 `;
@@ -69,7 +70,7 @@ const CardDescWrapper = styled.div`
 
 const CardTitle = styled.p`
   font-size: ${({ theme }) => theme.fontSize.mmallText};
-  font-weight: ${({ theme }) => theme.fontWeight.bold1};
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
   margin-bottom: 14px;
 `;
 const CardDesc = styled.p`

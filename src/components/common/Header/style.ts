@@ -15,7 +15,7 @@ export const HeaderContainer = styled.header`
   left: 0;
   right: 0;
   z-index: 3;
-  ${media.small} {
+  ${media.mobile} {
     padding: 20px;
     margin: inherit;
     justify-content: space-between;
@@ -30,7 +30,7 @@ export const HeaderContainer = styled.header`
 
 export const Menu = styled.div``;
 
-export const LogoWrap = styled.div`
+export const LogoWrap = styled.a`
   display: flex;
   align-items: center;
 `;
@@ -46,7 +46,7 @@ export const MenuContainer = styled.ul`
   width: 144px;
   margin-top: 8px;
   justify-content: space-around;
-  ${media.small} {
+  ${media.mobile} {
     a:nth-child(-n + 3) {
       display: none;
     }
@@ -67,7 +67,7 @@ export const DownBtn = styled.div`
   text-align: center;
   cursor: pointer;
   margin-top: 10px;
-  ${media.small} {
+  ${media.mobile} {
     display: block;
   }
 `;

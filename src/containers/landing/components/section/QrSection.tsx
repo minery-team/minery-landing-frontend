@@ -1,9 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import DOMPurify from "isomorphic-dompurify";
 import { FOOTER_CONTENTS } from "database/main";
 import Image from "components/common/Image";
-import Store from "components/common/store/Store";
+import Store from "components/common/Store/Store";
 import media from "styles/media";
 
 const QrSection = () => {
@@ -14,16 +13,12 @@ const QrSection = () => {
         <BgImg src="/images/section/section5Bg.png" />
         <Desc>
           <div>
-            <Title
-              dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(title) }}
-            />
+            <Title>{title}</Title>
             <Store />
           </div>
           <ImgWrapper>
             <Image src={img} width={220} height={220} alt={img} />
-            <SubTitle
-              dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(subTitle) }}
-            />
+            <SubTitle>{subTitle}</SubTitle>
           </ImgWrapper>
         </Desc>
       </Bg>
@@ -41,7 +36,7 @@ const Bg = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
-  ${media.small} {
+  ${media.mobile} {
     display: none;
   }
 `;
@@ -52,14 +47,14 @@ const BgImg = styled.img`
 `;
 const Title = styled.div`
   font-size: ${({ theme }) => theme.fontSize.large};
-  font-weight: ${({ theme }) => theme.fontWeight.bold2};
+  font-weight: ${({ theme }) => theme.fontWeight.medium};
   line-height: 3.3rem;
   margin-right: 4rem;
 `;
 const SubTitle = styled.p`
   margin-top: 1rem;
   font-size: ${({ theme }) => theme.fontSize.xsmallText};
-  font-weight: ${({ theme }) => theme.fontWeight.medium};
+  font-weight: ${({ theme }) => theme.fontWeight.regular};
 `;
 const ImgWrapper = styled.div`
   display: flex;

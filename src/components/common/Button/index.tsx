@@ -27,7 +27,7 @@ const StyledButton = styled.button<IButtonProps>`
   align-items: center;
   cursor: pointer;
   border: 1px solid ${({ theme }) => theme.colors.pointRed};
-  font-weight: ${({ theme }) => theme.fontWeight.bold2};
+  font-weight: ${({ theme }) => theme.fontWeight.medium};
   color: ${({ theme }) => theme.colors.pointRed};
   ${({ width }) => width && `width: ${width}px;`}
   ${({ height }) => height && `height: ${height}px;`}

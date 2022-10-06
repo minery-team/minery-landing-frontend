@@ -31,7 +31,7 @@ export const styledButton = styled.div`
 export const StoreWrapper = styled.div`
   display: flex;
   margin-top: 48px;
-  ${media.small} {
+  ${media.mobile} {
     display: none;
   }
 `;

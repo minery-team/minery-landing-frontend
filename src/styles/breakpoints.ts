@@ -1,7 +1,9 @@
 enum Breakpoints {
-  xlarge = 1320,
-  large = 1130,
-  small = 767,
+  mobile = 576,
+  tabletS = 767,
+  tabletM = 1130,
+  tabletL = 1279,
+  //1280px 부터 desktop
 }
 
 export default Breakpoints;
