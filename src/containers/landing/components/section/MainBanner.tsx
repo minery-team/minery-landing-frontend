@@ -49,6 +49,7 @@ const Wrapper = styled.div`
   position: relative;
   z-index: 1;
   padding-top: 6rem;
+
 `;
 
 const Banner = styled.div`

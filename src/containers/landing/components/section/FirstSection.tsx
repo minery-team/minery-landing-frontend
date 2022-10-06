@@ -17,7 +17,6 @@ const FirstSection = () => {
           <p>그 날의 일기</p>
         </StyledTitle>
         <Spacing height={20} />
-
         <Title text="subText">
           <p>와인이 있어 더 특별했던 하루 !</p>
           <p>내 마음대로 기록하고 공유해 보세요</p>

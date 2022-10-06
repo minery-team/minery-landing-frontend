@@ -1,6 +1,6 @@
 import React from "react";
+
 import media from "styles/media";
-import styled from "styled-components";
 
 interface SpaceProps {
   height?: number;
