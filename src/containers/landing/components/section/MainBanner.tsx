@@ -4,6 +4,7 @@ import styled from "styled-components";
 import media from "styles/media";
 import Store from "components/common/Store/Store";
 import { BANNER_CONTENTS } from "database/main";
+import Spacing from "components/common/Spacing";
 
 const MainBanner = () => {
   const { title, tags } = BANNER_CONTENTS;
@@ -20,6 +21,7 @@ const MainBanner = () => {
                 return <p key={index}>{tag}</p>;
               })}
             </Tag>
+            <Spacing height={2} />
             <BannerHeading>{title}</BannerHeading>
             <Store />
           </TagWarpper>
@@ -46,17 +48,30 @@ const Wrapper = styled.div`
   overflow: hidden;
   position: relative;
   z-index: 1;
-  padding-top: 3rem;
+  padding-top: 6rem;
+
 `;
 
 const Banner = styled.div`
   width: 100%;
-  min-height: 80vh;
+  min-height: 60vh;
   img {
     width: inherit;
     height: inherit;
     object-fit: cover;
     object-position: center;
+  }
+  ${media.tabletL} {
+    min-height: 50vh;
+  }
+  ${media.tabletM} {
+    min-height: 60vh;
+  }
+  ${media.tabletS} {
+    min-height: 65vh;
+  }
+  ${media.mobile} {
+    min-height: 70vh;
   }
 `;
 

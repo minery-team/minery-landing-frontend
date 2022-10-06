@@ -13,12 +13,12 @@ const ThirdSection = () => {
 
   return (
     <Wrapper ref={content}>
-      <Spacing height={40} />
+      <Spacing height={4} />
       <Title text="mainText">
         <p>와인을 기록하는 순간,</p>
         <p>어떤 뱃지를 받게 될까요? </p>
       </Title>
-      <Spacing height={40} />
+      <Spacing height={4} />
       <ImgWrapper>
         {imgData.map((item, index) => {
           return (
@@ -36,7 +36,7 @@ const ThirdSection = () => {
           );
         })}
       </ImgWrapper>
-      <Spacing height={40} />
+      <Spacing height={4} />
       <Title text="subText">
         <p>차곡차곡 쌓이는 와인일기와 함께</p>
         <p>마이뱃지를 수집하는 재미도 느껴보세요. </p>

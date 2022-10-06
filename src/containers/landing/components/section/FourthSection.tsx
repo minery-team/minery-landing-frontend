@@ -7,17 +7,17 @@ import Spacing from "components/common/Spacing";
 import media from "styles/media";
 
 const FourthSection = () => {
-  const { title, reviewData } = FOURTH_CONTENTS;
+  const { reviewData } = FOURTH_CONTENTS;
 
   return (
     <>
       <Wrapper>
-        <Spacing height={40} />
+        <Spacing height={4} />
         <Title text="mainText">
           <p>마이너리 사용자들의</p>
           <p>후기를 확인해보세요</p>
         </Title>
-        <Spacing height={40} />
+        <Spacing height={4} />
         <CardWrapper>
           {reviewData.map((review, index) => {
             return <ReviewCard key={index} reviewData={review} />;
