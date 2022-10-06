@@ -10,10 +10,6 @@ const Spacing = ({ height }: SpaceProps) => {
 };
 
 export const StyledSpacing = styled.div<SpaceProps>`
-  margin-bottom: ${({ height }) => height + 20}px;
-  ${media.mobile} {
-    margin-bottom: ${({ height }) => height}px;
-  }
+  margin-bottom: ${({ height }) => height}rem;
 `;
-
 export default Spacing;

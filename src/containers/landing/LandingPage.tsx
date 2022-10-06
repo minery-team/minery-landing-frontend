@@ -11,15 +11,15 @@ const LandingPage = () => {
   return (
     <>
       <MainBanner />
-      <Spacing height={80} />
+      <Spacing height={3} />
       <FirstSection />
-      <Spacing height={80} />
+      <Spacing height={3} />
       <SecondSection />
-      <Spacing height={80} />
+      <Spacing height={3} />
       <ThirdSection />
-      <Spacing height={80} />
+      <Spacing height={3} />
       <FourthSection />
-      <Spacing height={80} />
+      <Spacing height={3} />
       <QrSection />
     </>
   );

@@ -16,20 +16,19 @@ const FirstSection = () => {
           <p>와인으로 쓰는</p>
           <p>그 날의 일기</p>
         </StyledTitle>
-        <Spacing height={20} />
-
+        <Spacing height={2} />
         <Title text="subText">
           <p>와인이 있어 더 특별했던 하루 !</p>
           <p>내 마음대로 기록하고 공유해 보세요</p>
         </Title>
-        <Spacing height={20} />
+        <Spacing height={2} />
         <CardList>
           {reviewData.map((data, index) => {
             return <Card key={index} data={data} />;
           })}
         </CardList>
       </DescWrapper>
-      <Spacing height={20} />
+      <Spacing height={2} />
       <Button width={150} height={40} borderRadius={28}>
         와인일기 구경하기
       </Button>

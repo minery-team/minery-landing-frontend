@@ -15,7 +15,7 @@ const SecondSection = () => {
           <p>어떤 와인을</p>
           <p>찾고 있나요?</p>
         </Title>
-        <Spacing height={10} />
+        <Spacing height={2} />
         <Title text="subText">
           <p>다양한 와인 정보와 다른 사람들의</p>
           <p>평가를 볼 수 있어요!</p>

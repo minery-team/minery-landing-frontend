@@ -21,7 +21,7 @@ const MainBanner = () => {
                 return <p key={index}>{tag}</p>;
               })}
             </Tag>
-            <Spacing height={30} />
+            <Spacing height={2} />
             <BannerHeading>{title}</BannerHeading>
             <Store />
           </TagWarpper>
