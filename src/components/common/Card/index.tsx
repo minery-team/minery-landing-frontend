@@ -47,6 +47,7 @@ const StyledCard = styled.div`
   }
 
   ${media.mobile} {
+    transform: translateX(-1.2rem);
     ~ div:nth-child(2) {
       display: none;
     }
@@ -58,7 +59,7 @@ const StyledCard = styled.div`
     }
     ~ div:nth-child(5) {
       margin-top: 10px;
-      margin-bottom: 80px;
+      transform: translateX(1.2rem);
     }
   }
 `;

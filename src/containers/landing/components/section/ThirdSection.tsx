@@ -1,9 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import Image from "components/common/Image";
+import Title from "components/common/Title";
 import { useMotion } from "hooks/useMotion";
 import { THIRD_CONTENTS } from "database/main";
 import media from "styles/media";
+import Spacing from "components/common/Spacing";
 
 const ThirdSection = () => {
   const { title, subTitle, imgData } = THIRD_CONTENTS;
@@ -11,7 +13,12 @@ const ThirdSection = () => {
 
   return (
     <Wrapper ref={content}>
-      <div>{title}</div>
+      <Spacing height={40} />
+      <Title text="mainText">
+        <p>와인을 기록하는 순간,</p>
+        <p>어떤 뱃지를 받게 될까요? </p>
+      </Title>
+      <Spacing height={40} />
       <ImgWrapper>
         {imgData.map((item, index) => {
           return (
@@ -29,12 +36,15 @@ const ThirdSection = () => {
           );
         })}
       </ImgWrapper>
-      <div>{subTitle}</div>
+      <Spacing height={40} />
+      <Title text="subText">
+        <p>차곡차곡 쌓이는 와인일기와 함께</p>
+        <p>마이뱃지를 수집하는 재미도 느껴보세요. </p>
+      </Title>
     </Wrapper>
   );
 };
 const Wrapper = styled.div`
-  margin-top: 8rem;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -65,17 +75,17 @@ const IcoImg = styled.div`
   }
 `;
 
-const Title = styled.div`
-  font-size: ${({ theme }) => theme.fontSize.large};
-  font-weight: ${({ theme }) => theme.fontWeight.medium};
-  line-height: 3.3rem;
-  margin-bottom: 52px;
-  text-align: center;
-  ${media.mobile} {
-    font-size: ${({ theme }) => theme.fontSize.title};
-    font-weight: ${({ theme }) => theme.fontWeight.medium};
-  }
-`;
+// const Title = styled.div`
+//   font-size: ${({ theme }) => theme.fontSize.large};
+//   font-weight: ${({ theme }) => theme.fontWeight.medium};
+//   line-height: 3.3rem;
+//   margin-bottom: 52px;
+//   text-align: center;
+//   ${media.mobile} {
+//     font-size: ${({ theme }) => theme.fontSize.title};
+//     font-weight: ${({ theme }) => theme.fontWeight.medium};
+//   }
+// `;
 
 const Desc = styled.div`
   color: ${({ theme }) => theme.colors.sectionDescText};

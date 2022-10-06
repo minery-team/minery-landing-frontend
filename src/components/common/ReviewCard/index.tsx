@@ -47,7 +47,9 @@ const StyledReview = styled.div`
   padding: 20px;
   border-radius: 12px;
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.04);
+
   ${media.mobile} {
+    padding: 20px 10px;
     min-width: min-content;
   }
 `;

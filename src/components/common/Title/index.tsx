@@ -1,76 +1,47 @@
-import React, { useEffect, useState } from "react";
+import React, { ReactNode } from "react";
+
 import styled from "styled-components";
 import media from "styles/media";
 
-interface TitleProps {
-  title: string;
-  subTitle?: string;
-  split?: boolean;
+interface TextProps {
+  children?: ReactNode;
+  text?: "mainText" | "subText";
 }
-
-const Title = ({ title, subTitle, split }: TitleProps) => {
-  const [subTitles, setSubTitles] = useState<string | undefined>("");
-  useEffect(() => setSubTitles(subTitle));
-
-  let editSubTitle: string[] = [];
-  if (subTitles?.includes("!")) {
-    editSubTitle = subTitles.split("!");
-    editSubTitle[0] += " !";
-  }
-
-  if (subTitles?.length === 0) return;
-
-  const editSubTitleList = editSubTitle?.map((text) => {
-    return <p key={text}>{text}</p>;
-  });
-
-  // let editTitle;
-  // if (split === true) {
-  //   editTitle = chunkString(title, title.length);
-  // }
-
-  function chunkString(str: string, length: number) {
-    return str.match(new RegExp(".{1," + Math.ceil(length / 2) + "}", "g"));
-  }
-
-  // const editTitleList = editTitle?.map((text: string) => {
-  //   return <TitleSplitText key={text}>{text}</TitleSplitText>;
-  // });
-
+const Title = ({ text, children }: TextProps) => {
   return (
-    <TitleWrapper>
-      {/* <TitleText>{title}</TitleText> */}
-      <SubTitleText>{subTitle ? editSubTitleList : ""}</SubTitleText>
-    </TitleWrapper>
+    <TextWrapper>
+      {text === "mainText" && <Text>{children}</Text>}
+      {text === "subText" && <SubText>{children}</SubText>}
+    </TextWrapper>
   );
 };
 
-export const TitleWrapper = styled.div`
-  text-align: center;
-  margin-bottom: 24px;
+const TextWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  & > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
-export const TitleText = styled.p`
-  font-size: ${({ theme }) => theme.fontSize.large};
+const Text = styled.div`
+  font-size: ${({ theme }) => theme.fontSize.title};
   font-weight: ${({ theme }) => theme.fontWeight.medium};
-  text-align: center;
-  line-height: 2rem;
+  line-height: 3rem;
   ${media.mobile} {
     font-size: ${({ theme }) => theme.fontSize.title};
     font-weight: ${({ theme }) => theme.fontWeight.medium};
   }
 `;
 
-export const SubTitleText = styled.p`
+const SubText = styled.div`
   color: ${({ theme }) => theme.colors.sectionDescText};
   font-size: ${({ theme }) => theme.fontSize.smallText};
   font-weight: ${({ theme }) => theme.fontWeight.regular};
-  margin-top: 2rem;
-  line-height: 32px;
+  line-height: 1.8rem;
 `;
 
-export const TitleSplitText = styled.p`
-  margin-top: 1rem;
-  text-align: start;
-`;
 export default Title;

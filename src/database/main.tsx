@@ -10,8 +10,6 @@ export const BANNER_CONTENTS = {
 };
 
 export const FIRST_CONTENTS = {
-  title: "와인으로 쓰는 그날의 일기",
-  subTitle: "와인이 있어 더 특별했던 하루! 내 마음대로 기록하고 공유해 보세요.",
   reviewData: [
     {
       title: "여유로운 주말 한강나들이",

@@ -46,12 +46,12 @@ const Wrapper = styled.div`
   overflow: hidden;
   position: relative;
   z-index: 1;
+  padding-top: 3rem;
 `;
 
 const Banner = styled.div`
   width: 100%;
-  min-height: 74vh;
-
+  min-height: 80vh;
   img {
     width: inherit;
     height: inherit;

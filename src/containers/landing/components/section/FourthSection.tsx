@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { FOURTH_CONTENTS } from "database/main";
 import ReviewCard from "components/common/ReviewCard";
 import Title from "components/common/Title";
+import Spacing from "components/common/Spacing";
 import media from "styles/media";
 
 const FourthSection = () => {
@@ -11,8 +12,12 @@ const FourthSection = () => {
   return (
     <>
       <Wrapper>
-        <div>{title}</div>
-        {/* <Title title={title} split={true} /> */}
+        <Spacing height={40} />
+        <Title text="mainText">
+          <p>마이너리 사용자들의</p>
+          <p>후기를 확인해보세요</p>
+        </Title>
+        <Spacing height={40} />
         <CardWrapper>
           {reviewData.map((review, index) => {
             return <ReviewCard key={index} reviewData={review} />;
@@ -24,7 +29,6 @@ const FourthSection = () => {
 };
 
 const Wrapper = styled.div`
-  margin-top: 12rem;
   width: 100%;
   display: flex;
   flex-direction: column;
