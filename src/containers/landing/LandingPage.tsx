@@ -8,6 +8,7 @@ import ThirdSection from "containers/landing/components/section/ThirdSection";
 import Spacing from "components/common/Spacing";
 import useAOS from "hooks/useAOS";
 
+
 const LandingPage = () => {
   useAOS();
   return (

@@ -20,6 +20,7 @@ const SecondSection = () => {
           AOS_DEFAULT_DURATION + 3 * AOS_BASE_DURATION_DISTANCE
         }
       >
+
         <Title text="mainText">
           <p>어떤 와인을</p>
           <p>찾고 있나요?</p>
