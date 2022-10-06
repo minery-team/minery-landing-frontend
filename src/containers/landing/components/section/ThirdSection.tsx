@@ -6,20 +6,40 @@ import { useMotion } from "hooks/useMotion";
 import { THIRD_CONTENTS } from "database/main";
 import media from "styles/media";
 import Spacing from "components/common/Spacing";
+import {
+  AOS_DEFAULT_DURATION,
+  AOS_BASE_DURATION_DISTANCE,
+} from "constants/aos";
 
 const ThirdSection = () => {
-  const { title, subTitle, imgData } = THIRD_CONTENTS;
+  const { imgData } = THIRD_CONTENTS;
   const { content, currentYOffset, calcValue } = useMotion();
 
   return (
-    <Wrapper ref={content}>
+    <Wrapper
+      ref={content}
+      data-aos="fade-up"
+      data-aos-duration={AOS_DEFAULT_DURATION + 3 * AOS_BASE_DURATION_DISTANCE}
+    >
       <Spacing height={4} />
-      <Title text="mainText">
-        <p>와인을 기록하는 순간,</p>
-        <p>어떤 뱃지를 받게 될까요? </p>
-      </Title>
+      <div
+        data-aos="fade-up"
+        data-aos-duration={
+          AOS_DEFAULT_DURATION + 4 * AOS_BASE_DURATION_DISTANCE
+        }
+      >
+        <Title text="mainText">
+          <p>와인을 기록하는 순간,</p>
+          <p>어떤 뱃지를 받게 될까요? </p>
+        </Title>
+      </div>
       <Spacing height={4} />
-      <ImgWrapper>
+      <ImgWrapper
+        data-aos="fade-up"
+        data-aos-duration={
+          AOS_DEFAULT_DURATION + 3 * AOS_BASE_DURATION_DISTANCE
+        }
+      >
         {imgData.map((item, index) => {
           return (
             <IcoImg
@@ -37,10 +57,17 @@ const ThirdSection = () => {
         })}
       </ImgWrapper>
       <Spacing height={4} />
-      <Title text="subText">
-        <p>차곡차곡 쌓이는 와인일기와 함께</p>
-        <p>마이뱃지를 수집하는 재미도 느껴보세요. </p>
-      </Title>
+      <div
+        data-aos="fade-up"
+        data-aos-duration={
+          AOS_DEFAULT_DURATION + 4 * AOS_BASE_DURATION_DISTANCE
+        }
+      >
+        <Title text="subText">
+          <p>차곡차곡 쌓이는 와인일기와 함께</p>
+          <p>마이뱃지를 수집하는 재미도 느껴보세요. </p>
+        </Title>
+      </div>
     </Wrapper>
   );
 };

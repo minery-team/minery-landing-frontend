@@ -5,12 +5,21 @@ import Title from "components/common/Title";
 import Image from "components/common/Image";
 import media from "styles/media";
 import Spacing from "components/common/Spacing";
+import {
+  AOS_DEFAULT_DURATION,
+  AOS_BASE_DURATION_DISTANCE,
+} from "constants/aos";
 
 const SecondSection = () => {
-  const { title, subTitle, imgs } = SECOND_CONTENTS;
+  const { imgs } = SECOND_CONTENTS;
   return (
     <Wrapper>
-      <TextWrapper>
+      <TextWrapper
+        data-aos="fade-up"
+        data-aos-duration={
+          AOS_DEFAULT_DURATION + 3 * AOS_BASE_DURATION_DISTANCE
+        }
+      >
         <Title text="mainText">
           <p>어떤 와인을</p>
           <p>찾고 있나요?</p>
@@ -23,8 +32,13 @@ const SecondSection = () => {
           <p>와인창고에 담아두는 건 어떤가요?</p>
         </Title>
       </TextWrapper>
-      <Spacing height={40} />
-      <ImgWrapper>
+      <Spacing height={4} />
+      <ImgWrapper
+        data-aos="fade-left"
+        data-aos-duration={
+          AOS_DEFAULT_DURATION + 3 * AOS_BASE_DURATION_DISTANCE
+        }
+      >
         {imgs.map((img, index) => {
           return (
             <span key={index}>

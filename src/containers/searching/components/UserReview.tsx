@@ -5,6 +5,7 @@ import Text from "components/common/Text";
 import { MOCK_REVIEW_LIST } from "constants/mock";
 import UserReviewItem from "./UserReviewItem";
 import Spacing from "components/common/Spacing";
+import { aosDefaultConfig } from "constants/aos";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -12,24 +13,6 @@ import media from "styles/media";
 
 const UserReview = () => {
   const ReviewCount = MOCK_REVIEW_LIST.length;
-
-  const aosDefaultConfig = {
-    disable: false,
-    startEvent: "DOMContentLoaded",
-    initClassName: "aos-init",
-    animatedClassName: "aos-animate",
-    useClassNames: true,
-    disableMutationObserver: true,
-    debounceDelay: 100,
-    throttleDelay: 120,
-    offset: 100,
-    delay: 0,
-    duration: 700,
-    easing: "ease-in-out",
-    once: false,
-    mirror: false,
-  } as const;
-
   const useAOS = () => {
     useEffect(() => {
       AOS.init(aosDefaultConfig);

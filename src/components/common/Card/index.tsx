@@ -2,6 +2,10 @@ import React, { ReactElement } from "react";
 import styled from "styled-components";
 import Image from "components/common/Image";
 import media from "styles/media";
+import {
+  AOS_BASE_DURATION_DISTANCE,
+  AOS_DEFAULT_DURATION,
+} from "constants/aos";
 
 interface CardProps {
   data: {
@@ -10,14 +14,15 @@ interface CardProps {
     date: string;
     image: string;
   };
-  className?: string;
 }
 
-const Card = ({ data, className }: CardProps): ReactElement => {
+const Card = ({ data }: CardProps): ReactElement => {
   const { title, description, date, image } = data;
-
   return (
-    <StyledCard className={className}>
+    <StyledCard
+      data-aos="fade-up"
+      data-aos-duration={AOS_DEFAULT_DURATION + AOS_BASE_DURATION_DISTANCE * 10}
+    >
       <span>
         <Image width={286} height={180} src={image} alt={image} />
       </span>
