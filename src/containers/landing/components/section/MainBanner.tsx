@@ -1,10 +1,10 @@
 import React from "react";
 import Image from "next/image";
 import styled from "styled-components";
-import media from "styles/media";
-import Store from "components/common/Store/Store";
-import { BANNER_CONTENTS } from "database/main";
-import Spacing from "components/common/Spacing";
+import media from "@/styles/media";
+import Store from "@/components/common/Store/Store";
+import { BANNER_CONTENTS } from "@/database/main";
+import Spacing from "@/components/common/Spacing";
 
 const MainBanner = () => {
   const { title, tags } = BANNER_CONTENTS;
@@ -49,7 +49,6 @@ const Wrapper = styled.div`
   position: relative;
   z-index: 1;
   padding-top: 6rem;
-
 `;
 
 const Banner = styled.div`

@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { FOOTER_CONTENTS } from "database/main";
-import Image from "components/common/Image";
-import Store from "components/common/Store/Store";
-import media from "styles/media";
+import { FOOTER_CONTENTS } from "@/database/main";
+import Image from "next/image";
+import Store from "@/components/common/Store/Store";
+import media from "@/styles/media";
 
 const QrSection = () => {
   const { title, subTitle, img } = FOOTER_CONTENTS;
@@ -17,7 +17,7 @@ const QrSection = () => {
             <Store />
           </div>
           <ImgWrapper>
-            <Image src={img} width={220} height={220} alt={img} />
+            <Image src={img} width={220} height={220} alt={subTitle} />
             <SubTitle>{subTitle}</SubTitle>
           </ImgWrapper>
         </Desc>

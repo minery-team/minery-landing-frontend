@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import styled from "styled-components";
-import Text from "components/common/Text";
+import Text from "@/components/common/Text";
 
 const UserReviewItem = ({ review }) => {
   return (

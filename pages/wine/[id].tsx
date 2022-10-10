@@ -1,6 +1,6 @@
 import React from "react";
-import { requestWineItem } from "remotes/requester";
-import DetailPage from "containers/searching/DetailPage";
+import { requestWineItem } from "@/remotes/requester";
+import DetailPage from "@/containers/searching/DetailPage";
 
 const SearchingPage = ({ wineData }) => {
   return <>{wineData && <DetailPage wineDetail={wineData} />}</>;

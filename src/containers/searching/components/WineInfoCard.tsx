@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import styled from "styled-components";
-import Text from "components/common/Text";
-import WinePropertyCard from "containers/searching/components/WinePropertyCard";
-import StarIcon from "components/common/Star";
-import WineInfoTags from "containers/searching/components/WineInfoTags";
-import Spacing from "components/common/Spacing";
+import Text from "@/components/common/Text";
+import WinePropertyCard from "@/containers/searching/components/WinePropertyCard";
+import StarIcon from "@/components/common/Star";
+import WineInfoTags from "@/containers/searching/components/WineInfoTags";
+import Spacing from "@/components/common/Spacing";
 import WineInfoDesc from "./WineInfoDesc";
-import SnackBar from "components/common/SnackBar";
-import useSnackBar from "hooks/useSnackBar";
-import Modal from "components/common/Modal";
-import media from "styles/media";
+import SnackBar from "@/components/common/SnackBar";
+import useSnackBar from "@/hooks/useSnackBar";
+import Modal from "@/components/common/Modal";
+import media from "@/styles/media";
 import ShareIcon from "/public/images/icons/shareIcon.svg";
 import HeartIcon from "/public/images/icons/heart_empty.svg";
 const WineInfoCard = ({ wineDetail }) => {

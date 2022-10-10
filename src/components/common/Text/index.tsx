@@ -1,7 +1,7 @@
 import React from "react";
-import { TextProps } from "constants/text-style";
+import { TextProps } from "@/constants/text-style";
 import styled from "styled-components";
-import media from "styles/media";
+import media from "@/styles/media";
 
 export interface ITextProps
   extends React.HTMLAttributes<HTMLDivElement>,

@@ -1,15 +1,15 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
 import styled from "styled-components";
-import Text from "components/common/Text";
-import { MOCK_REVIEW_LIST } from "constants/mock";
+import Text from "@/components/common/Text";
+import { MOCK_REVIEW_LIST } from "@/constants/mock";
 import UserReviewItem from "./UserReviewItem";
-import Spacing from "components/common/Spacing";
-import { aosDefaultConfig } from "constants/aos";
+import Spacing from "@/components/common/Spacing";
+import { aosDefaultConfig } from "@/constants/aos";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-import media from "styles/media";
+import media from "@/styles/media";
 
 const UserReview = () => {
   const ReviewCount = MOCK_REVIEW_LIST.length;

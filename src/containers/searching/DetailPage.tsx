@@ -1,15 +1,15 @@
 import React from "react";
-import WineInfoCard from "containers/searching/components/WineInfoCard";
+import WineInfoCard from "@/containers/searching/components/WineInfoCard";
 import styled from "styled-components";
 import UserReview from "./components/UserReview";
-import Spacing from "components/common/Spacing";
-import media from "styles/media";
-import { SEO } from "components/common/SEO";
+import Spacing from "@/components/common/Spacing";
+import media from "@/styles/media";
+import { SEO } from "@/components/common/SEO";
 
 const DetailPage = ({ wineDetail }) => {
   return (
     <>
-      <SEO
+      {/* <SEO
         title={wineDetail.name}
         description={wineDetail.enName}
         image={wineDetail.image}
@@ -18,7 +18,7 @@ const DetailPage = ({ wineDetail }) => {
         <WineInfoCard wineDetail={wineDetail} />
         <Spacing height={98} />
         <UserReview />
-      </Container>
+      </Container> */}
     </>
   );
 };

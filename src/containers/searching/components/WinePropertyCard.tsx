@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import Text from "components/common/Text";
-import Spacing from "components/common/Spacing";
-import media from "styles/media";
+import Text from "@/components/common/Text";
+import Spacing from "@/components/common/Spacing";
+import media from "@/styles/media";
 
 const LABEL_BY_LEVEL: Record<number, string> = {
   [1]: "매우낮음",

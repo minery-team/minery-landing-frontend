@@ -1,15 +1,15 @@
 import React from "react";
 import styled from "styled-components";
-import Image from "components/common/Image";
-import Title from "components/common/Title";
-import { useMotion } from "hooks/useMotion";
-import { THIRD_CONTENTS } from "database/main";
-import media from "styles/media";
-import Spacing from "components/common/Spacing";
+import Image from "next/image";
+import Title from "@/components/common/Title";
+import { useMotion } from "@/hooks/useMotion";
+import { THIRD_CONTENTS } from "@/database/main";
+import media from "@/styles/media";
+import Spacing from "@/components/common/Spacing";
 import {
   AOS_DEFAULT_DURATION,
   AOS_BASE_DURATION_DISTANCE,
-} from "constants/aos";
+} from "@/constants/aos";
 
 const ThirdSection = () => {
   const { imgData } = THIRD_CONTENTS;

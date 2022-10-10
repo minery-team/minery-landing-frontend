@@ -1,4 +1,4 @@
-import siteMetadata from "database/sitemap";
+import siteMetadata from "@/database/sitemap";
 import { NextSeo } from "next-seo";
 
 interface SEOProps {

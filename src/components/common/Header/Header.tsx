@@ -11,9 +11,9 @@ const Header = () => {
   return (
     <S.HeaderContainer>
       <S.LogoWrap href="/">
-        <Image src={Logo} draggable="false" />
+        <Image src={Logo} draggable="false" alt="logo" />
         <S.Title>
-          <Image src={MineryLogo} draggable="false" />
+          <Image src={MineryLogo} draggable="false" alt="logo" />
         </S.Title>
       </S.LogoWrap>
       <S.MenuContainer>
@@ -24,7 +24,7 @@ const Header = () => {
           <BsFacebook size={25} />
         </a>
         <a href="https://minery.tistory.com/">
-          <Image src={IcoTistory} draggable="false" />
+          <Image src={IcoTistory} draggable="false" alt="icon" />
         </a>
 
         <a href="https://play.google.com/store/apps/details?id=com.minery.app&hl=ko&gl=US">
