@@ -8,7 +8,6 @@ import Spacing from "@/components/common/Spacing";
 import { aosDefaultConfig } from "@/constants/aos";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
 import media from "@/styles/media";
 
 const UserReview = () => {
@@ -31,7 +30,7 @@ const UserReview = () => {
           {ReviewCount}
         </StyledText>
       </TextWrapper>
-      <Spacing height={48} />
+      <Spacing height={4} />
       {MOCK_REVIEW_LIST.map((review) => (
         <div key={review.id}>{<UserReviewItem review={review} />}</div>
       ))}

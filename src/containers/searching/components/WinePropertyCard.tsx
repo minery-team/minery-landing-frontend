@@ -26,7 +26,7 @@ const PropertyItem = ({ label, status }) => {
       <Text size="sm" color="descText" weight="light">
         {label}
       </Text>
-      <Spacing height={9} />
+      <Spacing height={1} />
       <Text size="lg" color="gray800" weight="medium">
         <span>{status ?? "-"}</span>
       </Text>

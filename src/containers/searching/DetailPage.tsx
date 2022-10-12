@@ -9,16 +9,16 @@ import { SEO } from "@/components/common/SEO";
 const DetailPage = ({ wineDetail }) => {
   return (
     <>
-      {/* <SEO
+      <SEO
         title={wineDetail.name}
         description={wineDetail.enName}
         image={wineDetail.image}
       />
       <Container>
         <WineInfoCard wineDetail={wineDetail} />
-        <Spacing height={98} />
+        <Spacing height={9} />
         <UserReview />
-      </Container> */}
+      </Container>
     </>
   );
 };
