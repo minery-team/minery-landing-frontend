@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-import { SECOND_CONTENTS } from "database/main";
-import Title from "components/common/Title";
-import Image from "components/common/Image";
-import media from "styles/media";
-import Spacing from "components/common/Spacing";
+import { SECOND_CONTENTS } from "@/database/main";
+import Title from "@/components/common/Title";
+import Image from "next/image";
+import media from "@/styles/media";
+import Spacing from "@/components/common/Spacing";
 import {
   AOS_DEFAULT_DURATION,
   AOS_BASE_DURATION_DISTANCE,
-} from "constants/aos";
+} from "@/constants/aos";
 
 const SecondSection = () => {
   const { imgs } = SECOND_CONTENTS;
@@ -20,7 +20,6 @@ const SecondSection = () => {
           AOS_DEFAULT_DURATION + 3 * AOS_BASE_DURATION_DISTANCE
         }
       >
-
         <Title text="mainText">
           <p>어떤 와인을</p>
           <p>찾고 있나요?</p>

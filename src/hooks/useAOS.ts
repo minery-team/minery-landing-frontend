@@ -1,4 +1,4 @@
-import { aosDefaultConfig } from "constants/aos";
+import { aosDefaultConfig } from "@/constants/aos";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";

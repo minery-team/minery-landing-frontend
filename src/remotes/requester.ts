@@ -1,5 +1,5 @@
 import axios from "axios";
-import { API_ENDPOINT } from "utils/constants";
+import { API_ENDPOINT } from "@/utils/constants";
 
 export const requester = axios.create({
   baseURL: API_ENDPOINT,

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Header from "components/common/Header";
-import Footer from "components/common/Footer/Footer";
+import Header from "@/components/common/Header";
+import Footer from "@/components/common/Footer";
 
 const Layout = (props: { children: React.ReactNode }) => {
   return (

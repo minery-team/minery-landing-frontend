@@ -26,10 +26,10 @@ export interface WineWithRatesDTO extends WineDTO {
   rates: string[];
 }
 
-export namespace Wine {
-  export function getImage(data: WineBaseInfo) {
-    return data.image
-      ? { uri: data.image }
-      : require("@assets/images/empty_wine.png");
-  }
-}
+// export namespace Wine {
+//   export function getImage(data: WineBaseInfo) {
+//     return data.image
+//       ? { uri: data.image }
+//       : require("@assets/images/empty_wine.png");
+//   }
+// }

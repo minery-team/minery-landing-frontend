@@ -1,1 +1,1 @@
-export { default } from "containers/landing/LandingPage";
+export { default } from "@/containers/landing/LandingPage";

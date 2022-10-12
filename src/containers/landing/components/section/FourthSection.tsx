@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-import { FOURTH_CONTENTS } from "database/main";
-import ReviewCard from "components/common/ReviewCard";
-import Title from "components/common/Title";
-import Spacing from "components/common/Spacing";
-import media from "styles/media";
+import { FOURTH_CONTENTS } from "@/database/main";
+import ReviewCard from "@/components/common/ReviewCard";
+import Title from "@/components/common/Title";
+import Spacing from "@/components/common/Spacing";
+import media from "@/styles/media";
 import {
   AOS_DEFAULT_DURATION,
   AOS_BASE_DURATION_DISTANCE,
-} from "constants/aos";
+} from "@/constants/aos";
 
 const FourthSection = () => {
   const { reviewData } = FOURTH_CONTENTS;

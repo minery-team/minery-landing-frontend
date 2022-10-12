@@ -1,11 +1,11 @@
 import React, { ReactElement } from "react";
 import styled from "styled-components";
-import Image from "components/common/Image";
-import media from "styles/media";
+import Image from "next/image";
+import media from "@/styles/media";
 import {
   AOS_BASE_DURATION_DISTANCE,
   AOS_DEFAULT_DURATION,
-} from "constants/aos";
+} from "@/constants/aos";
 
 interface CardProps {
   data: {

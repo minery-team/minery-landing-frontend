@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 
 import styled from "styled-components";
-import media from "styles/media";
+import media from "@/styles/media";
 
 interface TextProps {
   children?: ReactNode;

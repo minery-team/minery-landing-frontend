@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import styled from "styled-components";
-import Text from "components/common/Text";
-import WinePropertyCard from "containers/searching/components/WinePropertyCard";
-import StarIcon from "components/common/Star";
-import WineInfoTags from "containers/searching/components/WineInfoTags";
-import Spacing from "components/common/Spacing";
+import Text from "@/components/common/Text";
+import WinePropertyCard from "@/containers/searching/components/WinePropertyCard";
+import StarIcon from "@/components/common/Star";
+import WineInfoTags from "@/containers/searching/components/WineInfoTags";
+import Spacing from "@/components/common/Spacing";
 import WineInfoDesc from "./WineInfoDesc";
-import SnackBar from "components/common/SnackBar";
-import useSnackBar from "hooks/useSnackBar";
-import Modal from "components/common/Modal";
-import media from "styles/media";
+import SnackBar from "@/components/common/SnackBar";
+import useSnackBar from "@/hooks/useSnackBar";
+import Modal from "@/components/common/Modal";
+import media from "@/styles/media";
 import ShareIcon from "/public/images/icons/shareIcon.svg";
 import HeartIcon from "/public/images/icons/heart_empty.svg";
 const WineInfoCard = ({ wineDetail }) => {
@@ -78,16 +78,15 @@ const WineInfoCard = ({ wineDetail }) => {
               <SnackBar text="URL이 클립보드에 복사되었습니다." time={1} />
             )}
           </TagContainer>
-          <Spacing height={28} />
+          <Spacing height={2} />
           <div>
             <Text size="x3l" color="gray900" weight="bold">
               {name}
             </Text>
-            <Spacing height={10} />
+            <Spacing height={1} />
             <Text size="xl" color="gray600" weight="medium">
               {enName}
             </Text>
-            <Spacing height={44} />
           </div>
           {hasRate && (
             <>
@@ -111,11 +110,15 @@ const WineInfoCard = ({ wineDetail }) => {
           <WinePropertyCard wineDetail={wineDetail} />
         </InfoWrapper>
       </CardContainer>
-      <Spacing height={38} />
       <WineInfoDesc maker={maker} country={country} />
       <Modal show={showModal} onClose={() => setShowModal(false)}>
         <DownPopUp>
-          <Image src={"/images/Logo.svg"} width={40} height={40} />
+          <Image
+            src={"/images/Logo.svg"}
+            width={40}
+            height={40}
+            alt="down modal"
+          />
           <p>Minery 앱을 다운로드 해보세요</p>
         </DownPopUp>
       </Modal>
