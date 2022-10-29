@@ -8,7 +8,7 @@ import media from "@/styles/media";
 import {
   AOS_DEFAULT_DURATION,
   AOS_BASE_DURATION_DISTANCE,
-} from "@/constants/aos";
+} from "@/utils/constants/aos";
 
 const FourthSection = () => {
   const { reviewData } = FOURTH_CONTENTS;

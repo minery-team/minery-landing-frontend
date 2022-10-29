@@ -5,7 +5,7 @@ import media from "@/styles/media";
 import {
   AOS_BASE_DURATION_DISTANCE,
   AOS_DEFAULT_DURATION,
-} from "@/constants/aos";
+} from "@/utils/constants/aos";
 
 interface CardProps {
   data: {

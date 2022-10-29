@@ -8,7 +8,7 @@ import Spacing from "@/components/common/Spacing";
 import {
   AOS_DEFAULT_DURATION,
   AOS_BASE_DURATION_DISTANCE,
-} from "@/constants/aos";
+} from "@/utils/constants/aos";
 
 const SecondSection = () => {
   const { imgs } = SECOND_CONTENTS;

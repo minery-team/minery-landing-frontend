@@ -50,12 +50,7 @@ const WineInfoCard = ({ wineDetail }) => {
         <Image src={image} alt={name} width={248} height={360} />
         <InfoWrapper>
           <TagContainer>
-            <WineInfoTags
-              minAlcohol={minAlcohol}
-              maxAlcohol={maxAlcohol}
-              country={country}
-              type={type}
-            />
+            <WineInfoTags country={country} type={type} />
             <div>
               <button onClick={() => linkCopy()}>
                 <Image
