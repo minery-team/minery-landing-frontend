@@ -1,7 +1,7 @@
+import Footer from "@/components/common/Footer";
+import Header from "@/components/common/Header";
 import React from "react";
 import styled from "styled-components";
-import Header from "@/components/common/Header";
-import Footer from "@/components/common/Footer";
 
 const Layout = (props: { children: React.ReactNode }) => {
   return (
@@ -29,6 +29,7 @@ const Container = styled.main`
   z-index: 1;
   overflow: hidden;
   flex: 1;
+  padding-top: 65px;
 `;
 
 export default Layout;

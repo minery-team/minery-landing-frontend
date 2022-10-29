@@ -5,10 +5,11 @@ import UserReview from "./components/UserReview";
 import Spacing from "@/components/common/Spacing";
 import media from "@/styles/media";
 import { SEO } from "@/components/common/SEO";
+import Layout from "@/components/common/Layout";
 
 const DetailPage = ({ wineDetail }) => {
   return (
-    <>
+    <Layout>
       <SEO
         title={wineDetail.name}
         description={wineDetail.enName}
@@ -19,7 +20,7 @@ const DetailPage = ({ wineDetail }) => {
         <Spacing height={9} />
         <UserReview />
       </Container>
-    </>
+    </Layout>
   );
 };
 

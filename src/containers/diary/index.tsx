@@ -5,7 +5,7 @@ export default function DiaryPage() {
 
   return (
     <iframe
-      src={`https://master.dplfe2jat1ig2.amplifyapp.com/diary/${id}`}
+      src={`https://master.dba0gd6jl1sii.amplifyapp.com/diary/${id}`}
       style={{ flex: 1, minHeight: "100vh", width: "100%" }}
     />
   );
