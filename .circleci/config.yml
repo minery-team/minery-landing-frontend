@@ -9,6 +9,11 @@ jobs:
       - image: cimg/node:16.10
     steps:
       - checkout
+      - run:
+          name: setup .npmrc
+          command: |
+            echo "//boxfox.bytesafe.dev/r/boxfox/:_authToken=$NPM_TOKEN" > ~/.npmrc
+            echo "@boxfox:registry=https://boxfox.bytesafe.dev/r/boxfox/" >> ~/.npmrc
       - node/install-packages:
           pkg-manager: yarn
       - run:
@@ -22,6 +27,11 @@ jobs:
       - image: cimg/node:16.10
     steps:
       - checkout
+      - run:
+          name: setup .npmrc
+          command: |
+            echo "//boxfox.bytesafe.dev/r/boxfox/:_authToken=$NPM_TOKEN" > ~/.npmrc
+            echo "@boxfox:registry=https://boxfox.bytesafe.dev/r/boxfox/" >> ~/.npmrc
       - node/install-packages:
           pkg-manager: yarn
       - run:
