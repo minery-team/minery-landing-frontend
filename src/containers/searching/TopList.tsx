@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { useQuery } from "react-query";
 import media from "@/styles/media";
-import { fetchTop10Wines } from "@/remotes/requester";
 import WineItemCard from "./components/WineItemCard";
 import Spacing from "@/components/common/Spacing";
 import Link from "next/link";

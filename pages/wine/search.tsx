@@ -2,7 +2,7 @@ import type { NextPage, GetServerSideProps, GetStaticProps } from "next";
 import styled from "styled-components";
 import media from "@/styles/media";
 import Image from "next/image";
-import { dehydrate, QueryClient } from "react-query";
+
 import ListPage from "@/containers/searching/ListPage";
 import TopList from "@/containers/searching/TopList";
 import Spacing from "@/components/common/Spacing";
@@ -11,7 +11,6 @@ import { API_ENDPOINT } from "@/utils/constants/api";
 
 // @ts-ignore
 const search: NextPage = ({ top10Wine }) => {
-  console.log("##", top10Wine);
   return (
     <Container>
       {/* <ListPage /> */}
@@ -42,14 +41,6 @@ export const getStaticProps: GetStaticProps = async () => {
       top10Wine,
     },
   };
-  // const queryClient = new QueryClient();
-  // await queryClient.prefetchQuery("/wineList", fetchTop10Wines);
-
-  // return {
-  //   props: {
-  //     dehydratedState: dehydrate(queryClient),
-  //   },
-  // };
 };
 
 export const Container = styled.div`

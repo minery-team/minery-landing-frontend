@@ -2,10 +2,9 @@ import SEO from "@/components/common/SEO/SEO";
 import GlobalStyles from "@/styles/GlobalStyles";
 import theme from "@/styles/theme";
 import type { AppProps } from "next/app";
+import { ThemeProvider } from "styled-components";
 import { QueryClientProvider, QueryClient, Hydrate } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
-import { ThemeProvider } from "styled-components";
-import Layout from "@/components/common/Layout/Layout";
 import { useState } from "react";
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -17,9 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <QueryClientProvider client={queryClient}>
           <Hydrate state={pageProps.dehydratedState}>
             <SEO />
-            <Layout>
-              <Component {...pageProps} />
-            </Layout>
+            <Component {...pageProps} />
           </Hydrate>
           <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>

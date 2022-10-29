@@ -10,11 +10,6 @@ const GlobalStyles = createGlobalStyle`
     width:100vw;
     height: 100%;
     }
-    body{
-        padding-top:75px;
-        overflow-x:hidden ;
-    }
-
     * {
     box-sizing: border-box;
     }
