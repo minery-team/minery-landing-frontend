@@ -2,14 +2,10 @@ import Image from "next/image";
 import styled from "styled-components";
 import useInput from "@/hooks/useInput";
 import { useQuery } from "react-query";
-import {
-  fetchTop10Wines,
-  searchWine,
-  useSearchResult,
-} from "@/remotes/requester";
-import WineItemCard from "./components/WineItemCard";
+import { searchWine } from "@/remotes/requester";
 import WineInfoTags from "@/containers/searching/components/WineInfoTags";
 import Spacing from "@/components/common/Spacing";
+import WineItemCard from "./components/WineItemCard";
 import media from "@/styles/media";
 import useAOS from "@/hooks/useAOS";
 import { useEffect, useState, useCallback } from "react";
@@ -18,12 +14,6 @@ const ListPage = () => {
   useAOS();
 
   const [value, onChange] = useInput("");
-
-  // const {
-  //   data: top10wine,
-  //   status,
-  //   refetch,
-  // } = useQuery("/wineList", fetchTop10Wines);
 
   const isEmptyOrNull = (value) =>
     value === null || value.toString().length === 0 || value === undefined;
@@ -101,29 +91,6 @@ const ListPage = () => {
           ))}
         </WineListStyle>
       </div>
-
-      <Spacing height={8} />
-      <div>
-        <Top10Text>
-          <span>마이너리 사용자들의 추천</span>
-          <span>TOP 10</span>
-        </Top10Text>
-        <Spacing height={4} />
-        {/* <ListStyle>
-          {top10wine &&
-            top10wine.map((wine) => <WineItemCard key={wine.id} wine={wine} />)}
-        </ListStyle> */}
-      </div>
-      <Spacing height={8} />
-      <div data-aos="fade-up">
-        <Image
-          src={"/images/downImg.png"}
-          width={1420}
-          height={620}
-          alt="download app"
-        />
-      </div>
-      <Spacing height={8} />
     </Container>
   );
 };
@@ -175,19 +142,6 @@ export const StyledInput = styled.input`
   &::placeholder {
     color: ${({ theme }) => theme.colors.gray700};
   }
-`;
-
-export const Top10Text = styled.div`
-  font-weight: ${({ theme }) => theme.fontWeight.medium};
-  span:nth-child(2) {
-    margin-left: 10px;
-    color: ${({ theme }) => theme.colors.pointRed};
-  }
-`;
-export const ListStyle = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px 10px;
 `;
 
 export default ListPage;
