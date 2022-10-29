@@ -8,7 +8,8 @@ import Button from "@/components/common/Button";
 import Spacing from "@/components/common/Spacing";
 const FirstSection = () => {
   const { reviewData } = FIRST_CONTENTS;
-
+  const instaLink =
+    "https://www.instagram.com/minery_app/?igshid=YmMyMTA2M2Y%3D";
   return (
     <SectionWrapper>
       <DescWrapper>
@@ -29,7 +30,12 @@ const FirstSection = () => {
         </CardList>
       </DescWrapper>
       <Spacing height={2} />
-      <Button width={150} height={40} borderRadius={28}>
+      <Button
+        width={150}
+        height={40}
+        borderRadius={28}
+        onClick={() => window.open(instaLink)}
+      >
         와인일기 구경하기
       </Button>
     </SectionWrapper>
