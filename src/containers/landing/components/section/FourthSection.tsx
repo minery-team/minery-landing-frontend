@@ -6,8 +6,8 @@ import Title from "@/components/common/Title";
 import Spacing from "@/components/common/Spacing";
 import media from "@/styles/media";
 import {
-  AOS_DEFAULT_DURATION,
   AOS_BASE_DURATION_DISTANCE,
+  AOS_DEFAULT_DURATION,
 } from "@/utils/constants/aos";
 
 const FourthSection = () => {
@@ -49,10 +49,10 @@ const Wrapper = styled.div`
 
 const CardWrapper = styled.div`
   display: flex;
-  ${media.mobile} {
-    width: inherit;
-    div:nth-child(1) {
-      display: none;
+  ${media.tabletM} {
+    flex-direction: column;
+    & > * + * {
+      margin-top: 12px;
     }
   }
 `;

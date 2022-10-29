@@ -14,6 +14,7 @@ const GlobalStyles = createGlobalStyle`
         padding-top:75px;
         overflow-x:hidden ;
     }
+
     * {
     box-sizing: border-box;
     }

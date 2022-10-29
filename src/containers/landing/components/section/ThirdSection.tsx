@@ -7,8 +7,8 @@ import { THIRD_CONTENTS } from "@/database/main";
 import media from "@/styles/media";
 import Spacing from "@/components/common/Spacing";
 import {
-  AOS_DEFAULT_DURATION,
   AOS_BASE_DURATION_DISTANCE,
+  AOS_DEFAULT_DURATION,
 } from "@/utils/constants/aos";
 
 const ThirdSection = () => {

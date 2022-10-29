@@ -1,6 +1,6 @@
+import { API_ENDPOINT } from "@/utils/constants/api";
 import axios from "axios";
 import { useQuery } from "react-query";
-import { API_ENDPOINT } from "@/utils/constants/api";
 
 export const requester = axios.create({
   baseURL: API_ENDPOINT,
