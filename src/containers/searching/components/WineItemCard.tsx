@@ -34,7 +34,14 @@ const WineItemCard = ({ wine }) => {
   return (
     <Container>
       <ListStyle>
-        <Image src={data} alt={name} width={140} height={200} />
+        <Image
+          src={data}
+          alt={name}
+          width={140}
+          height={200}
+          placeholder="blur" // 추가
+          blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg==" // 추가
+        />
         <Overlay />
       </ListStyle>
       <Spacing height={0.8} />
