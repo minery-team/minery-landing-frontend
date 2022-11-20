@@ -1,19 +1,20 @@
 import Image from "next/image";
 import styled from "styled-components";
 import useInput from "@/hooks/useInput";
-import { useQuery, useMutation } from "react-query";
+import { useMutation } from "react-query";
 import { searchWine } from "@/remotes/requester";
-import WineInfoTags from "@/containers/searching/components/WineInfoTags";
 import Spacing from "@/components/common/Spacing";
 import WineItemCard from "./components/WineItemCard";
 import media from "@/styles/media";
 import Link from "next/link";
 import useAOS from "@/hooks/useAOS";
+import { useEffect, useState } from "react";
 
 const ListPage = () => {
   useAOS();
 
   const [value, onChange] = useInput("");
+  const [keyword, setKeyword] = useState("");
 
   const isEmptyOrNull = (value) =>
     value === null || value.toString().length === 0 || value === undefined;
@@ -27,28 +28,34 @@ const ListPage = () => {
       searchWine({ keyword: value, page: pageNum })
   );
 
+  useEffect(() => {
+    if (!window.sessionStorage) return;
+    const sessionkeyword = window.sessionStorage.getItem("keyword");
+    const sessionPageNum = window.sessionStorage.getItem("pageNum") ?? 0;
+    if (!sessionkeyword) return;
+    console.log(sessionkeyword);
+    mutate({ keyword: sessionkeyword, pageNum: Number(sessionPageNum) });
+  }, [mutate]);
+
   const doSearch = (e) => {
     e.preventDefault();
     if (!isEmptyOrNull(value)) {
       mutate({ keyword: value as string, pageNum: 0 });
-    } else if (isEmptyOrNull(value)) {
-      alert("검색어를 입력해주세요");
+      setKeyword(value);
+      sessionStorage.setItem("keyword", value);
+    } else {
+      alert("검색어를 입력해주세요.");
     }
   };
 
-  console.log("searchResults", searchResults);
   const pageNum = !searchResults ? 0 : Math.ceil(searchResults.totalCount / 20);
-  console.log("#", Math.ceil(pageNum));
   const pageArr = Array.from({ length: pageNum }, (_, i) => i + 1);
-  console.log("#", pageArr);
 
   const onClickPaging = (e) => {
     console.log("#", e.target.innerText);
     mutate({ keyword: value, pageNum: +e.target.innerText });
+    sessionStorage.setItem("pageNum", e.target.innerText);
   };
-
-  // totalCount, 1 페이지 당 보여줄 와인 수 -> pagination 버튼 렌더링
-  // 렌더링 되면 1, 2, 3 ,... ,100 -> +e.target.innerText. 각 페이지 숫자가 나올테니
 
   return (
     <Container>
@@ -72,19 +79,15 @@ const ListPage = () => {
       <div>
         <Spacing height={3} />
         <div>
-          {status !== "success" ? (
-            <div />
-          ) : (
-            <span>
-              <span>`{value}` </span>의 검색 결과 {searchResults.totalCount}개
-            </span>
+          {status == "success" && (
+            <div>
+              <span>`{keyword}` </span>의 검색 결과 {searchResults.totalCount}개
+            </div>
           )}
-          <div>최신순</div>
         </div>
         <Spacing height={4} />
         <ListStyle>
-          {value !== "" &&
-            status === "success" &&
+          {status === "success" &&
             searchResults.list?.map((wine) => (
               <Link
                 key={wine.id}
