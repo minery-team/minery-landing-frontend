@@ -1,14 +1,14 @@
 import Image from "next/image";
 import styled from "styled-components";
 import useInput from "@/hooks/useInput";
-import { useQuery } from "react-query";
+import { useQuery, useMutation } from "react-query";
 import { searchWine } from "@/remotes/requester";
 import WineInfoTags from "@/containers/searching/components/WineInfoTags";
 import Spacing from "@/components/common/Spacing";
 import WineItemCard from "./components/WineItemCard";
 import media from "@/styles/media";
+import Link from "next/link";
 import useAOS from "@/hooks/useAOS";
-import { useEffect, useState, useCallback } from "react";
 
 const ListPage = () => {
   useAOS();
@@ -18,94 +18,103 @@ const ListPage = () => {
   const isEmptyOrNull = (value) =>
     value === null || value.toString().length === 0 || value === undefined;
 
-  const pageNum = 1;
-
   const {
-    data: wineList,
+    data: searchResults,
+    mutate,
     status,
-    refetch,
-  } = useQuery(
-    "/wineList",
-    () => searchWine({ keyword: value, page: pageNum }),
-    {
-      enabled: false,
-    }
+  } = useMutation(
+    ({ keyword, pageNum }: { keyword: string; pageNum: number }) =>
+      searchWine({ keyword: value, page: pageNum })
   );
 
   const doSearch = (e) => {
     e.preventDefault();
     if (!isEmptyOrNull(value)) {
-      refetch();
+      mutate({ keyword: value as string, pageNum: 0 });
     } else if (isEmptyOrNull(value)) {
       alert("검색어를 입력해주세요");
     }
   };
 
+  console.log("searchResults", searchResults);
+  const pageNum = !searchResults ? 0 : Math.ceil(searchResults.totalCount / 20);
+  console.log("#", Math.ceil(pageNum));
+  const pageArr = Array.from({ length: pageNum }, (_, i) => i + 1);
+  console.log("#", pageArr);
+
+  const onClickPaging = (e) => {
+    console.log("#", e.target.innerText);
+    mutate({ keyword: value, pageNum: +e.target.innerText });
+  };
+
+  // totalCount, 1 페이지 당 보여줄 와인 수 -> pagination 버튼 렌더링
+  // 렌더링 되면 1, 2, 3 ,... ,100 -> +e.target.innerText. 각 페이지 숫자가 나올테니
+
   return (
     <Container>
-      <div>
-        <StyledForm onSubmit={doSearch}>
-          <StyledInput
-            type="text"
-            placeholder="와인을 검색해 보세요"
-            onChange={onChange}
-            value={value}
-            name="value"
+      <StyledForm onSubmit={(e) => doSearch(e)}>
+        <StyledInput
+          type="text"
+          placeholder="와인을 검색해 보세요"
+          onChange={onChange}
+          value={value}
+          name="value"
+        />
+        <button type="submit">
+          <Image
+            src="/images/icons/search_icon.png"
+            alt="search"
+            width={20}
+            height={20}
           />
-          <button type="submit">
-            <Image
-              src="/images/icons/search_icon.png"
-              alt="search"
-              width={20}
-              height={20}
-            />
-          </button>
-        </StyledForm>
-      </div>
+        </button>
+      </StyledForm>
       <div>
         <Spacing height={3} />
         <div>
-          {wineList.list?.length && (
+          {status !== "success" ? (
+            <div />
+          ) : (
             <span>
-              <span>`{value}` </span>의 검색 결과 {wineList.list?.length} 개
+              <span>`{value}` </span>의 검색 결과 {searchResults.totalCount}개
             </span>
           )}
           <div>최신순</div>
         </div>
         <Spacing height={4} />
-        <WineListStyle>
-          {wineList.list?.map((wine) => (
-            <WineCard key={wine.id}>
-              <Image
-                src={wine.image}
-                alt={wine.name}
-                width={104}
-                height={164}
-              />
-              <div>
-                <WineInfoTags country={wine.country} type={wine.type} />
-                <span>{wine.rate}</span>
-              </div>
-              <p>{wine.enName}</p>
-            </WineCard>
-          ))}
-        </WineListStyle>
+        <ListStyle>
+          {value !== "" &&
+            status === "success" &&
+            searchResults.list?.map((wine) => (
+              <Link
+                key={wine.id}
+                href={{
+                  pathname: "/wine/[id]",
+                  query: { id: wine.id },
+                }}
+              >
+                <a>
+                  <WineItemCard wine={wine} />
+                </a>
+              </Link>
+            ))}
+        </ListStyle>
       </div>
+      <button type="button" onClick={(e) => onClickPaging(e)}>
+        {pageArr.map((page, idx) => (
+          <span key={idx}>{page}</span>
+        ))}
+      </button>
     </Container>
   );
 };
 
-const WineListStyle = styled.div`
+const ListStyle = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px 10px;
-`;
-const WineCard = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 14rem;
-  height: 16rem;
+  gap: 2rem 0.5rem;
+  width: 64rem;
+  padding: 1rem;
 `;
 
 const Container = styled.div`

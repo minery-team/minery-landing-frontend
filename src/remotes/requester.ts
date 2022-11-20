@@ -1,7 +1,7 @@
 import { API_ENDPOINT } from "@/utils/constants/api";
 import axios from "axios";
 import { useQuery } from "react-query";
-
+import { WineWithRatesDTO } from "@/types/Wine";
 export const requester = axios.create({
   baseURL: API_ENDPOINT,
 });
@@ -20,8 +20,11 @@ export const searchWine = async (options: {
   keyword?: string;
   page: number;
 }) => {
-  const res = await requester.post(`/wine/search/`, {
-    keyword: options.keyword?.replace(/[^a-zA-Z0-9ㄱ-ㅎ가-핳]/gi, ""),
+  const res = await requester.post<{
+    totalCount: number;
+    list: WineWithRatesDTO[];
+  }>(`/wine/search/`, {
+    keyword: options.keyword,
     page: options.page,
   });
   return res.data;

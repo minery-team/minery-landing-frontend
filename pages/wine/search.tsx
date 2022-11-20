@@ -8,24 +8,27 @@ import TopList from "@/containers/searching/TopList";
 import Spacing from "@/components/common/Spacing";
 import { fetchTop10Wines } from "@/remotes/requester";
 import { API_ENDPOINT } from "@/utils/constants/api";
+import Layout from "@/components/common/Layout";
 
 // @ts-ignore
 const search: NextPage = ({ top10Wine }) => {
   return (
-    <Container>
-      {/* <ListPage /> */}
-      <TopList top10Wine={top10Wine} />
-      <Spacing height={8} />
-      <div data-aos="fade-up">
-        <Image
-          src={"/images/downImg.png"}
-          width={1420}
-          height={620}
-          alt="download app"
-        />
-      </div>
-      <Spacing height={8} />
-    </Container>
+    <Layout>
+      <Container>
+        <ListPage />
+        <TopList top10Wine={top10Wine} />
+        <Spacing height={8} />
+        <div data-aos="fade-up">
+          <Image
+            src={"/images/downImg.png"}
+            width={1420}
+            height={620}
+            alt="download app"
+          />
+        </div>
+        <Spacing height={8} />
+      </Container>
+    </Layout>
   );
 };
 

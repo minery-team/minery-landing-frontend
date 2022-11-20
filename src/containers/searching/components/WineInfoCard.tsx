@@ -13,6 +13,11 @@ import Modal from "@/components/common/Modal";
 import media from "@/styles/media";
 import ShareIcon from "/public/images/icons/shareIcon.svg";
 import HeartIcon from "/public/images/icons/heart_empty.svg";
+import { useQuery } from "react-query";
+import { requester } from "@/remotes/requester";
+
+export const WINE_EMPTY_IMAGE = "/images/empty_wine.png";
+
 const WineInfoCard = ({ wineDetail }) => {
   const {
     name,
@@ -25,6 +30,21 @@ const WineInfoCard = ({ wineDetail }) => {
     maxAlcohol,
     maker,
   } = wineDetail;
+
+  const { data } = useQuery(["wineDetail", name], () => {
+    const res = requester
+      .get<string>("/image/bypass", {
+        params: { original: image },
+      })
+      .then((res) => {
+        if (res.data.includes("err_img")) {
+          return WINE_EMPTY_IMAGE;
+        } else {
+          return image;
+        }
+      });
+    return res;
+  });
 
   const hasRate = rate.length > 0;
   const { isShowing, setIsShowing } = useSnackBar(1);
@@ -44,10 +64,12 @@ const WineInfoCard = ({ wineDetail }) => {
 
   const [showModal, setShowModal] = useState(false);
 
+  if (!data) return <div>Loading</div>;
+
   return (
     <Container>
       <CardContainer>
-        <Image src={image} alt={name} width={248} height={360} />
+        <Image src={data} alt={name} width={220} height={320} />
         <InfoWrapper>
           <TagContainer>
             <WineInfoTags country={country} type={type} />
@@ -168,6 +190,7 @@ const InfoWrapper = styled.div`
   min-width: 40vw;
   ${media.mobile} {
     padding: 1rem 0.5rem;
+    width: -webkit-fill-available;
     margin-top: 24px;
     min-height: auto;
   }

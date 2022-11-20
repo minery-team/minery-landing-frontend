@@ -59,7 +59,7 @@ const ListStyle = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem 0.5rem;
-  width: inherit;
+  width: 64rem;
   padding: 1rem;
 `;
 const Top10Text = styled.div`
