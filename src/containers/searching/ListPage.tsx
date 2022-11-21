@@ -1,71 +1,65 @@
 import Image from "next/image";
 import styled from "styled-components";
-import useInput from "@/hooks/useInput";
-import { useMutation } from "react-query";
+import { useQuery } from "react-query";
 import { searchWine } from "@/remotes/requester";
 import Spacing from "@/components/common/Spacing";
 import WineItemCard from "./components/WineItemCard";
 import media from "@/styles/media";
 import Link from "next/link";
 import useAOS from "@/hooks/useAOS";
-import { useEffect, useState } from "react";
+import { useMemo, useState } from "react";
+import { useForm } from "react-hook-form";
+import { useRouter } from "next/router";
+
+// TODO :: 페이지네이션
+interface FormProps {
+  keyword: string;
+}
 
 const ListPage = () => {
   useAOS();
 
-  const [value, onChange] = useInput("");
-  const [keyword, setKeyword] = useState("");
+  const formMethods = useForm<FormProps>({
+    defaultValues: {
+      keyword: "",
+    },
+  });
+  const { register, getValues, handleSubmit } = formMethods;
+  const [page, setPage] = useState(0);
 
-  const isEmptyOrNull = (value) =>
-    value === null || value.toString().length === 0 || value === undefined;
+  const router = useRouter();
+  const { query } = router;
 
-  const {
-    data: searchResults,
-    mutate,
-    status,
-  } = useMutation(
-    ({ keyword, pageNum }: { keyword: string; pageNum: number }) =>
-      searchWine({ keyword: value, page: pageNum })
-  );
-
-  useEffect(() => {
-    if (!window.sessionStorage) return;
-    const sessionkeyword = window.sessionStorage.getItem("keyword");
-    const sessionPageNum = window.sessionStorage.getItem("pageNum") ?? 0;
-    if (!sessionkeyword) return;
-    console.log(sessionkeyword);
-    mutate({ keyword: sessionkeyword, pageNum: Number(sessionPageNum) });
-  }, [mutate]);
-
-  const doSearch = (e) => {
-    e.preventDefault();
-    if (!isEmptyOrNull(value)) {
-      mutate({ keyword: value as string, pageNum: 0 });
-      setKeyword(value);
-      sessionStorage.setItem("keyword", value);
-    } else {
-      alert("검색어를 입력해주세요.");
+  const { data } = useQuery(
+    ["searchResults", query.keyword, page],
+    () => searchWine({ keyword: query.keyword as string, page }),
+    {
+      enabled: !!query.keyword,
     }
-  };
+  );
+  const totalResults = useMemo(() => data?.totalCount ?? 0, [data]);
 
-  const pageNum = !searchResults ? 0 : Math.ceil(searchResults.totalCount / 20);
-  const pageArr = Array.from({ length: pageNum }, (_, i) => i + 1);
+  console.log(query.keyword, getValues("keyword"), data);
 
-  const onClickPaging = (e) => {
-    console.log("#", e.target.innerText);
-    mutate({ keyword: value, pageNum: +e.target.innerText });
-    sessionStorage.setItem("pageNum", e.target.innerText);
+  const onSubmit = () => {
+    if (getValues("keyword") === "") return;
+
+    router.push({
+      pathname: "/wine/search",
+      query: {
+        keyword: getValues("keyword"),
+      },
+    });
   };
 
   return (
     <Container>
-      <StyledForm onSubmit={(e) => doSearch(e)}>
+      <StyledForm onSubmit={handleSubmit(onSubmit)}>
         <StyledInput
           type="text"
-          placeholder="와인을 검색해 보세요"
-          onChange={onChange}
-          value={value}
           name="value"
+          placeholder="와인을 검색해 보세요"
+          {...register("keyword")}
         />
         <button type="submit">
           <Image
@@ -79,16 +73,16 @@ const ListPage = () => {
       <div>
         <Spacing height={3} />
         <div>
-          {status == "success" && (
+          {!!data && (
             <div>
-              <span>`{keyword}` </span>의 검색 결과 {searchResults.totalCount}개
+              <span>`{query.keyword}` </span>의 검색 결과 {totalResults}개
             </div>
           )}
         </div>
         <Spacing height={4} />
         <ListStyle>
-          {status === "success" &&
-            searchResults.list?.map((wine) => (
+          {!!data &&
+            data.list.map((wine) => (
               <Link
                 key={wine.id}
                 href={{
@@ -103,11 +97,13 @@ const ListPage = () => {
             ))}
         </ListStyle>
       </div>
-      <button type="button" onClick={(e) => onClickPaging(e)}>
-        {pageArr.map((page, idx) => (
-          <span key={idx}>{page}</span>
-        ))}
-      </button>
+      <div>
+        {/* {hasNextPage && (
+          <button type="button" onClick={() => fetchNextPage()}>
+            더보기
+          </button>
+        )} */}
+      </div>
     </Container>
   );
 };
@@ -138,10 +134,12 @@ const Container = styled.div`
     max-width: 26rem;
   }
 `;
-export const StyledForm = styled.form`
+
+const StyledForm = styled.form`
   display: flex;
   align-items: center;
 `;
+
 export const StyledInput = styled.input`
   width: 38rem;
   height: 3rem;
