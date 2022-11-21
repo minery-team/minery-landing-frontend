@@ -39,8 +39,6 @@ const ListPage = () => {
   );
   const totalResults = useMemo(() => data?.totalCount ?? 0, [data]);
 
-  console.log(query.keyword, getValues("keyword"), data);
-
   const onSubmit = () => {
     if (getValues("keyword") === "") return;
 
