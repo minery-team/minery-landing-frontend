@@ -20,6 +20,7 @@ export const StyledText = styled.div<TextProps>`
     theme.fontWeight[weight] || theme.fontWeight.regular};
   line-height: ${({ lineHeight }) => lineHeight};
   min-width: fit-content;
+
   ${media.tabletL} {
     font-size: ${({ theme, size }) =>
       theme.fontSize[size] || theme.fontSize.xl};

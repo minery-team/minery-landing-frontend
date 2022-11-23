@@ -59,25 +59,24 @@ const ListPage = () => {
           placeholder="와인을 검색해 보세요"
           {...register("keyword")}
         />
-        <button type="submit">
+        <StyledSearchButton type="submit">
           <Image
             src="/images/icons/search_icon.png"
             alt="search"
             width={20}
             height={20}
           />
-        </button>
+        </StyledSearchButton>
       </StyledForm>
       <div>
         <Spacing height={3} />
-        <div>
-          {!!data && (
-            <div>
-              <span>`{query.keyword}` </span>의 검색 결과 {totalResults}개
-            </div>
-          )}
-        </div>
-        <Spacing height={4} />
+
+        {!!data && (
+          <StyledResult>
+            <span>`{query.keyword}` </span>의 검색 결과 {totalResults}개
+          </StyledResult>
+        )}
+        <Spacing height={1} />
         <ListStyle>
           {!!data &&
             data.list.map((wine) => (
@@ -109,9 +108,14 @@ const ListPage = () => {
 const ListStyle = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2rem 0.5rem;
-  width: 64rem;
+  gap: 2rem;
+  width: inherit;
   padding: 1rem;
+
+  ${media.mobile} {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
 `;
 
 const Container = styled.div`
@@ -136,20 +140,34 @@ const Container = styled.div`
 const StyledForm = styled.form`
   display: flex;
   align-items: center;
+  position: relative;
 `;
 
-export const StyledInput = styled.input`
-  width: 38rem;
+const StyledResult = styled.div`
+  padding: 1rem;
+  span {
+    font-weight: 700;
+  }
+`;
+const StyledInput = styled.input`
+  width: 48rem;
   height: 3rem;
   border: 1px solid ${({ theme }) => theme.colors.gray600};
   border-radius: 24px;
   outline: none;
   font-size: ${({ theme }) => theme.fontSize.base};
-  padding: 5.5px 12px 5.5px 10px;
+  padding: 5.5px 12px 5.5px 20px;
   background-color: ${({ theme }) => theme.colors.gray100};
   &::placeholder {
     color: ${({ theme }) => theme.colors.gray700};
   }
+  ${media.mobile} {
+    width: 80vw;
+  }
+`;
+const StyledSearchButton = styled.button`
+  position: absolute;
+  right: 1.4rem;
 `;
 
 export default ListPage;
