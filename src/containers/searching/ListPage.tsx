@@ -7,9 +7,17 @@ import WineItemCard from "./components/WineItemCard";
 import media from "@/styles/media";
 import Link from "next/link";
 import useAOS from "@/hooks/useAOS";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
+import {
+  HiChevronDoubleLeft,
+  HiChevronDoubleRight,
+  HiChevronLeft,
+  HiChevronRight,
+} from "react-icons/hi";
+import Pagination from "react-js-pagination";
+import { useParams } from "react-router-dom";
 
 // TODO :: 페이지네이션
 interface FormProps {
@@ -25,31 +33,60 @@ const ListPage = () => {
     },
   });
   const { register, getValues, handleSubmit } = formMethods;
-  const [page, setPage] = useState(0);
+  const [wineKeyword, setWineKeyword] = useState("");
+  const [page, setPage] = useState(1);
 
   const router = useRouter();
   const { query } = router;
 
   const { data } = useQuery(
-    ["searchResults", query.keyword, page],
-    () => searchWine({ keyword: query.keyword as string, page }),
+    ["searchResults", query, page],
+    () =>
+      searchWine({
+        keyword: (query.keyword as string) ?? wineKeyword,
+        page: +query.page ?? page,
+      }),
     {
       enabled: !!query.keyword,
     }
   );
+
+  console.log("data", data);
   const totalResults = useMemo(() => data?.totalCount ?? 0, [data]);
 
   const onSubmit = () => {
     if (getValues("keyword") === "") return;
+    setWineKeyword(getValues("keyword"));
 
     router.push({
       pathname: "/wine/search",
       query: {
         keyword: getValues("keyword"),
+        page,
       },
     });
   };
 
+  const queryPage = query.page;
+
+  useEffect(() => {
+    if (!queryPage) {
+      setPage(1);
+    }
+    setPage(+queryPage);
+    setWineKeyword(query.keyword as string);
+  }, [queryPage, page, wineKeyword]);
+
+  const handlePageChange = (page) => {
+    setPage(page);
+    router.push({
+      pathname: "/wine/search",
+      query: {
+        keyword: wineKeyword,
+        page,
+      },
+    });
+  };
   return (
     <Container>
       <StyledForm onSubmit={handleSubmit(onSubmit)}>
@@ -84,7 +121,11 @@ const ListPage = () => {
                 key={wine.id}
                 href={{
                   pathname: "/wine/[id]",
-                  query: { id: wine.id },
+                  query: {
+                    id: wine.id,
+                    keyword: query.keyword,
+                    page: query.page,
+                  },
                 }}
               >
                 <a>
@@ -94,13 +135,16 @@ const ListPage = () => {
             ))}
         </ListStyle>
       </div>
-      <div>
-        {/* {hasNextPage && (
-          <button type="button" onClick={() => fetchNextPage()}>
-            더보기
-          </button>
-        )} */}
-      </div>
+
+      <Pagination
+        activePage={page}
+        itemsCountPerPage={20}
+        totalItemsCount={totalResults}
+        pageRangeDisplayed={10}
+        prevPageText={"<"}
+        nextPageText={">"}
+        onChange={handlePageChange}
+      />
     </Container>
   );
 };
