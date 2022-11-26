@@ -33,7 +33,6 @@ const ListPage = () => {
     },
   });
   const { register, getValues, handleSubmit } = formMethods;
-  const [wineKeyword, setWineKeyword] = useState("");
   const [page, setPage] = useState(1);
 
   const router = useRouter();
@@ -43,7 +42,8 @@ const ListPage = () => {
     ["searchResults", query, page],
     () =>
       searchWine({
-        keyword: (query.keyword as string) ?? wineKeyword,
+        // keyword: (query.keyword as string) ?? wineKeyword,
+        keyword: getValues("keyword"),
         page: +query.page ?? page,
       }),
     {
@@ -56,33 +56,32 @@ const ListPage = () => {
 
   const onSubmit = () => {
     if (getValues("keyword") === "") return;
-    setWineKeyword(getValues("keyword"));
+    // setWineKeyword(getValues("keyword"));
 
     router.push({
       pathname: "/wine/search",
       query: {
         keyword: getValues("keyword"),
-        page,
+        page: 1,
       },
     });
   };
 
-  const queryPage = query.page;
-
   useEffect(() => {
-    if (!queryPage) {
-      setPage(1);
-    }
-    setPage(+queryPage);
-    setWineKeyword(query.keyword as string);
-  }, [queryPage, page, wineKeyword]);
+    if (!query.page) setPage(1);
+    if (!!query.keyword)
+      formMethods.setValue("keyword", query.keyword as string);
+
+    setPage(+query.page);
+    // setWineKeyword(query.keyword as string);
+  }, [query, formMethods]);
 
   const handlePageChange = (page) => {
     setPage(page);
     router.push({
       pathname: "/wine/search",
       query: {
-        keyword: wineKeyword,
+        keyword: getValues("keyword"),
         page,
       },
     });
