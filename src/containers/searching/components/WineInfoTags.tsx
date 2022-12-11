@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { FLAG_BY_COUNTRY } from "@/types/Country";
 import { NAME_BY_WINE_TYPE } from "@/types/WineType";
 import Text from "@/components/common/Text";
+import media from "@/styles/media";
 
 const WineInfoTags = ({ country, type }) => {
   return (
@@ -22,6 +23,9 @@ const Wrapper = styled.div`
 
 const StyledText = styled(Text)`
   margin-left: 0.5rem;
+  ${media.mobile} {
+    font-size: 0.8rem;
+  }
 `;
 
 export default WineInfoTags;

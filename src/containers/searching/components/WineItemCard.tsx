@@ -1,4 +1,5 @@
 import Image from "next/image";
+import media from "@/styles/media";
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import Spacing from "@/components/common/Spacing";
@@ -39,6 +40,7 @@ const WineItemCard = ({ wine }) => {
           alt={name}
           width={140}
           height={200}
+          objectFit="contain"
           placeholder="blur" // 추가
           blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg==" // 추가
         />
@@ -56,7 +58,7 @@ const WineItemCard = ({ wine }) => {
             </Text>
           </Rating>
         </Info>
-        <Spacing height={0.2} />
+        <Spacing height={0.5} />
         <Text size="base" weight="medium">
           {enName}
         </Text>
@@ -72,25 +74,40 @@ const Container = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
+  ${media.mobile} {
+    width: 40vw;
+    height: 32vh;
+    overflow: hidden;
+  }
 `;
 
 const ListStyle = styled.div`
   display: flex;
   width: inherit;
-  height: auto;
+  height: 20vh;
   flex-direction: column;
   margin-top: 0.2rem;
   align-items: center;
   margin-left: -20px;
+  ${media.mobile} {
+    height: 16vh;
+  }
 `;
 
 const Desc = styled.div`
   display: flex;
   flex-direction: column;
   padding: -0.5rem;
+  align-items: start;
+  ${media.mobile} {
+    width: 100%;
+    padding: 0.2rem;
+    margin-top: 0.3rem;
+  }
 `;
 
 const Info = styled.div`
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -105,6 +122,9 @@ const Rating = styled.div`
   }
   div:nth-child(2) {
     margin-left: 4px;
+  }
+  ${media.mobile} {
+    display: none;
   }
 `;
 const Overlay = styled.div`

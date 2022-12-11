@@ -1,99 +1,121 @@
 import Image from "next/image";
 import styled from "styled-components";
-import useInput from "@/hooks/useInput";
-import { useMutation } from "react-query";
+import { useQuery } from "react-query";
 import { searchWine } from "@/remotes/requester";
 import Spacing from "@/components/common/Spacing";
 import WineItemCard from "./components/WineItemCard";
 import media from "@/styles/media";
 import Link from "next/link";
 import useAOS from "@/hooks/useAOS";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { useForm } from "react-hook-form";
+import { useRouter } from "next/router";
+
+import Pagination from "react-js-pagination";
+import { useParams } from "react-router-dom";
+
+// TODO :: 페이지네이션
+interface FormProps {
+  keyword: string;
+}
 
 const ListPage = () => {
   useAOS();
 
-  const [value, onChange] = useInput("");
-  const [keyword, setKeyword] = useState("");
+  const formMethods = useForm<FormProps>({
+    defaultValues: {
+      keyword: "",
+    },
+  });
+  const { register, getValues, setValue, handleSubmit } = formMethods;
+  const [page, setPage] = useState(1);
 
-  const isEmptyOrNull = (value) =>
-    value === null || value.toString().length === 0 || value === undefined;
+  const router = useRouter();
+  const { query } = router;
 
-  const {
-    data: searchResults,
-    mutate,
-    status,
-  } = useMutation(
-    ({ keyword, pageNum }: { keyword: string; pageNum: number }) =>
-      searchWine({ keyword: value, page: pageNum })
+  const { data } = useQuery(
+    ["searchResults", query, page],
+    () =>
+      searchWine({
+        keyword: getValues("keyword"),
+        page: +query.page ?? page,
+      }),
+    {
+      enabled: !!query.keyword,
+    }
   );
 
+  console.log("data", data);
+  const totalResults = useMemo(() => data?.totalCount ?? 0, [data]);
+
+  const onSubmit = () => {
+    if (getValues("keyword") === "") return;
+
+    router.push({
+      pathname: "/wine/search",
+      query: {
+        keyword: getValues("keyword"),
+        page: 1,
+      },
+    });
+  };
+
   useEffect(() => {
-    if (!window.sessionStorage) return;
-    const sessionkeyword = window.sessionStorage.getItem("keyword");
-    const sessionPageNum = window.sessionStorage.getItem("pageNum") ?? 0;
-    if (!sessionkeyword) return;
-    console.log(sessionkeyword);
-    mutate({ keyword: sessionkeyword, pageNum: Number(sessionPageNum) });
-  }, [mutate]);
+    if (!query.page) setPage(1);
+    if (!!query.keyword) setValue("keyword", query.keyword as string);
 
-  const doSearch = (e) => {
-    e.preventDefault();
-    if (!isEmptyOrNull(value)) {
-      mutate({ keyword: value as string, pageNum: 0 });
-      setKeyword(value);
-      sessionStorage.setItem("keyword", value);
-    } else {
-      alert("검색어를 입력해주세요.");
-    }
+    setPage(+query.page);
+  }, [query, setValue]);
+
+  const handlePageChange = (page: number) => {
+    setPage(page);
+    router.push({
+      pathname: "/wine/search",
+      query: {
+        keyword: getValues("keyword"),
+        page,
+      },
+    });
   };
-
-  const pageNum = !searchResults ? 0 : Math.ceil(searchResults.totalCount / 20);
-  const pageArr = Array.from({ length: pageNum }, (_, i) => i + 1);
-
-  const onClickPaging = (e) => {
-    console.log("#", e.target.innerText);
-    mutate({ keyword: value, pageNum: +e.target.innerText });
-    sessionStorage.setItem("pageNum", e.target.innerText);
-  };
-
   return (
     <Container>
-      <StyledForm onSubmit={(e) => doSearch(e)}>
+      <StyledForm onSubmit={handleSubmit(onSubmit)}>
         <StyledInput
           type="text"
-          placeholder="와인을 검색해 보세요"
-          onChange={onChange}
-          value={value}
           name="value"
+          placeholder="와인을 검색해 보세요"
+          {...register("keyword")}
         />
-        <button type="submit">
+        <StyledSearchButton type="submit">
           <Image
             src="/images/icons/search_icon.png"
             alt="search"
             width={20}
             height={20}
           />
-        </button>
+        </StyledSearchButton>
       </StyledForm>
       <div>
         <Spacing height={3} />
-        <div>
-          {status == "success" && (
-            <div>
-              <span>`{keyword}` </span>의 검색 결과 {searchResults.totalCount}개
-            </div>
-          )}
-        </div>
-        <Spacing height={4} />
+
+        {!!data && (
+          <StyledResult>
+            <span>`{query.keyword}` </span>의 검색 결과 {totalResults}개
+          </StyledResult>
+        )}
+        <Spacing height={1} />
         <ListStyle>
-          {status === "success" &&
-            searchResults.list?.map((wine) => (
+          {!!data &&
+            data.list.map((wine) => (
               <Link
                 key={wine.id}
                 href={{
                   pathname: "/wine/[id]",
-                  query: { id: wine.id },
+                  query: {
+                    id: wine.id,
+                    keyword: query.keyword,
+                    page: query.page,
+                  },
                 }}
               >
                 <a>
@@ -103,11 +125,17 @@ const ListPage = () => {
             ))}
         </ListStyle>
       </div>
-      <button type="button" onClick={(e) => onClickPaging(e)}>
-        {pageArr.map((page, idx) => (
-          <span key={idx}>{page}</span>
-        ))}
-      </button>
+      {data && (
+        <Pagination
+          activePage={page}
+          itemsCountPerPage={20}
+          totalItemsCount={totalResults}
+          pageRangeDisplayed={10}
+          prevPageText={"<"}
+          nextPageText={">"}
+          onChange={handlePageChange}
+        />
+      )}
     </Container>
   );
 };
@@ -115,9 +143,18 @@ const ListPage = () => {
 const ListStyle = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2rem 0.5rem;
-  width: 64rem;
+  gap: 2rem;
+  width: inherit;
   padding: 1rem;
+
+  ${media.tabletL} {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.2rem;
+  }
+  ${media.mobile} {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
 `;
 
 const Container = styled.div`
@@ -138,22 +175,38 @@ const Container = styled.div`
     max-width: 26rem;
   }
 `;
-export const StyledForm = styled.form`
+
+const StyledForm = styled.form`
   display: flex;
   align-items: center;
+  position: relative;
 `;
-export const StyledInput = styled.input`
-  width: 38rem;
+
+const StyledResult = styled.div`
+  padding: 1rem;
+  span {
+    font-weight: 700;
+  }
+`;
+const StyledInput = styled.input`
+  width: 48rem;
   height: 3rem;
   border: 1px solid ${({ theme }) => theme.colors.gray600};
   border-radius: 24px;
   outline: none;
   font-size: ${({ theme }) => theme.fontSize.base};
-  padding: 5.5px 12px 5.5px 10px;
+  padding: 5.5px 12px 5.5px 20px;
   background-color: ${({ theme }) => theme.colors.gray100};
   &::placeholder {
     color: ${({ theme }) => theme.colors.gray700};
   }
+  ${media.mobile} {
+    width: 80vw;
+  }
+`;
+const StyledSearchButton = styled.button`
+  position: absolute;
+  right: 1.4rem;
 `;
 
 export default ListPage;
