@@ -37,11 +37,12 @@ const TopList = ({ top10Wine }) => {
 
 const Container = styled.div`
   padding: 0.4rem 0;
-  margin: 0.1rem auto;
+
   max-width: 72rem;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
+
   ${media.tabletS} {
     max-width: 57.6rem;
   }
@@ -54,6 +55,11 @@ const ListStyle = styled.div`
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
   width: inherit;
+
+  ${media.tabletL} {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.2rem;
+  }
   ${media.mobile} {
     grid-template-columns: 1fr 1fr;
     gap: 1.2rem;

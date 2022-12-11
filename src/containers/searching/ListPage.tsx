@@ -10,12 +10,7 @@ import useAOS from "@/hooks/useAOS";
 import { useEffect, useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
-import {
-  HiChevronDoubleLeft,
-  HiChevronDoubleRight,
-  HiChevronLeft,
-  HiChevronRight,
-} from "react-icons/hi";
+
 import Pagination from "react-js-pagination";
 import { useParams } from "react-router-dom";
 
@@ -32,7 +27,7 @@ const ListPage = () => {
       keyword: "",
     },
   });
-  const { register, getValues, handleSubmit } = formMethods;
+  const { register, getValues, setValue, handleSubmit } = formMethods;
   const [page, setPage] = useState(1);
 
   const router = useRouter();
@@ -42,7 +37,6 @@ const ListPage = () => {
     ["searchResults", query, page],
     () =>
       searchWine({
-        // keyword: (query.keyword as string) ?? wineKeyword,
         keyword: getValues("keyword"),
         page: +query.page ?? page,
       }),
@@ -56,7 +50,6 @@ const ListPage = () => {
 
   const onSubmit = () => {
     if (getValues("keyword") === "") return;
-    // setWineKeyword(getValues("keyword"));
 
     router.push({
       pathname: "/wine/search",
@@ -69,14 +62,12 @@ const ListPage = () => {
 
   useEffect(() => {
     if (!query.page) setPage(1);
-    if (!!query.keyword)
-      formMethods.setValue("keyword", query.keyword as string);
+    if (!!query.keyword) setValue("keyword", query.keyword as string);
 
     setPage(+query.page);
-    // setWineKeyword(query.keyword as string);
-  }, [query, formMethods]);
+  }, [query, setValue]);
 
-  const handlePageChange = (page) => {
+  const handlePageChange = (page: number) => {
     setPage(page);
     router.push({
       pathname: "/wine/search",
@@ -134,16 +125,17 @@ const ListPage = () => {
             ))}
         </ListStyle>
       </div>
-
-      <Pagination
-        activePage={page}
-        itemsCountPerPage={20}
-        totalItemsCount={totalResults}
-        pageRangeDisplayed={10}
-        prevPageText={"<"}
-        nextPageText={">"}
-        onChange={handlePageChange}
-      />
+      {data && (
+        <Pagination
+          activePage={page}
+          itemsCountPerPage={20}
+          totalItemsCount={totalResults}
+          pageRangeDisplayed={10}
+          prevPageText={"<"}
+          nextPageText={">"}
+          onChange={handlePageChange}
+        />
+      )}
     </Container>
   );
 };
@@ -155,6 +147,10 @@ const ListStyle = styled.div`
   width: inherit;
   padding: 1rem;
 
+  ${media.tabletL} {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.2rem;
+  }
   ${media.mobile} {
     grid-template-columns: 1fr 1fr;
     gap: 1.2rem;

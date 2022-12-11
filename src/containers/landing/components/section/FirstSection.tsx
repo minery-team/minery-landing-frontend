@@ -44,6 +44,7 @@ const FirstSection = () => {
 
 const StyledTitle = styled(Title)`
   border: 2px solid red;
+  font-size: 50px;
   ${media.mobile} {
   }
 `;
