@@ -9,7 +9,8 @@ import {
   AOS_BASE_DURATION_DISTANCE,
   AOS_DEFAULT_DURATION,
 } from "@/utils/constants/aos";
-
+import Button from "@/components/common/Button";
+import Link from "next/link";
 const SecondSection = () => {
   const { imgs } = SECOND_CONTENTS;
   return (
@@ -31,7 +32,12 @@ const SecondSection = () => {
           <p>좋아하는 와인을 찾아 나만의</p>
           <p>와인창고에 담아두는 건 어떤가요?</p>
         </Title>
+        <Spacing height={2} />
+        <Link href="/wine/search">
+          <StyledLink>와인 검색하기</StyledLink>
+        </Link>
       </TextWrapper>
+
       <Spacing height={4} />
       <ImgWrapper
         data-aos="fade-left"
@@ -47,9 +53,48 @@ const SecondSection = () => {
           );
         })}
       </ImgWrapper>
+      <Spacing height={2} />
+
+      <Link href="/wine/search">
+        <StyledLinkMb>와인 검색하기</StyledLinkMb>
+      </Link>
     </Wrapper>
   );
 };
+
+const StyledLinkMb = styled.a`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: small;
+  border: 1px solid ${({ theme }) => theme.colors.pointRed};
+  font-weight: ${({ theme }) => theme.fontWeight.medium};
+  color: ${({ theme }) => theme.colors.pointRed};
+  width: 130px;
+  height: 40px;
+  border-radius: 24px;
+  display: none;
+  ${media.mobile} {
+    display: flex;
+  }
+`;
+const StyledLink = styled.a`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: small;
+  border: 1px solid ${({ theme }) => theme.colors.pointRed};
+  font-weight: ${({ theme }) => theme.fontWeight.medium};
+  color: ${({ theme }) => theme.colors.pointRed};
+  width: 120px;
+  height: 40px;
+  border-radius: 24px;
+  ${media.mobile} {
+    display: none;
+  }
+`;
 
 const Wrapper = styled.div`
   width: 100%;
