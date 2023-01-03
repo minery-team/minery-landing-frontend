@@ -22,7 +22,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const top10WineIds: ISitemapField[] = top10Wines.map(({ _id }) => ({
     loc: `${baseUrl}/wine/${_id}`,
     changefreq: "daily",
-    prioirty: 1.0,
+    priority: 1.0,
   }));
 
   return getServerSideSitemap(ctx, [...defaultFields, ...top10WineIds]);
