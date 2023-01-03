@@ -36,7 +36,12 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="ko">
-        <Head>{/** 폰트 넣는 곳! */}</Head>
+        <Head>
+          <meta
+            name="google-site-verification"
+            content="gPAcM1S89sqw5snlbENi_uZ9gtAcbin_VVMUHpcPv3I"
+          />
+        </Head>
         <body>
           <div id="modal" />
           <Main />
