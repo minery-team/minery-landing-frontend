@@ -97,7 +97,8 @@ const StyledLink = styled.a`
 `;
 
 const Wrapper = styled.div`
-  width: 100%;
+  width: 60%;
+  gap: 20px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
