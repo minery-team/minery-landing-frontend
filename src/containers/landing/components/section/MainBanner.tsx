@@ -68,6 +68,8 @@ const SearchBtn = styled.div`
   a {
     color: ${({ theme }) => theme.colors.gray600};
   }
+  ${media.mobile} {
+  }
 `;
 const Wrapper = styled.div`
   width: 100%;
@@ -163,9 +165,12 @@ const Phoneimg = styled.div`
 `;
 const TagWarpper = styled.div`
   margin: 0 256px;
-
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   ${media.mobile} {
     margin: 0;
+    align-items: center;
   }
 `;
 const DescWrapper = styled.div`

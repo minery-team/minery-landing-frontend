@@ -48,11 +48,12 @@ const Container = styled.div`
   align-items: center;
   width: 300px;
   height: 50px;
-  background-color: #161515f0;
+  background-color: ${({ theme }) => theme.colors.pointRed};
   border-radius: 8px;
   color: white;
-  font-size: 1.2rem;
-  font-weight: 300;
+  opacity: 80%;
+  font-size: 1rem;
+  font-weight: 400;
   z-index: 100;
   animation-name: ${moving};
   animation-duration: 3s;

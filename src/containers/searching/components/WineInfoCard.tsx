@@ -97,7 +97,7 @@ const WineInfoCard = ({ wineDetail }) => {
               <SnackBar text="URL이 클립보드에 복사되었습니다." time={1} />
             )}
           </TagContainer>
-          <Spacing height={2} />
+
           <div>
             <Text size="x3l" color="gray900" weight="bold">
               {name}
@@ -238,8 +238,9 @@ const InfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
   min-width: 40vw;
+  gap: 20px;
   ${media.mobile} {
-    padding: 1rem 0.5rem;
+    padding: 0;
     width: -webkit-fill-available;
     margin-top: 24px;
     min-height: auto;
