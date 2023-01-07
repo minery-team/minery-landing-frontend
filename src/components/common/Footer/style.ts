@@ -4,7 +4,7 @@ import media from "@/styles/media";
 export const Wrapper = styled.footer`
   width: 100%;
   height: 180px;
-  background-color: ${({ theme }) => theme.colors.black};
+  background-color: ${({ theme }) => theme.colors.gray900};
   position: relative;
   display: flex;
   align-items: center;

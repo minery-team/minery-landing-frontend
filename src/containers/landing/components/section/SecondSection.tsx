@@ -85,9 +85,10 @@ const StyledLink = styled.a`
   align-items: center;
   cursor: pointer;
   font-size: small;
-  border: 1px solid ${({ theme }) => theme.colors.pointRed};
+  background-color: ${({ theme }) => theme.colors.pointRed};
+
   font-weight: ${({ theme }) => theme.fontWeight.medium};
-  color: ${({ theme }) => theme.colors.pointRed};
+  color: ${({ theme }) => theme.colors.white};
   width: 120px;
   height: 40px;
   border-radius: 24px;
