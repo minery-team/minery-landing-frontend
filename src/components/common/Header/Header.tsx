@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+
 import * as S from "./style";
 import { FaInstagram } from "react-icons/fa";
 import { BsFacebook } from "react-icons/bs";

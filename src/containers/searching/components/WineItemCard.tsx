@@ -50,33 +50,48 @@ const WineItemCard = ({ wine }) => {
       <Desc>
         <Info>
           <WineInfoTags country={country} type={type} />
-          <Rating>
-            <StarIcon key={id} path={1} />
-            <Spacing height={2.4} />
-            <Text size="xxs" color="descText" weight="medium">
-              {rate.toFixed(1)}
-            </Text>
-          </Rating>
+          {rate > 0 && (
+            <Rating>
+              <StarIcon key={id} path={1} />
+              <Spacing height={2.4} />
+              <Text size="xxs" color="descText" weight="medium">
+                {rate.toFixed(1)}
+              </Text>
+            </Rating>
+          )}
         </Info>
         <Spacing height={0.5} />
-        <Text size="base" weight="medium">
-          {enName}
-        </Text>
+        <EnName>{enName}</EnName>
       </Desc>
     </Container>
   );
 };
 
+const EnName = styled.div`
+  height: 50px;
+  font-size: ${({ theme }) => theme.fontSize.base};
+  font-weight: ${({ theme }) => theme.fontWeight.medium};
+  width: 100%;
+  display: block;
+  text-overflow: ellipsis;
+
+  ${media.mobile} {
+    font-weight: ${({ theme }) => theme.fontWeight.medium};
+    font-size: ${({ theme }) => theme.fontSize.xxs};
+    word-break: keep-all;
+  }
+`;
+
 const Container = styled.div`
   width: 220px;
-  height: 340px;
+  height: 336px;
   padding: 1rem;
   position: relative;
   display: flex;
   flex-direction: column;
   ${media.mobile} {
     width: 40vw;
-    height: 32vh;
+    height: 30vh;
     overflow: hidden;
   }
 `;
@@ -97,7 +112,7 @@ const ListStyle = styled.div`
 const Desc = styled.div`
   display: flex;
   flex-direction: column;
-  padding: -0.5rem;
+  padding: 0.5rem;
   align-items: start;
   ${media.mobile} {
     width: 100%;

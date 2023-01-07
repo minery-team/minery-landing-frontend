@@ -20,6 +20,7 @@ export const StyledText = styled.div<TextProps>`
     theme.fontWeight[weight] || theme.fontWeight.regular};
   line-height: ${({ lineHeight }) => lineHeight};
   min-width: fit-content;
+  overflow: hidden;
 
   ${media.tabletL} {
     font-size: ${({ theme, size }) =>
@@ -29,7 +30,7 @@ export const StyledText = styled.div<TextProps>`
     font-size: ${({ theme }) => theme.fontSize.sm};
   }
   ${media.mobile} {
-    font-size: ${({ theme }) => theme.fontSize.base};
+    font-size: ${({ theme }) => theme.fontSize.sm};
   }
 `;
 

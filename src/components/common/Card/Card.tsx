@@ -39,7 +39,7 @@ const Card = ({ data }: CardProps): ReactElement => {
 const StyledCard = styled.div`
   display: flex;
   flex-direction: column;
-  width: 286px;
+  width: 246px;
   height: 372px;
   border-radius: 12px;
   margin: 20px 18px;

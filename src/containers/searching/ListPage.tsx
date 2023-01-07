@@ -14,7 +14,6 @@ import { useRouter } from "next/router";
 import Pagination from "react-js-pagination";
 import { useParams } from "react-router-dom";
 
-// TODO :: 페이지네이션
 interface FormProps {
   keyword: string;
 }
@@ -45,7 +44,6 @@ const ListPage = () => {
     }
   );
 
-  console.log("data", data);
   const totalResults = useMemo(() => data?.totalCount ?? 0, [data]);
 
   const onSubmit = () => {
@@ -125,20 +123,29 @@ const ListPage = () => {
             ))}
         </ListStyle>
       </div>
-      {data && (
-        <Pagination
-          activePage={page}
-          itemsCountPerPage={20}
-          totalItemsCount={totalResults}
-          pageRangeDisplayed={10}
-          prevPageText={"<"}
-          nextPageText={">"}
-          onChange={handlePageChange}
-        />
+      {!!data && !!data.list && data.list.length !== 0 && (
+        <PaginationWrapper>
+          <Pagination
+            activePage={page}
+            itemsCountPerPage={20}
+            totalItemsCount={totalResults}
+            pageRangeDisplayed={10}
+            prevPageText={"<"}
+            nextPageText={">"}
+            onChange={handlePageChange}
+          />
+        </PaginationWrapper>
       )}
     </Container>
   );
 };
+
+const PaginationWrapper = styled.div`
+  width: 22rem;
+  ${media.mobile} {
+    width: 18rem;
+  }
+`;
 
 const ListStyle = styled.div`
   display: grid;

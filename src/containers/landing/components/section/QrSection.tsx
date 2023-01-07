@@ -32,7 +32,6 @@ const Wrapper = styled.div`
 const Bg = styled.div`
   margin-top: 8rem;
   width: 100%;
-  height: 36rem;
   position: relative;
   display: flex;
   justify-content: center;
@@ -46,10 +45,9 @@ const BgImg = styled.img`
   background-color: #fff1f1;
 `;
 const Title = styled.div`
-  font-size: ${({ theme }) => theme.fontSize.large};
+  font-size: ${({ theme }) => theme.fontSize.logo};
   font-weight: ${({ theme }) => theme.fontWeight.medium};
-  line-height: 3.3rem;
-  margin-right: 4rem;
+  line-height: 2.7rem;
 `;
 const SubTitle = styled.p`
   margin-top: 1rem;

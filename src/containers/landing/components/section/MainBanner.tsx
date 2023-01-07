@@ -5,6 +5,8 @@ import media from "@/styles/media";
 import Store from "@/components/common/Store/Store";
 import { BANNER_CONTENTS } from "@/database/main";
 import Spacing from "@/components/common/Spacing";
+import Link from "next/link";
+import { FiSearch } from "react-icons/fi";
 
 const MainBanner = () => {
   const { title, tags } = BANNER_CONTENTS;
@@ -23,6 +25,12 @@ const MainBanner = () => {
             </Tag>
             <Spacing height={2} />
             <BannerHeading>{title}</BannerHeading>
+            <SearchBtn>
+              <Link href={"/wine/search"}>
+                <a>와인 검색하기</a>
+              </Link>
+              <FiSearch size={20} />
+            </SearchBtn>
             <Store />
           </TagWarpper>
           <Phoneimg>
@@ -43,6 +51,24 @@ const MainBanner = () => {
   );
 };
 
+const SearchBtn = styled.div`
+  background-color: white;
+
+  width: 230px;
+  height: 38px;
+  border-radius: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 1rem;
+  &:hover {
+    opacity: 80%;
+  }
+  cursor: pointer;
+  a {
+    color: ${({ theme }) => theme.colors.gray600};
+  }
+`;
 const Wrapper = styled.div`
   width: 100%;
   overflow: hidden;
@@ -53,14 +79,14 @@ const Wrapper = styled.div`
 
 const Banner = styled.div`
   width: 100%;
-  min-height: 60vh;
+  min-height: 50vh;
   img {
     width: inherit;
     height: inherit;
     object-fit: cover;
     object-position: center;
   }
-  ${media.tabletL} {
+  /* ${media.tabletL} {
     min-height: 50vh;
   }
   ${media.tabletM} {
@@ -68,7 +94,7 @@ const Banner = styled.div`
   }
   ${media.tabletS} {
     min-height: 65vh;
-  }
+  } */
   ${media.mobile} {
     min-height: 70vh;
   }
@@ -115,6 +141,8 @@ const BannerHeading = styled.span`
 
 const Phoneimg = styled.div`
   margin-top: 80px;
+  position: relative;
+  right: 9rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -130,6 +158,7 @@ const Phoneimg = styled.div`
     height: 334px;
     margin: 0 20px;
     z-index: -1;
+    right: 0;
   }
 `;
 const TagWarpper = styled.div`

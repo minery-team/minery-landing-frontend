@@ -17,7 +17,7 @@ const SnackBar = ({ text, time }: SnackBarProps) => {
     }
   }, []);
 
-  if (!target) return;
+  if (!target) return <></>;
 
   return ReactDOM.createPortal(ele, target);
 };

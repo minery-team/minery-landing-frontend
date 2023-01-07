@@ -28,6 +28,23 @@ export const HeaderContainer = styled.header`
   }
 `;
 
+export const SearchBtn = styled.a`
+  width: 200px;
+  border: 1px solid ${({ theme }) => theme.colors.gray800};
+  border-radius: 5rem;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  margin-left: 30px;
+  span {
+    margin-left: 20px;
+    color: ${({ theme }) => theme.colors.gray500};
+    font-size: ${({ theme }) => theme.fontSize.sm};
+    font-weight: ${({ theme }) => theme.fontWeight.regular};
+  }
+`;
+
 export const Menu = styled.div``;
 
 export const LogoWrap = styled.a`

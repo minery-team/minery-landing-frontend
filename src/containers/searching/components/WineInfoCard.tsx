@@ -16,6 +16,8 @@ import HeartIcon from "/public/images/icons/heart_empty.svg";
 import { useQuery } from "react-query";
 import { requester } from "@/remotes/requester";
 
+import { IoMdClose } from "react-icons/io";
+
 export const WINE_EMPTY_IMAGE = "/images/empty_wine.png";
 
 const WineInfoCard = ({ wineDetail }) => {
@@ -130,29 +132,77 @@ const WineInfoCard = ({ wineDetail }) => {
       <WineInfoDesc maker={maker} country={country} />
       <Modal show={showModal} onClose={() => setShowModal(false)}>
         <DownPopUp>
-          <Image
-            src={"/images/Logo.svg"}
-            width={40}
-            height={40}
-            alt="down modal"
-          />
-          <p>Minery 앱을 다운로드 해보세요</p>
+          <BtnWrapper>
+            <button onClick={() => setShowModal(false)}>
+              <IoMdClose size="20" />
+            </button>
+          </BtnWrapper>
+          <Wrapper>
+            <Image
+              src={"/images/bgLogo.svg"}
+              width={60}
+              height={60}
+              alt="down modal"
+            />
+            <p>Minery 앱을 다운로드 해보세요</p>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.minery.app"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <StyledLink>다운로드</StyledLink>
+            </a>
+          </Wrapper>
         </DownPopUp>
       </Modal>
     </Container>
   );
 };
 
+const BtnWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  padding: 0.5rem 0.5rem 0 0;
+`;
+const StyledLink = styled.a`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: small;
+  font-weight: ${({ theme }) => theme.fontWeight.medium};
+  color: white;
+  width: 120px;
+  height: 40px;
+  border-radius: 24px;
+  background-color: ${({ theme }) => theme.colors.pointRed};
+`;
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 24px;
+  align-items: center;
+  justify-content: flex-start;
+`;
+
 const DownPopUp = styled.div`
   width: 320px;
   height: 240px;
   display: flex;
+
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   border-radius: 8px;
-  background-color: #161515f0;
+  background-color: white;
   color: white;
-  border: 1px solid black;
+  font-weight: 500;
+
+  p {
+    color: black;
+  }
 `;
 const Container = styled.div`
   min-height: 70vh;

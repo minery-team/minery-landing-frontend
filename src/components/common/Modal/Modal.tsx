@@ -14,23 +14,33 @@ const Modal = ({ show, onClose, children }: ModalProps) => {
     e.preventDefault();
     onClose();
   };
-  const modalContent = show ? (
-    <StyledModal onClick={handleCloseClick}>{children}</StyledModal>
-  ) : null;
+  const modalContent = show && (
+    <BackDrop>
+      <StyledModal>{children}</StyledModal>
+    </BackDrop>
+  );
   useEffect(() => {
     if (document) {
       setTarget(document.querySelector("#modal"));
     }
   }, []);
 
-  if (!target) return;
+  if (!target) return <></>;
 
   return ReactDOM.createPortal(modalContent, target);
 };
 
+const BackDrop = styled.div`
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.3);
+`;
+
 const StyledModal = styled.div`
-  border: 1px solid blue;
-  z-index: 1;
+  z-index: 50;
   position: fixed;
   top: 0;
   left: 0;
@@ -42,6 +52,10 @@ const StyledModal = styled.div`
   width: 100%;
   height: 100%;
   padding: 0 2rem;
+  animation-duration: 0.25s;
+  animation-timing-function: ease-out;
+  animation-name: fadeIn;
+  animation-fill-mode: forwards;
 `;
 
 export default Modal;
