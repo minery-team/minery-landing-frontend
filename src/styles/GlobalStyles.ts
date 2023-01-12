@@ -9,6 +9,7 @@ const GlobalStyles = createGlobalStyle`
     #root {
     width:100vw;
     height: 100%;
+    font-family: 'NanumSquare', serif, sans-serif, monospace;
     }
     * {
     box-sizing: border-box;
