@@ -41,6 +41,11 @@ export default class MyDocument extends Document {
             name="google-site-verification"
             content="gPAcM1S89sqw5snlbENi_uZ9gtAcbin_VVMUHpcPv3I"
           />
+          <link
+            href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css"
+            rel="stylesheet"
+            type="text/css"
+          />
         </Head>
         <body>
           <div id="modal" />
