@@ -10,14 +10,19 @@ const QrSection = () => {
   return (
     <Wrapper>
       <Bg>
-        <BgImg src="/images/section/section5Bg.png" />
+        <BgImg
+          layout="fill"
+          objectFit="cover"
+          src="/images/section/section5Bg.png"
+          alt="배경화면"
+        />
         <Desc>
-          <div>
+          <TitleWrapper>
             <Title>{title}</Title>
             <Store />
-          </div>
+          </TitleWrapper>
           <ImgWrapper>
-            <Image src={img} width={220} height={220} alt={subTitle} />
+            <Image src={img} width={310} height={310} alt={subTitle} />
             <SubTitle>{subTitle}</SubTitle>
           </ImgWrapper>
         </Desc>
@@ -29,48 +34,52 @@ const QrSection = () => {
 const Wrapper = styled.div`
   width: 100%;
 `;
+
 const Bg = styled.div`
-  margin-top: 8rem;
-  width: 100%;
   position: relative;
   display: flex;
   justify-content: center;
-  ${media.mobile} {
+  width: 100%;
+  height: 600px;
+  margin-top: 164px;
+  ${media.tablet} {
     display: none;
   }
 `;
-const BgImg = styled.img`
-  width: inherit;
-  object-fit: fill;
+const BgImg = styled(Image)`
   background-color: #fff1f1;
 `;
-const Title = styled.div`
-  font-size: ${({ theme }) => theme.fontSize.logo};
-  font-weight: ${({ theme }) => theme.fontWeight.medium};
-  line-height: 2.7rem;
-`;
-const SubTitle = styled.p`
-  margin-top: 1rem;
-  font-size: ${({ theme }) => theme.fontSize.xsmallText};
-  font-weight: ${({ theme }) => theme.fontWeight.regular};
-`;
-const ImgWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  img {
-    object-fit: contain;
-  }
-`;
+
 const Desc = styled.div`
   position: absolute;
   top: 120px;
   display: flex;
-  width: 80%;
+  width: 1200px;
+  justify-content: space-between;
   align-items: center;
-  justify-content: space-evenly;
-  img {
-    background-color: none;
-  }
 `;
+
+const TitleWrapper = styled.div`
+  align-self: flex-start;
+`;
+
+const Title = styled.div`
+  font-size: 44px;
+  font-weight: ${({ theme }) => theme.fontWeight.medium};
+  line-height: 64px;
+  margin-bottom: 54px;
+`;
+
+const ImgWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`;
+
+const SubTitle = styled.p`
+  margin-top: 1rem;
+  font-size: ${({ theme }) => theme.fontSize.mmallText};
+  font-weight: ${({ theme }) => theme.fontWeight.regular};
+`;
+
 export default QrSection;
