@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
 import media from "@/styles/media";
+import SNSMenu from "../SNSMenu";
 
 const Footer = () => {
   return (
