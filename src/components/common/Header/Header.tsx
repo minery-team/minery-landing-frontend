@@ -4,8 +4,8 @@ import Image from "next/image";
 import * as S from "./style";
 import Logo from "/public/images/Logo.svg";
 import MineryLogo from "/public/images/Minery.svg";
-import SNSMenu from "../SNSMenu";
 import Link from "next/link";
+import SNSMenu from "../SNSMenu";
 
 const Header = () => {
   return (
