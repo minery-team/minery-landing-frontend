@@ -5,8 +5,6 @@ import media from "@/styles/media";
 import Store from "@/components/common/Store/Store";
 import { BANNER_CONTENTS } from "@/database/main";
 import Spacing from "@/components/common/Spacing";
-import Link from "next/link";
-import { FiSearch } from "react-icons/fi";
 
 const MainBanner = () => {
   const { title, tags } = BANNER_CONTENTS;
@@ -25,12 +23,6 @@ const MainBanner = () => {
             </Tag>
             <Spacing height={2} />
             <BannerHeading>{title}</BannerHeading>
-            <SearchBtn>
-              <Link href={"/wine/search"}>
-                <a>와인 검색하기</a>
-              </Link>
-              <FiSearch size={20} />
-            </SearchBtn>
             <Store />
           </TagWarpper>
           <Phoneimg>
@@ -51,26 +43,6 @@ const MainBanner = () => {
   );
 };
 
-const SearchBtn = styled.div`
-  background-color: white;
-
-  width: 230px;
-  height: 38px;
-  border-radius: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  margin-top: 1rem;
-  &:hover {
-    opacity: 80%;
-  }
-  cursor: pointer;
-  a {
-    color: ${({ theme }) => theme.colors.gray600};
-  }
-  ${media.mobile} {
-  }
-`;
 const Wrapper = styled.div`
   width: 100%;
   overflow: hidden;
