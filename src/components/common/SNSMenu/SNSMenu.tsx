@@ -88,7 +88,7 @@ const SNSContainer = styled.div<{ isHeader?: boolean }>`
   }
 
   ${media.tabletS} {
-    display: none;
+    display: ${({ isHeader }) => (isHeader ? "none" : "flex")};
   }
 `;
 
