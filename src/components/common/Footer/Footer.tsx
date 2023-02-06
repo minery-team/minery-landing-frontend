@@ -1,12 +1,10 @@
 import React from "react";
 import Image from "next/image";
 
-import IcoTistory from "../../../../public/images/tistoryW.svg";
-import faceBookw from "../../../../public/images/faceBookW.svg";
-import instaW from "../../../../public/images/instaW.svg";
 import Link from "next/link";
 import styled from "styled-components";
 import media from "@/styles/media";
+import SNSMenu from "../SNSMenu";
 
 const Footer = () => {
   return (
@@ -31,41 +29,7 @@ const Footer = () => {
           </Link>
         </FooterDesc>
 
-        <SNSContainer>
-          <Link href="https://www.instagram.com/minery_app/?igshid=YmMyMTA2M2Y%3D">
-            <a>
-              <Image
-                src={instaW}
-                draggable="false"
-                alt="인스타 링크"
-                layout="fill"
-                objectFit="contain"
-              />
-            </a>
-          </Link>
-          <Link href="https://www.facebook.com/minery.wine">
-            <a>
-              <Image
-                src={faceBookw}
-                draggable="false"
-                alt="페이스북 링크"
-                layout="fill"
-                objectFit="contain"
-              />
-            </a>
-          </Link>
-          <Link href="https://minery.tistory.com/">
-            <a>
-              <Image
-                src={IcoTistory}
-                draggable="false"
-                alt="티스토리 링크"
-                layout="fill"
-                objectFit="contain"
-              />
-            </a>
-          </Link>
-        </SNSContainer>
+        <SNSMenu />
       </InfoContainer>
     </Wrapper>
   );
@@ -150,22 +114,6 @@ const Info = styled.a`
 
   ${media.tablet} {
     font-size: 12px;
-  }
-`;
-
-const SNSContainer = styled.div`
-  display: flex;
-  a {
-    position: relative;
-    display: block;
-    width: 40px;
-    height: 40px;
-    margin-right: 30px;
-
-    ${media.tablet} {
-      width: 26px;
-      height: 26px;
-    }
   }
 `;
 

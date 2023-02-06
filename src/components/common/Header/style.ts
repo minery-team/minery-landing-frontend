@@ -73,7 +73,7 @@ export const MenuContainer = styled.ul`
 export const BtnWrap = styled.div`
   width: 120px;
 `;
-export const DownBtn = styled.div`
+export const DownBtn = styled.a`
   display: none;
   width: 120px;
   padding: 10px;
@@ -84,7 +84,7 @@ export const DownBtn = styled.div`
   text-align: center;
   cursor: pointer;
   margin-top: 10px;
-  ${media.mobile} {
+  ${media.tabletS} {
     display: block;
   }
 `;
