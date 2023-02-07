@@ -7,13 +7,17 @@ import ListPage from "@/containers/searching/ListPage";
 import TopList from "@/containers/searching/TopList";
 import Spacing from "@/components/common/Spacing";
 import { fetchTop10Wines } from "@/remotes/requester";
+import { WineWithRatesDTO } from "@/types/Wine";
 
-// @ts-ignore
-const SearchPage: NextPage = ({ top10Wine }) => {
+interface Props {
+  top10Wines: WineWithRatesDTO[];
+}
+
+const SearchPage: NextPage = ({ top10Wines }: Props) => {
   return (
     <Container>
       <ListPage />
-      <TopList top10Wine={top10Wine} />
+      <TopList top10Wines={top10Wines} />
       <Spacing height={8} />
       <div data-aos="fade-up">
         <Image
@@ -29,15 +33,15 @@ const SearchPage: NextPage = ({ top10Wine }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const top10Wine = await fetchTop10Wines();
-  if (!top10Wine) {
+  const top10Wines = await fetchTop10Wines();
+  if (!top10Wines) {
     return {
       notFound: true,
     };
   }
   return {
     props: {
-      top10Wine,
+      top10Wines,
     },
   };
 };

@@ -9,7 +9,7 @@ requester.defaults.withCredentials = true;
 
 //와인 top 10 조회
 export const fetchTop10Wines = async () => {
-  const res = await requester.get("/wine/top10");
+  const res = await requester.get<WineWithRatesDTO[]>("/wine/top10");
   return res.data;
 };
 

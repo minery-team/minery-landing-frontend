@@ -4,8 +4,13 @@ import media from "@/styles/media";
 import WineItemCard from "./components/WineItemCard";
 import Spacing from "@/components/common/Spacing";
 import Link from "next/link";
+import { WineWithRatesDTO } from "@/types/Wine";
 
-const TopList = ({ top10Wine }) => {
+interface Props {
+  top10Wines: WineWithRatesDTO[];
+}
+
+const TopList = ({ top10Wines }: Props) => {
   return (
     <Container>
       <Top10Text>
@@ -15,7 +20,7 @@ const TopList = ({ top10Wine }) => {
 
       <Spacing height={2} />
       <ListStyle>
-        {top10Wine.map((wine) => {
+        {top10Wines.map((wine) => {
           return (
             <Link
               key={wine.id}
