@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { SECOND_CONTENTS } from "@/database/main";
-import Title from "@/components/common/Title";
 import Image from "next/image";
 import media from "@/styles/media";
 import Spacing from "@/components/common/Spacing";
@@ -9,8 +8,9 @@ import {
   AOS_BASE_DURATION_DISTANCE,
   AOS_DEFAULT_DURATION,
 } from "@/utils/constants/aos";
-import Button from "@/components/common/Button";
 import Link from "next/link";
+import { Title } from "@/components/common/Title";
+
 const SecondSection = () => {
   const { imgs } = SECOND_CONTENTS;
   return (

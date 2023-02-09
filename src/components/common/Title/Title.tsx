@@ -33,22 +33,6 @@ const TextWrapper = styled.div`
   }
 `;
 
-//아래  TextDirectionFunc 를 사용해서
-// direction에 따라서 flex direction 조건부 스타일 처리를 해주고 싶은데... 잘 안되네요 아이디어 주실분..?
-const TextDirectionFunc = (direction: string) => {
-  if (direction === "column") {
-    return `
-      flex-direction: column;
-      align-items: center;
-    `;
-  } else {
-    return `
-      flex-direction: row;
-      align-items: center;
-    `;
-  }
-};
-
 const MainTextCol = styled.div`
   display: flex;
   flex-direction: column;
