@@ -1,13 +1,15 @@
-import Footer from "@/components/common/Footer";
-import Header from "@/components/common/Header";
-import React from "react";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import React, { PropsWithChildren } from "react";
 import styled from "styled-components";
 
-const Layout = (props: { children: React.ReactNode }) => {
+interface Props extends PropsWithChildren {}
+
+const Layout = ({ children }: Props) => {
   return (
     <Wrapper>
       <Header />
-      <Container>{props.children}</Container>
+      <Container>{children}</Container>
       <Footer />
     </Wrapper>
   );

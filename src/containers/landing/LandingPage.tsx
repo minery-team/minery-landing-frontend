@@ -7,12 +7,11 @@ import SecondSection from "@/containers/landing/components/section/SecondSection
 import ThirdSection from "@/containers/landing/components/section/ThirdSection";
 import Spacing from "@/components/common/Spacing";
 import useAOS from "@/hooks/useAOS";
-import Layout from "@/components/common/Layout";
 
 const LandingPage = () => {
   useAOS();
   return (
-    <Layout>
+    <>
       <MainBanner />
       <Spacing height={3} />
       <FirstSection />
@@ -24,7 +23,7 @@ const LandingPage = () => {
       <FourthSection />
       <Spacing height={3} />
       <QrSection />
-    </Layout>
+    </>
   );
 };
 
