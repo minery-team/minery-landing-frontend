@@ -42,7 +42,7 @@ const SearchLink = styled.a`
 
   color: #aaaaaa;
 
-  ${media.tabletS} {
+  ${media.mobile} {
     display: none;
   }
 `;
