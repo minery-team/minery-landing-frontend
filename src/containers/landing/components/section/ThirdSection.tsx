@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
-import Title from "@/components/common/Title";
 import { useMotion } from "@/hooks/useMotion";
 import { THIRD_CONTENTS } from "@/database/main";
 import media from "@/styles/media";
@@ -10,6 +9,7 @@ import {
   AOS_BASE_DURATION_DISTANCE,
   AOS_DEFAULT_DURATION,
 } from "@/utils/constants/aos";
+import { Title } from "@/components/common/Title";
 
 const ThirdSection = () => {
   const { imgData } = THIRD_CONTENTS;
