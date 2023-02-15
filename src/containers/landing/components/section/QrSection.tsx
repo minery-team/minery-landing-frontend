@@ -41,7 +41,7 @@ const Bg = styled.div`
   justify-content: center;
   width: 100%;
   height: 600px;
-  margin-top: 164px;
+
   ${media.tablet} {
     display: none;
   }
