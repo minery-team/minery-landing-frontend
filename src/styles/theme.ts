@@ -16,7 +16,7 @@ export const colors = {
   gray50: "#f9fafb",
   gray100: "#f2f4f6",
   gray200: "#e5e8eb",
-  gray300: "#d1d6db",
+  gray300: "#dddddd",
   gray400: "#b0b8c1",
   gray500: "#8b95a1",
   gray600: "#6b7684",
@@ -26,14 +26,18 @@ export const colors = {
 };
 
 export const fontSize = {
+  bannerTitle: "60px",
+  title: "50px",
   large: "34px",
   logo: "30px",
-  title: "28px",
   text: "24px",
+  subText: "22px",
+  lmallText: "20px",
   mmallText: "18px",
   smallText: "16px",
   xsmallText: "14px",
   xxsmallText: "10px",
+  xxxsmallText: "7px",
   xxs: "13px",
   xs: "14px",
   sm: "15px",
