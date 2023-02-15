@@ -14,7 +14,6 @@ const Header = () => {
           <TitleLogo />
           <WineSearchLink />
         </LeftContainer>
-
         <SNSMenu isHeader />
         <Link href="https://play.google.com/store/apps/details?id=com.minery.app&hl=ko&gl=US">
           <DownloadLink>앱 다운로드</DownloadLink>
@@ -44,14 +43,14 @@ const HeaderContentContainer = styled.div`
   width: 1200px;
   height: 60px;
 
-  ${media.tablet} {
-    width: 800px;
+  ${media.mobile} {
+    max-width: 346px;
   }
 
-  ${media.tabletS} {
-    justify-content: space-between;
-    width: 390px;
+  ${media.tablet} {
+    width: 768px;
   }
+
 `;
 
 const LeftContainer = styled.div`
@@ -68,7 +67,7 @@ const DownloadLink = styled.a`
   color: ${({ theme }) => theme.colors.pointRed};
   text-align: center;
 
-  ${media.tabletS} {
+  ${media.mobile} {
     display: block;
   }
 `;

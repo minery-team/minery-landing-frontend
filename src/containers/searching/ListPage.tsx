@@ -154,10 +154,6 @@ const ListStyle = styled.div`
   width: inherit;
   padding: 1rem;
 
-  ${media.tabletL} {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1.2rem;
-  }
   ${media.mobile} {
     grid-template-columns: 1fr 1fr;
     gap: 1.2rem;
@@ -172,14 +168,9 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  ${media.tabletL} {
-    max-width: 64rem;
-  }
-  ${media.tabletS} {
-    max-width: 57.6rem;
-  }
+
   ${media.mobile} {
-    max-width: 26rem;
+    max-width: 57.6rem;
   }
 `;
 

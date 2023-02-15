@@ -50,14 +50,9 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  ${media.tabletL} {
-    max-width: 64rem;
-  }
-  ${media.tabletS} {
-    max-width: 57.6rem;
-  }
+  
   ${media.mobile} {
-    max-width: 26rem;
+    max-width: 57.6rem;
   }
 `;
 

@@ -22,13 +22,6 @@ export const StyledText = styled.div<TextProps>`
   min-width: fit-content;
   overflow: hidden;
 
-  ${media.tabletL} {
-    font-size: ${({ theme, size }) =>
-      theme.fontSize[size] || theme.fontSize.xl};
-  }
-  ${media.tabletS} {
-    font-size: ${({ theme }) => theme.fontSize.sm};
-  }
   ${media.mobile} {
     font-size: ${({ theme }) => theme.fontSize.sm};
   }

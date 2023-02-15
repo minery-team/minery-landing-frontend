@@ -47,7 +47,7 @@ const Wrapper = styled.footer`
     height: 210px;
   }
 
-  ${media.tabletS} {
+  ${media.mobile} {
     flex-direction: column;
     height: 290px;
   }
@@ -63,12 +63,13 @@ const InfoContainer = styled.div`
     width: 800px;
   }
 
-  ${media.tabletS} {
+  ${media.mobile} {
     flex-direction: column;
     justify-content: space-around;
     align-items: flex-start;
-    width: 390px;
+    width: 100%;
     height: 100%;
+    padding-left: 26px;
   }
 `;
 
@@ -78,7 +79,7 @@ const Logo = styled.div`
   width: 98px;
   height: 27px;
 
-  ${media.tabletS} {
+  ${media.mobile} {
     width: 72.57px;
     height: 20px;
   }

@@ -43,11 +43,8 @@ const Container = styled.div`
   align-items: flex-start;
   flex-direction: column;
 
-  ${media.tabletS} {
-    max-width: 57.6rem;
-  }
   ${media.mobile} {
-    max-width: 26rem;
+    max-width: 57.6rem;
   }
 `;
 const ListStyle = styled.div`
@@ -56,10 +53,6 @@ const ListStyle = styled.div`
   gap: 2rem;
   width: inherit;
 
-  ${media.tabletL} {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1.2rem;
-  }
   ${media.mobile} {
     grid-template-columns: 1fr 1fr;
     gap: 1.2rem;
