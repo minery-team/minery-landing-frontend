@@ -1,9 +1,13 @@
 import React from "react";
 
+import useWindowWidth from "@/hooks/useWindowWidth";
+import Breakpoints from "@/styles/breakpoints";
+
 export const BANNER_CONTENTS = {
   title: (
     <React.Fragment>
-      와인이 쉬워지는 방법 <br /> 마이너리
+      <p>와인이 쉬워지는 방법</p>
+      <p>마이너리</p>
     </React.Fragment>
   ),
   tags: ["#와린이", "#와인초보", "#와인일기", "#와인검색"],
@@ -60,70 +64,86 @@ export const SECOND_CONTENTS = {
   imgs: ["/images/section/phone1.png", "/images/section/phone2.png"],
 };
 
-export const THIRD_CONTENTS = {
-  title: (
-    <React.Fragment>
-      와인을 기록하는 순간, <br /> 어떤 뱃지를 받게 될까요?
-    </React.Fragment>
-  ),
-  subTitle: (
-    <React.Fragment>
-      차곡차곡 쌓이는 와인일기와 함께 <br /> 마이뱃지를 수집하는 재미도
-      느껴보세요
-    </React.Fragment>
-  ),
+export const THIRD_CONTENTS = () => {
+  const width = useWindowWidth();
 
-  imgData: [
-    {
-      type: "icon",
-      img: "/images/section/section3Ico1.png",
-      width: "140",
-      height: "180",
-      info: [0, 1, { start: 0.88, end: 0.9 }],
-    },
-    {
-      type: "icon",
-      img: "/images/section/section3Ico2.png",
-      width: "140",
-      height: "180",
-      info: [0, 1, { start: 0.78, end: 0.9 }],
-    },
-    {
-      type: "icon",
-      img: "/images/section/section3Ico3.png",
-      width: "140",
-      height: "180",
-      info: [0, 1, { start: 0.48, end: 0.9 }],
-    },
-    {
-      type: "phone",
-      img: "/images/section/section3Phone.png",
-      width: "236",
-      height: "463",
-      info: [1, 1, { start: 0.01, end: 1 }],
-    },
-    {
-      type: "icon",
-      img: "/images/section/section3Ico4.png",
-      width: "140",
-      height: "180",
-      info: [0, 1, { start: 0.48, end: 0.9 }],
-    },
-    {
-      type: "icon",
-      img: "/images/section/section3Ico5.png",
-      width: "140",
-      height: "180",
-      info: [0, 1, { start: 0.78, end: 0.9 }],
-    },
-    {
-      type: "icon",
-      img: "/images/section/section3Ico6.png",
-      width: "140",
-      height: "180",
-      info: [0, 1, { start: 0.88, end: 0.9 }],
-    },
-  ],
+  const getBadgeSizePerWidth = () => {
+    if (width < Breakpoints.mobile) return 60;
+    else if (width < Breakpoints.tablet) return 100;
+    return 180;
+  };
+
+  const getPhoneSizePerWidth = () => {
+    if (width < Breakpoints.mobile) return { width: 153, height: 306 };
+    else if (width < Breakpoints.tablet) return { width: 270, height: 547 };
+    return { width: 339, height: 678 };
+  }
+
+  return {  
+    title: (
+      <React.Fragment>
+        와인을 기록하는 순간, <br /> 어떤 뱃지를 받게 될까요?
+      </React.Fragment>
+    ),
+    subTitle: (
+      <React.Fragment>
+        차곡차곡 쌓이는 와인일기와 함께 <br /> 마이뱃지를 수집하는 재미도
+        느껴보세요
+      </React.Fragment>
+    ),
+
+    imgData: [
+      {
+        type: "icon",
+        img: "/images/section/section3Ico1.png",
+        width: getBadgeSizePerWidth(),
+        height: getBadgeSizePerWidth(),
+        info: [0, 1, { start: 0.88, end: 0.9 }],
+      },
+      {
+        type: "icon",
+        img: "/images/section/section3Ico2.png",
+        width: getBadgeSizePerWidth(),
+        height: getBadgeSizePerWidth(),
+        info: [0, 1, { start: 0.78, end: 0.9 }],
+      },
+      {
+        type: "icon",
+        img: "/images/section/section3Ico3.png",
+        width: getBadgeSizePerWidth(),
+        height: getBadgeSizePerWidth(),
+        info: [0, 1, { start: 0.48, end: 0.9 }],
+      },
+      {
+        type: "phone",
+        img: "/images/section/section3Phone.png",
+        width: getPhoneSizePerWidth().width,
+        height: getPhoneSizePerWidth().height,
+        info: [1, 1, { start: 0.01, end: 1 }],
+      },
+      {
+        type: "icon",
+        img: "/images/section/section3Ico4.png",
+        width: getBadgeSizePerWidth(),
+        height: getBadgeSizePerWidth(),
+        info: [0, 1, { start: 0.48, end: 0.9 }],
+      },
+      {
+        type: "icon",
+        img: "/images/section/section3Ico5.png",
+        width: getBadgeSizePerWidth(),
+        height: getBadgeSizePerWidth(),
+        info: [0, 1, { start: 0.78, end: 0.9 }],
+      },
+      {
+        type: "icon",
+        img: "/images/section/section3Ico6.png",
+        width: getBadgeSizePerWidth(),
+        height: getBadgeSizePerWidth(),
+        info: [0, 1, { start: 0.88, end: 0.9 }],
+      },
+    ],
+  };
 };
 
 export const FOURTH_CONTENTS = {
