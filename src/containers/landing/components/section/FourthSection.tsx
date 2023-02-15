@@ -23,17 +23,22 @@ const FourthSection = () => {
     return reviewData;
   }, [width]);
 
+  const getSpacingPerWidth = useMemo(() => {
+    if (width < Breakpoints.mobile) return 30;
+    else if (width < Breakpoints.tablet) return 50;
+    return 60;
+  }, [width]);
+
   return (
     <Wrapper
       data-aos="fade-up"
       data-aos-duration={AOS_DEFAULT_DURATION + 6 * AOS_BASE_DURATION_DISTANCE}
     >
-      <Spacing height={4} />
       <Title text="mainText">
         <p>마이너리 사용자들의</p>
         <p>후기를 확인해보세요</p>
       </Title>
-      <Spacing height={4} />
+      <Spacing height={getSpacingPerWidth} />
       <div>
         <CardWrapper>
           {reviewCards.map((review, index) => (
@@ -50,9 +55,14 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
+  margin-bottom: 164px;
+
+  ${media.tablet} {
+    margin-bottom: 120px;
+  }
 
   ${media.mobile} {
-    margin-bottom: 7rem;
+    margin-bottom: 90px;
   }
 `;
 
