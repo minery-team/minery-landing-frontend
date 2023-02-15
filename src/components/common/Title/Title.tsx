@@ -33,36 +33,37 @@ const TextWrapper = styled.div`
   }
 `;
 
-const MainTextCol = styled.div`
+const MainText = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
   font-size: ${({ theme }) => theme.fontSize.title};
-  font-weight: ${({ theme }) => theme.fontWeight.medium};
-  line-height: 3rem;
-  ${media.mobile} {
-    font-size: ${({ theme }) => theme.fontSize.title};
-    font-weight: ${({ theme }) => theme.fontWeight.medium};
-  }
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
+  line-height: 72px;
+
   & > p {
     margin: 0 0.2rem;
+  }
+
+  ${media.tablet} {
+    font-size: ${({ theme }) => theme.fontSize.logo};
+    font-weight: ${({ theme }) => theme.fontWeight.extrabold};
+    line-height: 46px;
+  }
+
+  ${media.mobile} {
+    font-size: ${({ theme }) => theme.fontSize.x3l};
+    font-weight: ${({ theme }) => theme.fontWeight.bold};
+    line-height: 42px;
   }
 `;
 
-const MainTextRow = styled.div`
-  display: flex;
+const MainTextCol = styled(MainText)`
+  flex-direction: column;
+  white-space: pre-line;
+`;
+
+const MainTextRow = styled(MainText)`
   flex-direction: row;
-  align-items: center;
-  font-size: ${({ theme }) => theme.fontSize.title};
-  font-weight: ${({ theme }) => theme.fontWeight.medium};
-  line-height: 3rem;
-  ${media.mobile} {
-    font-size: ${({ theme }) => theme.fontSize.title};
-    font-weight: ${({ theme }) => theme.fontWeight.medium};
-  }
-  & > p {
-    margin: 0 0.2rem;
-  }
 `;
 
 const SubText = styled.div`
@@ -70,9 +71,23 @@ const SubText = styled.div`
   flex-direction: column;
   align-items: center;
   color: ${({ theme }) => theme.colors.sectionDescText};
-  font-size: ${({ theme }) => theme.fontSize.smallText};
+  font-size: ${({ theme }) => theme.fontSize.subText};
   font-weight: ${({ theme }) => theme.fontWeight.regular};
-  line-height: 1.8rem;
+  line-height: 35px;
+  white-space: pre-line;
+  text-align: center;
+
+  ${media.tablet} {
+    font-size: ${({ theme }) => theme.fontSize.smallText};
+    font-weight: ${({ theme }) => theme.fontWeight.regular};
+    line-height: 24px;
+  }
+
+  ${media.mobile} {
+    font-size: ${({ theme }) => theme.fontSize.xsmallText};
+    font-weight: ${({ theme }) => theme.fontWeight.regular};
+    line-height: 22px;
+  }
 `;
 
 export default Title;
