@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import media from "@/styles/media";
 
 export interface IButtonProps {
   width?: number;
@@ -27,11 +28,18 @@ const StyledButton = styled.button<IButtonProps>`
   align-items: center;
   cursor: pointer;
   border: 1px solid ${({ theme }) => theme.colors.pointRed};
+  font-size: ${({ theme }) => theme.fontSize.mmallText};
   font-weight: ${({ theme }) => theme.fontWeight.medium};
+  line-height: 20px;
   color: ${({ theme }) => theme.colors.pointRed};
   ${({ width }) => width && `width: ${width}px;`}
   ${({ height }) => height && `height: ${height}px;`}
   ${({ borderRadius }) => `border-radius:${borderRadius}px`};
+
+  ${media.tablet} {
+    font-size: ${({ theme }) => theme.fontSize.smallText};
+    line-height: 18px;
+  }
 `;
 
 export default Button;
