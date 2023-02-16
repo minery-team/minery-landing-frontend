@@ -27,7 +27,7 @@ const MainBanner = () => {
           <TagWarpper>
             <Tag>
               {tags.map((tag, index) => {
-                return <div key={index}>{tag}</div>;
+                return <span key={index}>{tag}</span>;
               })}
             </Tag>
             <BannerHeading>{title}</BannerHeading>
