@@ -41,12 +41,10 @@ const SecondSection = () => {
           <p>좋아하는 와인을 찾아 나만의</p>
           <p>와인창고에 담아두는 건 어떤가요?</p>
         </Title>
-        {width > 1199 && <Spacing height={60} />}
         <Link href="/wine/search">
-          <StyledLink>와인 검색하기</StyledLink>
+          <SearchLinkForWeb>와인 검색하기</SearchLinkForWeb>
         </Link>
       </TextWrapper>
-      <Spacing height={width < 768 ? 30 : 60} />
       <ImgWrapper
         data-aos="fade-left"
         data-aos-duration={
@@ -61,6 +59,9 @@ const SecondSection = () => {
           );
         })}
       </ImgWrapper>
+      <Link href="/wine/search">
+        <SearchLinkForPortable>와인 검색하기</SearchLinkForPortable>
+      </Link>
     </Wrapper>
   );
 };
@@ -97,20 +98,35 @@ const StyledLink = styled.a`
   cursor: pointer;
   background-color: ${({ theme }) => theme.colors.white};
   border: 1px solid ${({ theme }) => theme.colors.pointRed};
+  color: ${({ theme }) => theme.colors.pointRed};
+`;
+
+const SearchLinkForWeb = styled(StyledLink)`
   font-size: ${({ theme }) => theme.fontSize.mmallText};
   font-weight: ${({ theme }) => theme.fontWeight.medium};
   line-height: 20px;
-  color: ${({ theme }) => theme.colors.pointRed};
   width: 196px;
   height: 60px;
   border-radius: 71.5px;
+  margin-top: 60px;
 
   ${media.tablet} {
+    display: none
+  }
+`;
+
+const SearchLinkForPortable = styled(StyledLink)`
+  display: none;
+  
+  ${media.tablet} {
+    display: flex;
+    font-size: ${({ theme }) => theme.fontSize.smallText};
+    font-weight: ${({ theme }) => theme.fontWeight.medium};
+    line-height: 18px;
     width: 162px;
     height: 48px;
-    font-size: ${({ theme }) => theme.fontSize.smallText};
-    line-height: 18px;
-    display: none;
+    border-radius: 71.5px;
+    margin-top: 30px;
   }
 `;
 
