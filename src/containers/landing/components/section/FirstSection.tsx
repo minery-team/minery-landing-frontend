@@ -24,7 +24,9 @@ const FirstSection = () => {
     <SectionWrapper>
       <DescWrapper>
         <StyledTitle text="mainText">
-          {width > 767 ? <div>와인으로 쓰는 그 날의 일기</div> : <><div>와인으로 쓰는</div><div>그 날의 일기</div></>}
+          <pre>
+            {width >= Breakpoints.mobile ? "와인으로 쓰는 그 날의 일기" : `와인으로 쓰는\n그 날의 일기`}
+          </pre>
         </StyledTitle>
         <Spacing height={16} />
         <Title text="subText">
