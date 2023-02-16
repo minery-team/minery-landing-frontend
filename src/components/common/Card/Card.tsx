@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useMemo } from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import media from "@/styles/media";
@@ -7,6 +7,7 @@ import {
   AOS_DEFAULT_DURATION,
 } from "@/utils/constants/aos";
 import useWindowWidth from "@/hooks/useWindowWidth";
+import Breakpoints from "@/styles/breakpoints";
 
 interface CardProps {
   data: {
@@ -21,17 +22,11 @@ const Card = ({ data }: CardProps): ReactElement => {
   const { title, description, date, image } = data;
   const width = useWindowWidth();
 
-  const getImageWidthPerWidth = () => {
-    if (width < 768) return 280;
-    else if (width < 1199) return 370;
-    return 384;
-  };
-
-  const getImageHeightPerWidth = () => {
-    if (width < 768) return 196;
-    else if (width < 1199) return 205;
-    return 212;
-  };
+  const imageSizePerWidth = useMemo(() => {
+    if (width < Breakpoints.mobile) return { width: 280, height: 196 };
+    else if (width < Breakpoints.tablet) return { width: 370, height: 205 };
+    return { width: 384, height: 212 };
+  }, [width]);
 
   return (
     <StyledCard
@@ -39,7 +34,7 @@ const Card = ({ data }: CardProps): ReactElement => {
       data-aos-duration={AOS_DEFAULT_DURATION + AOS_BASE_DURATION_DISTANCE * 10}
     >
       <span>
-        <Image width={getImageWidthPerWidth()} height={getImageHeightPerWidth()} src={image} alt={image} />
+        <Image width={imageSizePerWidth.width} height={imageSizePerWidth.height} src={image} alt={image} />
       </span>
       <CardDescWrapper>
         <CardTitle>{title}</CardTitle>

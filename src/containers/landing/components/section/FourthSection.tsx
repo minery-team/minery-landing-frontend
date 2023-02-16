@@ -23,7 +23,7 @@ const FourthSection = () => {
     return reviewData;
   }, [width]);
 
-  const getSpacingPerWidth = useMemo(() => {
+  const spacingPerWidth = useMemo(() => {
     if (width < Breakpoints.mobile) return 30;
     else if (width < Breakpoints.tablet) return 50;
     return 60;
@@ -38,7 +38,7 @@ const FourthSection = () => {
         <p>마이너리 사용자들의</p>
         <p>후기를 확인해보세요</p>
       </Title>
-      <Spacing height={getSpacingPerWidth} />
+      <Spacing height={spacingPerWidth} />
       <div>
         <CardWrapper>
           {reviewCards.map((review, index) => (

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 
 import useWindowWidth from "@/hooks/useWindowWidth";
 import Breakpoints from "@/styles/breakpoints";
@@ -67,17 +67,17 @@ export const SECOND_CONTENTS = {
 export const THIRD_CONTENTS = () => {
   const width = useWindowWidth();
 
-  const getBadgeSizePerWidth = () => {
+  const badgeSizePerWidth = useMemo(() => {
     if (width < Breakpoints.mobile) return 60;
     else if (width < Breakpoints.tablet) return 100;
     return 180;
-  };
+  }, [width]);
 
-  const getPhoneSizePerWidth = () => {
+  const phoneSizePerWidth = useMemo(() => {
     if (width < Breakpoints.mobile) return { width: 153, height: 306 };
     else if (width < Breakpoints.tablet) return { width: 270, height: 547 };
     return { width: 339, height: 678 };
-  }
+  }, [width]);
 
   return {  
     title: (
@@ -96,50 +96,50 @@ export const THIRD_CONTENTS = () => {
       {
         type: "icon",
         img: "/images/section/section3Ico1.png",
-        width: getBadgeSizePerWidth(),
-        height: getBadgeSizePerWidth(),
+        width: badgeSizePerWidth,
+        height: badgeSizePerWidth,
         info: [0, 1, { start: 0.88, end: 0.9 }],
       },
       {
         type: "icon",
         img: "/images/section/section3Ico2.png",
-        width: getBadgeSizePerWidth(),
-        height: getBadgeSizePerWidth(),
+        width: badgeSizePerWidth,
+        height: badgeSizePerWidth,
         info: [0, 1, { start: 0.78, end: 0.9 }],
       },
       {
         type: "icon",
         img: "/images/section/section3Ico3.png",
-        width: getBadgeSizePerWidth(),
-        height: getBadgeSizePerWidth(),
+        width: badgeSizePerWidth,
+        height: badgeSizePerWidth,
         info: [0, 1, { start: 0.48, end: 0.9 }],
       },
       {
         type: "phone",
         img: "/images/section/section3Phone.png",
-        width: getPhoneSizePerWidth().width,
-        height: getPhoneSizePerWidth().height,
+        width: phoneSizePerWidth.width,
+        height: phoneSizePerWidth.height,
         info: [1, 1, { start: 0.01, end: 1 }],
       },
       {
         type: "icon",
         img: "/images/section/section3Ico4.png",
-        width: getBadgeSizePerWidth(),
-        height: getBadgeSizePerWidth(),
+        width: badgeSizePerWidth,
+        height: badgeSizePerWidth,
         info: [0, 1, { start: 0.48, end: 0.9 }],
       },
       {
         type: "icon",
         img: "/images/section/section3Ico5.png",
-        width: getBadgeSizePerWidth(),
-        height: getBadgeSizePerWidth(),
+        width: badgeSizePerWidth,
+        height: badgeSizePerWidth,
         info: [0, 1, { start: 0.78, end: 0.9 }],
       },
       {
         type: "icon",
         img: "/images/section/section3Ico6.png",
-        width: getBadgeSizePerWidth(),
-        height: getBadgeSizePerWidth(),
+        width: badgeSizePerWidth,
+        height: badgeSizePerWidth,
         info: [0, 1, { start: 0.88, end: 0.9 }],
       },
     ],

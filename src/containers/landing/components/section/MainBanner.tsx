@@ -1,26 +1,21 @@
-import React from "react";
+import React, { useMemo } from "react";
 import Image from "next/image";
 import styled from "styled-components";
 import media from "@/styles/media";
 import Store from "@/components/common/Store/Store";
 import { BANNER_CONTENTS } from "@/database/main";
 import useWindowWidth from "@/hooks/useWindowWidth";
+import Breakpoints from "@/styles/breakpoints";
 
 const MainBanner = () => {
   const { title, tags } = BANNER_CONTENTS;
   const width = useWindowWidth();
 
-  const getImageWidthPerWidth = () => {
-    if (width < 768) return 371;
-    else if (width < 1200) return 450;
-    return 983;
-  };
-
-  const getImageHeightPerHeight = () => {
-    if (width < 768) return 302;
-    else if (width < 1200) return 367;
-    return 800;
-  }
+  const imageSizePerWidth = useMemo(() => {
+    if (width < Breakpoints.mobile) return { width : 371, height: 302 };
+    else if (width < Breakpoints.tablet) return { width: 450, height: 367 };
+    return { width: 983, height: 800 };
+  }, [width]);
 
   return (
     <Wrapper>
@@ -41,8 +36,8 @@ const MainBanner = () => {
           <Phoneimg>
             <Image
               src="/images/phone.png"
-              width={getImageWidthPerWidth()}
-              height={getImageHeightPerHeight()}
+              width={imageSizePerWidth.width}
+              height={imageSizePerWidth.height}
               layout="fixed"
               alt="phone"
             />

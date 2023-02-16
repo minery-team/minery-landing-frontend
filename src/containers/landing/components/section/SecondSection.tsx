@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styled from "styled-components";
@@ -11,16 +11,17 @@ import {
   AOS_DEFAULT_DURATION,
 } from "@/utils/constants/aos";
 import useWindowWidth from "@/hooks/useWindowWidth";
+import Breakpoints from "@/styles/breakpoints";
 
 const SecondSection = () => {
   const { imgs } = SECOND_CONTENTS;
   const width = useWindowWidth();
 
-  const getImageSizePerWidth = () => {
-    if (width < 768) return { width: 153, height: 306 };
-    else if (width < 1200) return { width: 270, height: 540 };
+  const imageSizePerWidth = useMemo(() => {
+    if (width < Breakpoints.mobile) return { width: 153, height: 306 };
+    else if (width < Breakpoints.tablet) return { width: 270, height: 540 };
     return { width: 339, height: 678 };
-  }
+  }, [width]);
 
   return (
     <Wrapper>
@@ -55,7 +56,7 @@ const SecondSection = () => {
         {imgs.map((img, index) => {
           return (
             <span key={index}>
-              <Image width={getImageSizePerWidth().width} height={getImageSizePerWidth().height} src={img} alt={img} />
+              <Image width={imageSizePerWidth.width} height={imageSizePerWidth.height} src={img} alt={img} />
             </span>
           );
         })}

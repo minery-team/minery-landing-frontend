@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import styled from "styled-components";
 import media from "@/styles/media";
 import { FIRST_CONTENTS } from "@/database/main";
@@ -7,6 +7,7 @@ import Button from "@/components/common/Button";
 import Spacing from "@/components/common/Spacing";
 import { Title } from "@/components/common/Title";
 import useWindowWidth from "@/hooks/useWindowWidth";
+import Breakpoints from "@/styles/breakpoints";
 
 const FirstSection = () => {
   const { reviewData } = FIRST_CONTENTS;
@@ -14,10 +15,10 @@ const FirstSection = () => {
   const instaLink =
     "https://www.instagram.com/minery_app/?igshid=YmMyMTA2M2Y%3D";
 
-  const getButtonSize = () => {
-    if (width < 1199) return { width: 190, height: 48 };
+  const buttonSizePerWidth = useMemo(() => {
+    if (width < Breakpoints.tablet) return { width: 190, height: 48 };
     return { width: 196, height: 60 };
-  }
+  },[width]);
   
   return (
     <SectionWrapper>
@@ -37,8 +38,8 @@ const FirstSection = () => {
       </DescWrapper>
       <Spacing height={60} />
       <Button
-        width={getButtonSize().width}
-        height={getButtonSize().height}
+        width={buttonSizePerWidth.width}
+        height={buttonSizePerWidth.height}
         borderRadius={71.5}
         onClick={() => window.open(instaLink)}
       >

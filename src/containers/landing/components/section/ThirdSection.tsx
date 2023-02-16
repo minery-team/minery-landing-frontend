@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import { useMotion } from "@/hooks/useMotion";
@@ -18,11 +18,11 @@ const ThirdSection = () => {
   const { content, currentYOffset, calcValue } = useMotion();
   const width = useWindowWidth();
 
-  const getSpacingPerWidth = () => {
+  const spacingPerWidth = useMemo(() => {
     if (width < Breakpoints.mobile) return 36;
     else if (width < Breakpoints.tablet) return 50;
     return 60;
-  }
+  }, [width]);
 
   return (
     <Wrapper
@@ -42,7 +42,7 @@ const ThirdSection = () => {
           <p>어떤 뱃지를 받게 될까요? </p>
         </Title>
       </div>
-      <Spacing height={getSpacingPerWidth()} />
+      <Spacing height={spacingPerWidth} />
       <ImgWrapper
         data-aos="fade-up"
         data-aos-duration={
@@ -65,7 +65,7 @@ const ThirdSection = () => {
           );
         })}
       </ImgWrapper>
-      <Spacing height={getSpacingPerWidth()} />
+      <Spacing height={spacingPerWidth} />
       <div
         data-aos="fade-up"
         data-aos-duration={
