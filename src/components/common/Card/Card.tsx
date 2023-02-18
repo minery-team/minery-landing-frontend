@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useMemo } from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import media from "@/styles/media";
@@ -6,6 +6,8 @@ import {
   AOS_BASE_DURATION_DISTANCE,
   AOS_DEFAULT_DURATION,
 } from "@/utils/constants/aos";
+import useWindowWidth from "@/hooks/useWindowWidth";
+import Breakpoints from "@/styles/breakpoints";
 
 interface CardProps {
   data: {
@@ -18,19 +20,27 @@ interface CardProps {
 
 const Card = ({ data }: CardProps): ReactElement => {
   const { title, description, date, image } = data;
+  const width = useWindowWidth();
+
+  const imageSizePerWidth = useMemo(() => {
+    if (width < Breakpoints.mobile) return { width: 280, height: 196 };
+    else if (width < Breakpoints.tablet) return { width: 370, height: 205 };
+    return { width: 384, height: 212 };
+  }, [width]);
+
   return (
     <StyledCard
       data-aos="fade-up"
       data-aos-duration={AOS_DEFAULT_DURATION + AOS_BASE_DURATION_DISTANCE * 10}
     >
       <span>
-        <Image width={286} height={180} src={image} alt={image} />
+        <Image width={imageSizePerWidth.width} height={imageSizePerWidth.height} src={image} alt={image} />
       </span>
       <CardDescWrapper>
         <CardTitle>{title}</CardTitle>
         <CardDesc>{description}</CardDesc>
         <StyledHr />
-        <CardDesc>{date}</CardDesc>
+        <CardDate>{date}</CardDate>
       </CardDescWrapper>
     </StyledCard>
   );
@@ -39,11 +49,12 @@ const Card = ({ data }: CardProps): ReactElement => {
 const StyledCard = styled.div`
   display: flex;
   flex-direction: column;
-  width: 246px;
-  height: 372px;
+  width: 384px;
+  height: 456px;
   border-radius: 12px;
-  margin: 20px 18px;
+  margin: 20px 12px;
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.04);
+  
   ~ div:nth-child(2) {
     margin-top: 110px;
   }
@@ -52,43 +63,86 @@ const StyledCard = styled.div`
   }
 
   ${media.mobile} {
+    width: 280px;
+    height: 342px;
     transform: translateX(-1.2rem);
+
     ~ div:nth-child(2) {
-      display: none;
-    }
-    ~ div:nth-child(3) {
-      display: none;
-    }
-    ~ div:nth-child(4) {
-      display: none;
-    }
-    ~ div:nth-child(5) {
-      margin-top: 10px;
-      transform: translateX(1.2rem);
+      margin-top: 26px;
     }
   }
 `;
 
 const CardDescWrapper = styled.div`
-  padding: 20px;
+  padding: 30px;
+
+  ${media.mobile} {
+    padding: 20px;
+  }
 `;
 
 const CardTitle = styled.p`
-  font-size: ${({ theme }) => theme.fontSize.mmallText};
-  font-weight: ${({ theme }) => theme.fontWeight.bold};
-  margin-bottom: 14px;
-`;
-const CardDesc = styled.p`
-  font-weight: ${({ theme }) => theme.fontWeight.light};
-  font-size: ${({ theme }) => theme.fontSize.xsmallText};
-  color: ${({ theme }) => theme.colors.descText};
-  line-height: 1.3rem;
+  font-size: ${({ theme }) => theme.fontSize.lmallText};
+  font-weight: ${({ theme }) => theme.fontWeight.extrabold};
+  line-height: 26px;
+  margin-bottom: 20px;
+
+  ${media.mobile} {
+    font-size: ${({ theme }) => theme.fontSize.mmallText};
+    margin-bottom: 10px;
+  }
 `;
 
-const StyledHr = styled.hr`
+const CardDesc = styled.p`
+  width: 324px;
+  height: 74px;
+  font-weight: ${({ theme }) => theme.fontWeight.regular};
+  font-size: ${({ theme }) => theme.fontSize.smallText};
+  line-height: 26px;
+  color: ${({ theme }) => theme.colors.descText};
+
+  ${media.tablet} {
+    height: 71px;
+    font-size: ${({ theme }) => theme.fontSize.sm};
+    line-height: 25px;
+  }
+
+  ${media.mobile} {
+    Width: 240px;
+    height: 66px;
+    font-size: ${({ theme }) => theme.fontSize.xsmallText};
+    line-height: 22px;
+  }
+`;
+
+const StyledHr = styled.div`
   height: 0.2px;
-  border-bottom: 0px solid;
-  color: ${({ theme }) => theme.colors.brighterBg};
+  margin: 20px 0;
+  color: ${({ theme }) => theme.colors.gray300};
+  background-color: ${({ theme }) => theme.colors.gray300};
+
+  ${media.mobile} {
+    display: none;
+  }
+`;
+
+const CardDate = styled.p`
+  width: 324px;
+  height: 74px;
+  font-weight: ${({ theme }) => theme.fontWeight.regular};
+  font-size: ${({ theme }) => theme.fontSize.smallText};
+  line-height: 26px;
+  color: ${({ theme }) => theme.colors.descText};
+
+  ${media.tablet} {
+    height: 71px;
+    font-size: ${({ theme }) => theme.fontSize.sm};
+    line-height: 25px;
+  }
+
+  ${media.mobile} {
+    display: none;
+  }
 `;
 
 export default Card;

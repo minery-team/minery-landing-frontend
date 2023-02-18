@@ -10,6 +10,6 @@ const Spacing = ({ height }: SpaceProps) => {
 };
 
 const StyledSpacing = styled.div<SpaceProps>`
-  margin-bottom: ${({ height }) => height}rem;
+  margin-bottom: ${({ height }) => height}px;
 `;
 export default Spacing;

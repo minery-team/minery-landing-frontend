@@ -28,14 +28,9 @@ const Container = styled.div`
   margin: 1rem auto;
   width: 100%;
   max-width: 72rem;
-  ${media.tabletL} {
-    max-width: 64rem;
-  }
-  ${media.tabletS} {
-    max-width: 57.6rem;
-  }
+
   ${media.mobile} {
-    max-width: 26rem;
+    max-width: 57.6rem;
   }
 `;
 

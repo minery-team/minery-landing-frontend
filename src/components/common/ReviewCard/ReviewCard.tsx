@@ -17,7 +17,7 @@ const ReviewCard = ({ reviewData }: ReviewCardProps) => {
   const { title, rate, userId, reviewText } = reviewData;
   const width = useWindowWidth();
   const isMobile = useMemo(() => {
-    if (width <= Breakpoints.tabletS) {
+    if (width <= Breakpoints.mobile) {
       return true;
     }
     return false;
@@ -51,8 +51,8 @@ const ReviewCard = ({ reviewData }: ReviewCardProps) => {
 const StyledReview = styled.div`
   display: flex;
   flex-direction: column;
-  height: 256px;
   width: 384px;
+  height: 256px;
   padding: 38px 42px;
   border-radius: 12px;
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.04);
@@ -66,8 +66,22 @@ const StyledReview = styled.div`
   ${media.mobile} {
     width: 164px;
     height: 108px;
-    padding: 20px 18px;
-    min-width: min-content;
+    padding: 15px 18px;
+  }
+`;
+
+const Title = styled.p`
+  font-size: ${({ theme }) => theme.fontSize.text};
+  font-weight: ${({ theme }) => theme.fontWeight.extrabold};
+  line-height: 40px;
+
+  ${media.tablet} {
+    line-height: 38px;
+  }
+   
+  ${media.mobile} {
+    font-size: ${({ theme }) => theme.fontSize.xxsmallText};
+    line-height: 17px;
   }
 `;
 
@@ -83,16 +97,7 @@ const IamgeWrapper = styled.span`
   align-items: center;
 `;
 
-const Title = styled.p`
-  font-size: 24px;
-  font-weight: 800;
-  margin-bottom: 10px;
 
-  ${media.mobile} {
-    font-size: 10px;
-    margin-bottom: 5px;
-  }
-`;
 
 const UserIdTxt = styled.p`
   margin-left: 20px;
@@ -108,17 +113,18 @@ const UserIdTxt = styled.p`
 
 const ReviewTxt = styled.p`
   margin-top: 25px;
+  font-size: ${({ theme }) => theme.fontSize.smallText};
+  font-weight: ${({ theme }) => theme.fontWeight.regular};
   line-height: 30px;
   color: ${({ theme }) => theme.colors.sectionDescText};
-  font-size: 16px;
 
   ${media.tablet} {
     line-height: 28.91px;
   }
 
   ${media.mobile} {
-    margin-top: 10px;
-    font-size: 7px;
+    margin-top: 6px;
+    font-size: ${({ theme }) => theme.fontSize.xxxsmallText};
     line-height: 13px;
   }
 `;

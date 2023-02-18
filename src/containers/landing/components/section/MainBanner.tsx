@@ -1,13 +1,22 @@
-import React from "react";
+import React, { useMemo } from "react";
 import Image from "next/image";
 import styled from "styled-components";
 import media from "@/styles/media";
 import Store from "@/components/common/Store/Store";
 import { BANNER_CONTENTS } from "@/database/main";
-import Spacing from "@/components/common/Spacing";
+import useWindowWidth from "@/hooks/useWindowWidth";
+import Breakpoints from "@/styles/breakpoints";
 
 const MainBanner = () => {
   const { title, tags } = BANNER_CONTENTS;
+  const width = useWindowWidth();
+
+  const imageSizePerWidth = useMemo(() => {
+    if (width < Breakpoints.mobile) return { width : 371, height: 302 };
+    else if (width < Breakpoints.tablet) return { width: 450, height: 367 };
+    return { width: 983, height: 800 };
+  }, [width]);
+
   return (
     <Wrapper>
       <Banner>
@@ -18,18 +27,17 @@ const MainBanner = () => {
           <TagWarpper>
             <Tag>
               {tags.map((tag, index) => {
-                return <p key={index}>{tag}</p>;
+                return <span key={index}>{tag}</span>;
               })}
             </Tag>
-            <Spacing height={2} />
             <BannerHeading>{title}</BannerHeading>
             <Store />
           </TagWarpper>
           <Phoneimg>
             <Image
               src="/images/phone.png"
-              width={684}
-              height={684}
+              width={imageSizePerWidth.width}
+              height={imageSizePerWidth.height}
               layout="fixed"
               alt="phone"
             />
@@ -48,29 +56,24 @@ const Wrapper = styled.div`
   overflow: hidden;
   position: relative;
   z-index: 1;
-  padding-top: 6rem;
 `;
 
 const Banner = styled.div`
   width: 100%;
-  min-height: 50vh;
+  height: 750px;
   img {
     width: inherit;
     height: inherit;
     object-fit: cover;
     object-position: center;
   }
-  /* ${media.tabletL} {
-    min-height: 50vh;
-  }
-  ${media.tabletM} {
-    min-height: 60vh;
-  }
-  ${media.tabletS} {
-    min-height: 65vh;
-  } */
+
   ${media.mobile} {
-    min-height: 70vh;
+    min-height: 520px;
+  }
+
+  ${media.tablet} {
+    height: 408px;
   }
 `;
 
@@ -83,33 +86,78 @@ const BannerTag = styled.div`
   top: 48%;
   transform: translateY(-50%);
   text-align: left;
+
+  ${media.mobile} {
+    flex-direction: column;
+  }
+`;
+
+const DescWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  width: 1200px;
+  justify-content: space-between;
+
+  ${media.mobile} {
+    flex-direction: column;
+  }
+
+  ${media.tablet} {
+    width: 768px;
+  }
+`;
+
+const TagWarpper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  ${media.mobile} {
+    margin: 0;
+    align-items: center;
+  }
 `;
 
 const Tag = styled.span`
   display: flex;
-  justify-content: space-between;
+  font-size: ${({ theme }) => theme.fontSize.mmallText};
   color: ${({ theme }) => theme.colors.white};
-  width: 292px;
+  width: 372px;
+  gap: 22px;
+  opacity: 0.7;
+
   ${media.mobile} {
     display: none;
   }
 `;
 
 const BannerHeading = styled.span`
-  font-size: ${({ theme }) => theme.fontSize.large};
-  font-weight: ${({ theme }) => theme.fontWeight.medium};
+  font-size: ${({ theme }) => theme.fontSize.bannerTitle};
+  font-weight: ${({ theme }) => theme.fontWeight.extrabold};
   color: ${({ theme }) => theme.colors.white};
-  margin-top: 28px;
+  margin-top: 30px;
   margin-bottom: 12px;
-  line-height: 1.8em;
+  line-height: 92px;
+  width: 627px;
+
   ${media.mobile} {
     display: flex;
+    flex-direction: column;
     align-items: center;
+    margin: 0;
     text-align: center;
-    font-weight: ${({ theme }) => theme.fontWeight.regular};
+    font-weight: ${({ theme }) => theme.fontWeight.extrabold};
+    font-size: ${({ theme }) => theme.fontSize.logo};
+    line-height: 46px;
     p:nth-child(1) {
-      font-weight: ${({ theme }) => theme.fontWeight.light};
+      font-weight: ${({ theme }) => theme.fontWeight.regular};
     }
+  }
+
+
+  ${media.tablet} {
+    width: 300px;
+    font-size: ${({ theme }) => theme.fontSize.large};
+    line-height: 52px;
   }
 `;
 
@@ -128,30 +176,12 @@ const Phoneimg = styled.div`
   }
 
   ${media.mobile} {
-    width: 480px;
-    height: 334px;
+    width: 371px;
+    height: 302px;
     margin: 0 20px;
     z-index: -1;
     right: 0;
-  }
-`;
-const TagWarpper = styled.div`
-  margin: 0 256px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  ${media.mobile} {
-    margin: 0;
-    align-items: center;
-  }
-`;
-const DescWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  width: 100%;
-  justify-content: space-between;
-  ${media.mobile} {
-    flex-direction: column;
+    margin-top: 0px;
   }
 `;
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import { useMotion } from "@/hooks/useMotion";
@@ -10,10 +10,19 @@ import {
   AOS_DEFAULT_DURATION,
 } from "@/utils/constants/aos";
 import { Title } from "@/components/common/Title";
+import useWindowWidth from "@/hooks/useWindowWidth";
+import Breakpoints from "@/styles/breakpoints";
 
 const ThirdSection = () => {
-  const { imgData } = THIRD_CONTENTS;
+  const { imgData } = THIRD_CONTENTS();
   const { content, currentYOffset, calcValue } = useMotion();
+  const width = useWindowWidth();
+
+  const spacingPerWidth = useMemo(() => {
+    if (width < Breakpoints.mobile) return 36;
+    else if (width < Breakpoints.tablet) return 50;
+    return 60;
+  }, [width]);
 
   return (
     <Wrapper
@@ -33,7 +42,7 @@ const ThirdSection = () => {
           <p>어떤 뱃지를 받게 될까요? </p>
         </Title>
       </div>
-      <Spacing height={4} />
+      <Spacing height={spacingPerWidth} />
       <ImgWrapper
         data-aos="fade-up"
         data-aos-duration={
@@ -48,15 +57,15 @@ const ThirdSection = () => {
             >
               <Image
                 src={item.img}
-                width={+item.width}
-                height={+item.height}
+                width={item.width}
+                height={item.height}
                 alt={item.img}
               />
             </IcoImg>
           );
         })}
       </ImgWrapper>
-      <Spacing height={4} />
+      <Spacing height={spacingPerWidth} />
       <div
         data-aos="fade-up"
         data-aos-duration={
@@ -82,16 +91,28 @@ const ImgWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
+  div:nth-child(n) {
+    margin: 0 30px;
+  }
   div:nth-child(4) {
-    margin: 0 3rem;
+    margin: 0 48px;
+  }
+
+  ${media.tablet} {
+    div:nth-child(n) {
+      margin: 0 18px;
+    }
+    div:nth-child(4) {
+      margin: 0 26px;
+    }
   }
 
   ${media.mobile} {
+    div:nth-child(n) {
+      margin: 0 8px;
+    }
     div:nth-child(4) {
-      margin: 0;
-      width: 400px;
-      display: flex;
-      justify-content: center;
+      margin: 0 4px;
     }
   }
 `;
@@ -100,27 +121,6 @@ const IcoImg = styled.div`
   img {
     object-fit: contain;
   }
-`;
-
-// const Title = styled.div`
-//   font-size: ${({ theme }) => theme.fontSize.large};
-//   font-weight: ${({ theme }) => theme.fontWeight.medium};
-//   line-height: 3.3rem;
-//   margin-bottom: 52px;
-//   text-align: center;
-//   ${media.mobile} {
-//     font-size: ${({ theme }) => theme.fontSize.title};
-//     font-weight: ${({ theme }) => theme.fontWeight.medium};
-//   }
-// `;
-
-const Desc = styled.div`
-  color: ${({ theme }) => theme.colors.sectionDescText};
-  font-size: ${({ theme }) => theme.fontSize.smallText};
-  font-weight: ${({ theme }) => theme.fontWeight.regular};
-  margin-top: 5rem;
-  line-height: 32px;
-  text-align: center;
 `;
 
 export default ThirdSection;

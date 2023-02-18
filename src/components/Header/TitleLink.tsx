@@ -24,7 +24,7 @@ const LogoContainer = styled.div`
   align-items: center;
   margin-right: 10px;
 
-  ${media.tablet} {
+  ${media.mobile} {
     display: none;
   }
 `;
