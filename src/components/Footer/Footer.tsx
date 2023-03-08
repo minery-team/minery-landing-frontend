@@ -23,7 +23,7 @@ const Footer = () => {
             <p> | </p>
             <p>minery.app@gmail.com</p>
           </Contact>
-          <Link href="https://han.gl/oUmxW">
+          <Link href="https://bit.ly/3o4kKs9" passHref>
             <Info>개인정보처리방침</Info>
           </Link>
         </FooterDesc>
