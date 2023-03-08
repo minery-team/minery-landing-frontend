@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import SNSMenu from "../common/SNSMenu";
 import styled from "styled-components";
@@ -7,6 +7,17 @@ import WineSearchLink from "./WineSearchLink";
 import TitleLogo from "./TitleLink";
 
 const Header = () => {
+  const [link, setLink] = useState('');
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const os = window.navigator.userAgent.includes('Mac') ? 'ios' : 'android';
+      
+      if (os === 'ios') setLink('https://apps.apple.com/kr/app/마이너리-나만의-와인-일기-와인-검색-기록-평가/id1608336149');
+      else setLink('https://play.google.com/store/apps/details?id=com.minery.app');
+    }
+  }, []);
+
   return (
     <HeaderContainer>
       <HeaderContentContainer>
@@ -15,7 +26,7 @@ const Header = () => {
           <WineSearchLink />
         </LeftContainer>
         <SNSMenu isHeader />
-        <Link href="https://play.google.com/store/apps/details?id=com.minery.app&hl=ko&gl=US">
+        <Link href={link} passHref>
           <DownloadLink>앱 다운로드</DownloadLink>
         </Link>
       </HeaderContentContainer>

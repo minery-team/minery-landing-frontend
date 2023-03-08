@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import styled from "styled-components";
 import Text from "@/components/common/Text";
@@ -32,6 +32,17 @@ const WineInfoCard = ({ wineDetail }) => {
     maxAlcohol,
     maker,
   } = wineDetail;
+
+  const [link, setLink] = useState('');
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const os = window.navigator.userAgent.includes('Mac') ? 'ios' : 'android';
+      
+      if (os === 'ios') setLink('https://apps.apple.com/kr/app/마이너리-나만의-와인-일기-와인-검색-기록-평가/id1608336149');
+      else setLink('https://play.google.com/store/apps/details?id=com.minery.app');
+    }
+  }, []);
 
   const { data } = useQuery(["wineDetail", name], () => {
     const res = requester
@@ -146,7 +157,7 @@ const WineInfoCard = ({ wineDetail }) => {
             />
             <p>Minery 앱을 다운로드 해보세요</p>
             <a
-              href="https://play.google.com/store/apps/details?id=com.minery.app"
+              href={link}
               target="_blank"
               rel="noreferrer"
             >
