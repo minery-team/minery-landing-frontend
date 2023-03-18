@@ -16,7 +16,7 @@ const DetailPage = ({ wineDetail }) => {
       />
       <Container>
         <WineInfoCard wineDetail={wineDetail} />
-        <Spacing height={9} />
+        <Spacing height={70} />
         <UserReview />
       </Container>
     </>

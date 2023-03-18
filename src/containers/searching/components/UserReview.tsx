@@ -31,50 +31,26 @@ const UserReview = () => {
           {ReviewCount}
         </StyledText>
       </TextWrapper>
-      <Spacing height={4} />
+      <Spacing height={30} />
       {MOCK_REVIEW_LIST.map((review) => (
         <div key={review.id}>{<UserReviewItem review={review} />}</div>
       ))}
-      <ReviewBack>
-        <BackDrop>
-          <div data-aos="fade-up">
-            <Image
-              src={"/images/downImg.png"}
-              width={720}
-              height={320}
-              alt="download app"
-            />
-          </div>
-        </BackDrop>
-      </ReviewBack>
+      <BackDrop>
+        <div data-aos="fade-up">
+          <Image
+            src={"/images/downImg.png"}
+            width={720}
+            height={320}
+            alt="download app"
+          />
+        </div>
+      </BackDrop>
     </Container>
   );
 };
 
-const ReviewBack = styled.div`
-  position: relative;
-  ${media.mobile} {
-    bottom: 50px;
-  }
-`;
-const BackDrop = styled.div`
-  backdrop-filter: blur(2px);
-  height: 240px;
-  position: absolute;
-  top: 80;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  ${media.mobile} {
-    height: 60vh;
-  }
-`;
-
 const Container = styled.div`
-  min-height: 70vh;
+  position: relative;
 `;
 
 const TextWrapper = styled.div`
@@ -84,6 +60,18 @@ const TextWrapper = styled.div`
 
 const StyledText = styled(Text)`
   margin-left: 0.5rem;
+`;
+
+const BackDrop = styled.div`
+  position: absolute;
+  top: 33%;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 67%;
+  backdrop-filter: blur(2px);
 `;
 
 export default UserReview;
