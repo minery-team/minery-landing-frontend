@@ -61,6 +61,7 @@ const ListStyle = styled.div`
 const Top10Text = styled.div`
   width: inherit;
   font-weight: ${({ theme }) => theme.fontWeight.medium};
+  margin-bottom: 2rem;
   span:nth-child(2) {
     margin-left: 10px;
     color: ${({ theme }) => theme.colors.pointRed};

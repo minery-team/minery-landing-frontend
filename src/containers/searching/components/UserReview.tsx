@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import styled from "styled-components";
 import Text from "@/components/common/Text";
@@ -24,9 +24,23 @@ const UserReview = () => {
   const bannerInfo = useMemo(() => {
     if (width <= Breakpoints.mobile)
       return { image: "/images/downImg_m.png", width: 338, height: 180 };
-    else
-      return { image: "/images/downImg.png", width: 720, height: 320 };
+    else return { image: "/images/appDownImgWeb.png", width: 720, height: 320 };
   }, [width]);
+
+  const [link, setLink] = useState("");
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const os = window.navigator.userAgent.includes("Mac") ? "ios" : "android";
+
+      if (os === "ios")
+        setLink(
+          "https://apps.apple.com/kr/app/마이너리-나만의-와인-일기-와인-검색-기록-평가/id1608336149"
+        );
+      else
+        setLink("https://play.google.com/store/apps/details?id=com.minery.app");
+    }
+  }, []);
 
   useAOS();
 
@@ -45,14 +59,16 @@ const UserReview = () => {
         <div key={review.id}>{<UserReviewItem review={review} />}</div>
       ))}
       <BackDrop>
-        <div data-aos="fade-up">
-          <Image
-            src={bannerInfo.image}
-            width={bannerInfo.width}
-            height={bannerInfo.height}
-            alt="download app"
-          />
-        </div>
+        <a href={link}>
+          <div data-aos="fade-up">
+            <Image
+              src={bannerInfo.image}
+              width={bannerInfo.width}
+              height={bannerInfo.height}
+              alt="download app"
+            />
+          </div>
+        </a>
       </BackDrop>
     </Container>
   );

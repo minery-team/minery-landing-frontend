@@ -46,7 +46,7 @@ const WineItemCard = ({ wine }) => {
         />
         <Overlay />
       </ListStyle>
-      <Spacing height={0.8} />
+      <Spacing height={15} />
       <Desc>
         <Info>
           <WineInfoTags country={country} type={type} />
@@ -60,7 +60,7 @@ const WineItemCard = ({ wine }) => {
             </Rating>
           )}
         </Info>
-        <Spacing height={0.5} />
+        <Spacing height={11} />
         <EnName>{enName}</EnName>
       </Desc>
     </Container>
@@ -74,25 +74,27 @@ const EnName = styled.div`
   width: 100%;
   display: block;
   text-overflow: ellipsis;
-
+  line-height: 23px;
+  word-break: break-all;
   ${media.mobile} {
     font-weight: ${({ theme }) => theme.fontWeight.medium};
     font-size: ${({ theme }) => theme.fontSize.xxs};
-    word-break: keep-all;
+    word-break: break-word;
   }
 `;
 
 const Container = styled.div`
   width: 220px;
-  height: 336px;
+  height: 346px;
   padding: 1rem;
   position: relative;
   display: flex;
   flex-direction: column;
   ${media.mobile} {
     width: 40vw;
-    height: 30vh;
+    height: 33vh;
     overflow: hidden;
+    word-break: break-all;
   }
 `;
 
