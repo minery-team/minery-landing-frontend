@@ -21,9 +21,12 @@ export const StyledText = styled.div<TextProps>`
   line-height: ${({ lineHeight }) => lineHeight};
   min-width: fit-content;
   overflow: hidden;
+  word-break: break-word;
 
   ${media.mobile} {
     font-size: ${({ theme }) => theme.fontSize.sm};
+    word-break: break-all;
+    line-height: 23px;
   }
 `;
 

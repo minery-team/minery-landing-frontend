@@ -44,6 +44,7 @@ const DescContainer = styled.div`
   display: flex;
   justify-content: space-around;
   height: 14rem;
+  word-break: break-word;
 `;
 
 const Col = styled.div`

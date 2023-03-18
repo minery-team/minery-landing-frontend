@@ -94,7 +94,8 @@ const Container = styled.div`
     width: 40vw;
     height: 33vh;
     overflow: hidden;
-    word-break: break-all;
+    word-break: break-word;
+    height: auto;
   }
 `;
 

@@ -33,14 +33,18 @@ const WineInfoCard = ({ wineDetail }) => {
     maker,
   } = wineDetail;
 
-  const [link, setLink] = useState('');
+  const [link, setLink] = useState("");
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const os = window.navigator.userAgent.includes('Mac') ? 'ios' : 'android';
-      
-      if (os === 'ios') setLink('https://apps.apple.com/kr/app/마이너리-나만의-와인-일기-와인-검색-기록-평가/id1608336149');
-      else setLink('https://play.google.com/store/apps/details?id=com.minery.app');
+    if (typeof window !== "undefined") {
+      const os = window.navigator.userAgent.includes("Mac") ? "ios" : "android";
+
+      if (os === "ios")
+        setLink(
+          "https://apps.apple.com/kr/app/마이너리-나만의-와인-일기-와인-검색-기록-평가/id1608336149"
+        );
+      else
+        setLink("https://play.google.com/store/apps/details?id=com.minery.app");
     }
   }, []);
 
@@ -113,7 +117,7 @@ const WineInfoCard = ({ wineDetail }) => {
             <Text size="x3l" color="gray900" weight="bold">
               {name}
             </Text>
-            <Spacing height={1} />
+            <Spacing height={10} />
             <Text size="xl" color="gray600" weight="medium">
               {enName}
             </Text>
@@ -156,11 +160,7 @@ const WineInfoCard = ({ wineDetail }) => {
               alt="down modal"
             />
             <p>Minery 앱을 다운로드 해보세요</p>
-            <a
-              href={link}
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a href={link} target="_blank" rel="noreferrer">
               <StyledLink>다운로드</StyledLink>
             </a>
           </Wrapper>
