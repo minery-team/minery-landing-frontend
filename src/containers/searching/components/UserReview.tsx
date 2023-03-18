@@ -1,23 +1,32 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import Image from "next/image";
 import styled from "styled-components";
 import Text from "@/components/common/Text";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
-import media from "@/styles/media";
+import useWindowWidth from "@/hooks/useWindowWidth";
 import { aosDefaultConfig } from "@/utils/constants/aos";
 import { MOCK_REVIEW_LIST } from "@/utils/constants/mock";
 import UserReviewItem from "./UserReviewItem";
 import Spacing from "@/components/common/Spacing";
+import Breakpoints from "@/styles/breakpoints";
 
 const UserReview = () => {
   const ReviewCount = MOCK_REVIEW_LIST.length;
+  const width = useWindowWidth();
   const useAOS = () => {
     useEffect(() => {
       AOS.init(aosDefaultConfig);
     }, []);
   };
+
+  const bannerInfo = useMemo(() => {
+    if (width <= Breakpoints.mobile)
+      return { image: "/images/downImg_m.png", width: 338, height: 180 };
+    else
+      return { image: "/images/downImg.png", width: 720, height: 320 };
+  }, [width]);
 
   useAOS();
 
@@ -38,9 +47,9 @@ const UserReview = () => {
       <BackDrop>
         <div data-aos="fade-up">
           <Image
-            src={"/images/downImg.png"}
-            width={720}
-            height={320}
+            src={bannerInfo.image}
+            width={bannerInfo.width}
+            height={bannerInfo.height}
             alt="download app"
           />
         </div>
