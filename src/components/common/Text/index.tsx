@@ -19,15 +19,15 @@ export const StyledText = styled.div<TextProps>`
   font-weight: ${({ theme, weight }) =>
     theme.fontWeight[weight] || theme.fontWeight.regular};
   line-height: ${({ lineHeight }) => lineHeight};
-  min-width: fit-content;
+  // min-width: fit-content;
   overflow: hidden;
   word-break: break-word;
 
-  ${media.mobile} {
-    font-size: ${({ theme }) => theme.fontSize.sm};
-    word-break: break-all;
-    line-height: 23px;
-  }
+  // ${media.mobile} {
+  //   font-size: ${({ theme }) => theme.fontSize.sm};
+  //   word-break: break-all;
+  //   line-height: 23px;
+  // }
 `;
 
 export default Text;

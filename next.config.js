@@ -3,7 +3,7 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ["wine21.speedgabia.com"],
+    domains: ["wine21.speedgabia.com", "dj5ijwgxqq54v.cloudfront.net"],
   },
 };
 
