@@ -41,3 +41,9 @@ export const requestWineItem = async (id: number) => {
   const res = await requester.get(`/wine/${id}`);
   return res.data;
 };
+
+// 와인 일기에 사용하는 데이터 조회
+export const requestDiary = async (id: string) => {
+  const res = await requester.get(`/diary/${id}`);
+  return res.data;
+}
