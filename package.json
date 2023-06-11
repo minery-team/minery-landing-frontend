@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "clean": "rm -rf .next && rm -rf .serverless && rm -rf .serverless_nextjs",
-    "deploy": "node_modules/@serverless/cli/bin/bin",
+    "deploy": "yarn clean && export STAGE=live && sls",
     "postbuild": "next-sitemap --config next-sitemap.js"
   },
   "dependencies": {
