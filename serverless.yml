@@ -1,18 +1,17 @@
 stage: ${env.STAGE}
 distributionId: ${env.DISTRIBUTION_ID}
-arn: ${env.ARN}
 
-minery-frontend:
+minery-landing-frontend:
   component: "@sls-next/serverless-component@3.6.0"
   inputs:
-    bucketName: "minery-frontend-${stage}"
+    bucketName: "minery-landing-frontend-${stage}"
     bucketRegion: ap-northeast-2
     name:
-      defaultLambda: "minery-frontend-${stage}"
-    roleArn: ${arn}
+      defaultLambda: "minery-landing-frontend-${stage}"
+    roleArn: arn:aws:iam::917306879000:role/8m1ef18-etyjhsc
     build:
       env:
         STAGE: "${stage}"
     cloudfront:
-      distributionId: ${distributionId}
-      comment: "minery-frontend-${stage}"
+      distributionId: E1P6MR7TPU58M1
+      comment: "minery-landing-frontend-${stage}"
